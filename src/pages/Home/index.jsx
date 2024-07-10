@@ -144,7 +144,7 @@ const Home = () => {
             </section>
 
 
-            <section id="ulasan" className="flex items-center justify-between mx-auto my-28">
+            <section id="testimoni" className="flex items-center justify-between mx-auto my-28">
                 <div className="relative flex items-center w-full">
                     <img src="assets/images/home/img-3.png" alt="..." className="w-1/2" />
                     <div className="flex absolute right-0 overflow-x-auto gap-4 p-4">
