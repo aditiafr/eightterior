@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Projects = () => {
     return (
@@ -34,7 +35,9 @@ const Projects = () => {
                             <p className="text-lg leading-relaxed">
                                 Modern kitchen with a minimalism design. We bring ideas where passion meets joy. Cook is a passion while you can enjoy your passion in your beautiful and functionalized kitchen.
                             </p>
-                            <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                            <Link to="/projects/detail1">
+                                <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -52,7 +55,9 @@ const Projects = () => {
                             <p className="text-lg leading-relaxed">
                                 Simple office with a sleek efficiency. We bring ideas where clarity meets productivity. Experience the perfect blend of minimalist design and functional elegance in your organized and efficient workspace.
                             </p>
-                            <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                            <Link to="/projects/detail2">
+                                <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -70,7 +75,9 @@ const Projects = () => {
                             <p className="text-lg leading-relaxed">
                                 Industrial hotel style with an edgy sophistication. We bring ideas where raw beauty meets comfort. Experience the perfect blend of industrial charm and modern luxury in your stylish space.
                             </p>
-                            <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                            <Link to="/projects/detail2">
+                                <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

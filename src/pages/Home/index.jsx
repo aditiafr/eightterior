@@ -1,3 +1,4 @@
+import { Carousel } from 'flowbite-react'
 import React from 'react'
 
 const Home = () => {
@@ -64,83 +65,52 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="w-full flex items-center justify-between mx-auto">
-
-                <div id="default-carousel" className="relative w-full" data-carousel="slide" data-carousel-interval="5000">
-
-                    <div className="relative h-screen overflow-hidden">
-
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="assets/images/home/carousel/img-1.png" className="absolute block w-full h-full object-cover" alt="..." />
-                            <div className="absolute inset-0 flex flex-col justify-center items-start bg-black bg-opacity-50 gap-8">
-                                <div className="flex flex-col justify-center ml-64 text-white gap-3">
-                                    <h3 className="text-2xl">RECENT PROJECT</h3>
-                                    <h1 className="text-4xl font-semibold">HOTEL GAIA</h1>
-                                </div>
-                                <button className="ml-64 text-white border-2 w-44 h-12 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
-                            </div>
+            <section className="h-screen w-full">
+                <Carousel slideInterval={5000}>
+                    <div className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+                        style={{ backgroundImage: "url('/assets/images/home/carousel/img-1.png')" }}
+                    >
+                        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+                        <div className="relative flex flex-col justify-center h-full ml-64 text-white gap-3">
+                            <h3 className="text-2xl">RECENT PROJECT</h3>
+                            <h1 className="text-4xl font-semibold">HOTEL GAIA</h1>
+                            <button className="relative text-white border-2 w-44 h-12 mt-6 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
                         </div>
-
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="assets/images/home/carousel/img-2.png" className="absolute block w-full h-full object-cover" alt="..." />
-                            <div className="absolute inset-0 flex flex-col justify-center items-start bg-black bg-opacity-50 gap-8">
-                                <div className="flex flex-col justify-center ml-64 text-white gap-3">
-                                    <h3 className="text-2xl">RECENT PROJECT</h3>
-                                    <h1 className="text-4xl font-semibold">MINIMALISM KITCHEN</h1>
-                                </div>
-                                <button className="ml-64 text-white border-2 w-44 h-12 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
-                            </div>
-                        </div>
-
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="assets/images/home/carousel/img-3.png" className="absolute block w-full h-full object-cover" alt="..." />
-                            <div className="absolute inset-0 flex flex-col justify-center items-start bg-black bg-opacity-50 gap-8">
-                                <div className="flex flex-col justify-center ml-64 text-white gap-3">
-                                    <h3 className="text-2xl">RECENT PROJECT</h3>
-                                    <h1 className="text-4xl font-semibold">PT. PUNDI MITRA MANDIRI</h1>
-                                </div>
-                                <button className="ml-64 text-white border-2 w-44 h-12 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
-                            </div>
-                        </div>
-
-                        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="assets/images/home/carousel/img-4.png" className="absolute block w-full h-full object-cover" alt="..." />
-                            <div className="absolute inset-0 flex flex-col justify-center items-start bg-black bg-opacity-50 gap-8">
-                                <div className="flex flex-col justify-center ml-64 text-white gap-3">
-                                    <h3 className="text-2xl">RECENT PROJECT</h3>
-                                    <h1 className="text-4xl font-semibold">RUMAH IBU ANDIRA</h1>
-                                </div>
-                                <button className="ml-64 text-white border-2 w-44 h-12 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                        <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                    <div className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+                        style={{ backgroundImage: "url('/assets/images/home/carousel/img-2.png')" }}
+                    >
+                        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+                        <div className="relative flex flex-col justify-center h-full ml-64 text-white gap-3">
+                            <h3 className="text-2xl">RECENT PROJECT</h3>
+                            <h1 className="text-4xl font-semibold">MINIMALISM KITCHEN</h1>
+                            <button className="relative text-white border-2 w-44 h-12 mt-6 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
+                        </div>
                     </div>
 
-                    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
-                            </svg>
-                            <span className="sr-only">Previous</span>
-                        </span>
-                    </button>
-                    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
-                            </svg>
-                            <span className="sr-only">Next</span>
-                        </span>
-                    </button>
-                </div>
+                    <div className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+                        style={{ backgroundImage: "url('/assets/images/home/carousel/img-3.png')" }}
+                    >
+                        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+                        <div className="relative flex flex-col justify-center h-full ml-64 text-white gap-3">
+                            <h3 className="text-2xl">RECENT PROJECT</h3>
+                            <h1 className="text-4xl font-semibold">PT. PUNDI MITRA MANDIRI</h1>
+                            <button className="relative text-white border-2 w-44 h-12 mt-6 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
+                        </div>
+                    </div>
 
+                    <div className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+                        style={{ backgroundImage: "url('/assets/images/home/carousel/img-4.png')" }}
+                    >
+                        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+                        <div className="relative flex flex-col justify-center h-full ml-64 text-white gap-3">
+                            <h3 className="text-2xl">RECENT PROJECT</h3>
+                            <h1 className="text-4xl font-semibold">RUMAH IBU ANDIRA</h1>
+                            <button className="relative text-white border-2 w-44 h-12 mt-6 rounded-lg text-sm hover:bg-white hover:text-primary-500 hover:font-bold">LEARN MORE</button>
+                        </div>
+                    </div>
+                </Carousel>
             </section>
 
 

@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="max-w-screen-lg flex items-center justify-between mx-auto my-28">
             <div className="flex justify-center items-center w-full gap-24">
                 <div className="flex flex-col items-center gap-4">
-                    <img src="assets/images/logo.png" alt="logo" className="w-28" />
+                    <img src="/assets/images/logo.png" alt="logo" className="w-28" />
                     <h1 className="text-primary-500 font-extrabold text-2xl">Eight<span className="text-second-500">terior</span></h1>
                 </div>
                 <div className="flex flex-col w-full gap-4">

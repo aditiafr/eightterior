@@ -1,5 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
+const ListItem = ({ children, NavLink, onClick }) => {
+
+
+    const location = useLocation();
+
+    const isActive = (pathname) => {
+        return location.pathname === pathname ? 'block py-2 px-3 font-bold text-primary-500 bg-primary-500 rounded md:bg-transparent md:text-primary-500 md:p-0' : 'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-500 md:p-0';
+    };
+
+    return (
+        <li>
+            <Link
+                to={NavLink}
+                onClick={onClick}
+                className={`${isActive(NavLink)}`}
+            >
+                {children}
+            </Link>
+        </li>
+    );
+};
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -20,11 +42,16 @@ const Navbar = () => {
         };
     }, []);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [useLocation().pathname]);
+
     return (
         <nav className={`fixed w-full z-50 top-0 start-0 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="assets/images/logo.png" className="h-20" alt="Eightterior Logo" />
+                    <img src="/assets/images/logo.png" className="h-20" alt="Eightterior Logo" />
                 </Link>
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     <h1 className="text-primary-500 font-extrabold text-3xl">Eight<span className="text-second-500">terior</span></h1>
@@ -37,18 +64,21 @@ const Navbar = () => {
                 </div>
                 <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0">
-                        <li>
+                        <ListItem NavLink="/">
+                            Home
+                        </ListItem>
+                        <ListItem NavLink="/projects">
+                            Projects
+                        </ListItem>
+                        <ListItem NavLink="/about">
+                            About
+                        </ListItem>
+                        <ListItem NavLink="/contact-us">
+                            Contact Us
+                        </ListItem>
+                        {/* <li>
                             <Link to="/" className="block py-2 px-3 font-bold text-primary-500 bg-primary-500 rounded md:bg-transparent md:text-primary-500 md:p-0" aria-current="page">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/projects" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-500 md:p-0">Projects</Link>
-                        </li>
-                        <li>
-                            <Link to="/about" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-500 md:p-0">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact-us" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-500 md:p-0">Contact Us</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
