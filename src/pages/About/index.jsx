@@ -1,5 +1,4 @@
-import { Button, Carousel, CustomFlowbiteTheme } from "flowbite-react";
-import { Tabs } from 'flowbite-react'
+import { Carousel } from "flowbite-react";
 import React from 'react'
 
 

@@ -4,80 +4,84 @@ import { Link } from 'react-router-dom'
 const Projects = () => {
     return (
         <>
-            <section className="max-w-screen-xl flex flex-col items-center justify-center mx-auto mt-24">
-                <h1 className="text-[180px] text-primary-500 font-bold w-full text-center">SATISF<span className="text-second-500">ACTION</span></h1>
-                <div className="flex items-center justify-between w-full px-14 gap-40 mt-4">
-                    <p className="w-full text-2xl">
-                        Customer satisfaction is our main objective. We prioritize functional design yet still keep an eye on its aesthetic aspects. Find your needs from our recent projects.
-                    </p>
-                    <div className="w-full flex text-center items-center justify-between">
-                        <div className="flex flex-col gap-4">
-                            <h2 className="text-5xl text-primary-500 font-bold">50+</h2>
-                            <p className="text-2xl">Happy Client</p>
-                        </div>
-                        <div className="flex flex-col gap-4">
-                            <h2 className="text-5xl text-second-500 font-bold">50+</h2>
-                            <p className="text-2xl">Project Finished</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="bg-gray-100 w-full p-12 mt-10 rounded-xl">
-                    <img src="assets/images/projects/img-1.png" alt="img-1" />
-                    <div className="flex gap-6 mt-6">
-                        <img src="assets/images/projects/img-2.png" alt="img-2" />
-                        <div className="flex flex-col gap-4 w-full">
-                            <img src="assets/images/projects/img-3.png" alt="img-3" />
-                            <img src="assets/images/projects/img-4.png" alt="img-4" />
-                        </div>
-                        <div className="flex flex-col items-start gap-4">
-                            <h2 className="text-primary-500 text-4xl font-bold">Rumah Ibu Andira</h2>
-                            <p className="text-lg leading-relaxed">
-                                Modern kitchen with a minimalism design. We bring ideas where passion meets joy. Cook is a passion while you can enjoy your passion in your beautiful and functionalized kitchen.
-                            </p>
-                            <Link to="/projects/detail1">
-                                <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
-                            </Link>
+            <section className="w-full mt-44">
+                <div className="max-w-screen-xl flex flex-col justify-center items-center mx-auto">
+                    <h1 className="text-4xl lg:text-[140px] text-primary-500 font-bold w-full text-center">SATISF<span className="text-second-500">ACTION</span></h1>
+                    <div className="flex max-md:flex-col items-center justify-between w-full px-6 lg:px-14 gap-6 lg:gap-40 mt-6">
+                        <p className="w-full lg:text-2xl">
+                            Customer satisfaction is our main objective. We prioritize functional design yet still keep an eye on its aesthetic aspects. Find your needs from our recent projects.
+                        </p>
+                        <div className="w-full flex text-center items-center justify-around lg:justify-between">
+                            <div className="flex flex-col gap-4">
+                                <h2 className="text-4xl lg:text-5xl text-primary-500 font-bold">50+</h2>
+                                <p className="text-xl lg:text-2xl">Happy Client</p>
+                            </div>
+                            <div className="flex flex-col gap-4">
+                                <h2 className="text-4xl lg:text-5xl text-second-500 font-bold">50+</h2>
+                                <p className="text-xl lg:text-2xl">Project Finished</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="bg-gray-100 w-full p-12 mt-10 rounded-xl">
-                    <img src="assets/images/projects/img-5.png" alt="img-5" />
-                    <div className="flex gap-6 mt-6">
-                        <img src="assets/images/projects/img-6.png" alt="img-6" />
-                        <div className="flex flex-col gap-4 w-full">
-                            <img src="assets/images/projects/img-7.png" alt="img-7" />
-                            <img src="assets/images/projects/img-8.png" alt="img-8" />
-                        </div>
-                        <div className="flex flex-col items-start gap-4">
-                            <h2 className="text-primary-500 text-4xl font-bold">PT. Pundi Mitra Mandiri</h2>
-                            <p className="text-lg leading-relaxed">
-                                Simple office with a sleek efficiency. We bring ideas where clarity meets productivity. Experience the perfect blend of minimalist design and functional elegance in your organized and efficient workspace.
-                            </p>
-                            <Link to="/projects/detail2">
-                                <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
-                            </Link>
+                    <div className="bg-gray-100 mx-6 p-4 md:p-12 mt-10 rounded-xl">
+                        <img src="assets/images/projects/img-1.png" alt="img-1" />
+                        <div className="flex gap-6 mt-6">
+                            <div className="max-md:hidden">
+                                <img src="assets/images/projects/img-2.png" alt="img-2" />
+                                <div className="flex flex-col gap-4 w-full">
+                                    <img src="assets/images/projects/img-3.png" alt="img-3" />
+                                    <img src="assets/images/projects/img-4.png" alt="img-4" />
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-start gap-4">
+                                <h2 className="text-primary-500 text-4xl font-bold">Rumah Ibu Andira</h2>
+                                <p className="text-lg leading-relaxed">
+                                    Modern kitchen with a minimalism design. We bring ideas where passion meets joy. Cook is a passion while you can enjoy your passion in your beautiful and functionalized kitchen.
+                                </p>
+                                <Link to="/projects/detail1">
+                                    <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="bg-gray-100 w-full p-12 mt-10 rounded-xl">
-                    <img src="assets/images/projects/img-9.png" alt="img-9" />
-                    <div className="flex gap-6 mt-6">
-                        <img src="assets/images/projects/img-10.png" alt="img-10" />
-                        <div className="flex flex-col gap-4 w-full">
-                            <img src="assets/images/projects/img-11.png" alt="img-11" />
-                            <img src="assets/images/projects/img-12.png" alt="img-12" />
+                    <div className="bg-gray-100 w-full p-12 mt-10 rounded-xl">
+                        <img src="assets/images/projects/img-5.png" alt="img-5" />
+                        <div className="flex gap-6 mt-6">
+                            <img src="assets/images/projects/img-6.png" alt="img-6" />
+                            <div className="flex flex-col gap-4 w-full">
+                                <img src="assets/images/projects/img-7.png" alt="img-7" />
+                                <img src="assets/images/projects/img-8.png" alt="img-8" />
+                            </div>
+                            <div className="flex flex-col items-start gap-4">
+                                <h2 className="text-primary-500 text-4xl font-bold">PT. Pundi Mitra Mandiri</h2>
+                                <p className="text-lg leading-relaxed">
+                                    Simple office with a sleek efficiency. We bring ideas where clarity meets productivity. Experience the perfect blend of minimalist design and functional elegance in your organized and efficient workspace.
+                                </p>
+                                <Link to="/projects/detail2">
+                                    <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                                </Link>
+                            </div>
                         </div>
-                        <div className="flex flex-col items-start gap-4">
-                            <h2 className="text-primary-500 text-4xl font-bold">Hotel GAIA</h2>
-                            <p className="text-lg leading-relaxed">
-                                Industrial hotel style with an edgy sophistication. We bring ideas where raw beauty meets comfort. Experience the perfect blend of industrial charm and modern luxury in your stylish space.
-                            </p>
-                            <Link to="/projects/detail2">
-                                <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
-                            </Link>
+                    </div>
+
+                    <div className="bg-gray-100 w-full p-12 mt-10 rounded-xl">
+                        <img src="assets/images/projects/img-9.png" alt="img-9" />
+                        <div className="flex gap-6 mt-6">
+                            <img src="assets/images/projects/img-10.png" alt="img-10" />
+                            <div className="flex flex-col gap-4 w-full">
+                                <img src="assets/images/projects/img-11.png" alt="img-11" />
+                                <img src="assets/images/projects/img-12.png" alt="img-12" />
+                            </div>
+                            <div className="flex flex-col items-start gap-4">
+                                <h2 className="text-primary-500 text-4xl font-bold">Hotel GAIA</h2>
+                                <p className="text-lg leading-relaxed">
+                                    Industrial hotel style with an edgy sophistication. We bring ideas where raw beauty meets comfort. Experience the perfect blend of industrial charm and modern luxury in your stylish space.
+                                </p>
+                                <Link to="/projects/detail2">
+                                    <button className="border-4 w-64 h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">SEE PROJECT</button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
