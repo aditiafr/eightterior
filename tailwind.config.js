@@ -37,8 +37,8 @@ module.exports = {
     },
   },
   plugins: [
+    require('flowbite/plugin'),
     flowbite.plugin(),
-    require('flowbite/plugin')
   ]
 }
 

@@ -194,7 +194,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
         <div className="relative z-10 flex flex-col items-center gap-4 lg:gap-8 text-white">
           <h2 className="text-3xl lg:text-4xl font-bold">Interested?</h2>
-          <p className="text-center text-[10px] lg:text-xl max-w-2xl">
+          <p className="text-center text-[12px] lg:text-xl max-w-2xl">
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
