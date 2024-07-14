@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Projects = () => {
   return (
     <>
-      <section className="w-full mt-24 mb-10 md:mt-28">
+      <section className="w-full mt-24 mb-12 md:mt-28 px-4">
         <div className="max-w-screen-xl flex flex-col justify-center items-center mx-auto">
           <h1 className="text-[44px] lg:text-[140px] text-primary-500 font-bold w-full text-center">
             SATISF<span className="text-second-500">ACTION</span>
           </h1>
-          <div className="flex max-md:flex-col items-center justify-between w-full px-6 lg:px-14 gap-6 lg:gap-40 mt-4 md:mt-6">
+          <div className="flex max-md:flex-col items-center justify-between w-full lg:px-14 gap-6 lg:gap-40 mt-4 md:mt-6">
             <p className="w-full text-md lg:text-2xl">
               Customer satisfaction is our main objective. We prioritize
               functional design yet still keep an eye on its aesthetic aspects.
@@ -30,111 +30,171 @@ const Projects = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="w-full mx-6 flex justify-center items-center">
-            <div className="bg-gray-100 p-4 md:p-12 mt-10 rounded-xl mx-4">
-              <img src="assets/images/projects/img-1.png" alt="img-1" />
-              <div className="flex gap-4 w-full mt-6">
-                <img
-                  src="/assets/images/projects/img-2.png"
-                  alt="img-1"
-                  className="w-96 max-md:hidden"
+      <section className="w-full flex flex-col gap-6 justify-center items-center my-12 md:my-24 px-4">
+        <div className="max-w-screen-xl bg-gray-200 p-6 md:p-12 rounded-xl">
+          <img
+            src="/assets/images/projects/rmibuandira/img-1.jpg"
+            alt="img-1"
+            className="rounded-xl w-full md:h-[580px] object-cover"
+          />
+          <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 justify-center max-md:hidden w-1/2">
+              {/* <img
+                src="/assets/images/projects/rmibuandira/img-2.jpg"
+                alt="img-1"
+                className="rounded-xl w-80 h-auto"
+              /> */}
+              <div
+                className="bg-cover bg-center w-full h-auto rounded-lg"
+                style={{
+                  backgroundImage:
+                    "url('/assets/images/projects/rmibuandira/img-2.jpg')",
+                }}
+              />
+              <div className="flex flex-col gap-2 w-1/2 h-full">
+                <div
+                  className="bg-cover bg-center w-full h-full rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/assets/images/projects/rmibuandira/img-3.jpg')",
+                  }}
                 />
-                <div className="flex flex-col items-start justify-center gap-4 max-md:hidden">
-                  <img src="assets/images/projects/img-2.png" alt="img-7" />
-                  <img src="assets/images/projects/img-2.png" alt="img-8" />
-                </div>
-                <div className="flex flex-col items-start gap-4 w-full">
-                  <h2 className="text-primary-500 text-3xl md:text-4xl font-bold">
-                    Rumah Ibu Andira
-                  </h2>
-                  <p className="text-md md:text-lg leading-relaxed">
-                    Modern kitchen with a minimalism design. We bring ideas
-                    where passion meets joy. Cook is a passion while you can
-                    enjoy your passion in your beautiful and functionalized
-                    kitchen.
-                  </p>
-                  <Link to="/projects/detail1">
-                    <button className="border-2 md:border-4 w-36 md:w-64 h-12 md:h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">
-                      SEE PROJECT
-                    </button>
-                  </Link>
-                </div>
+                <div
+                  className="bg-cover bg-center w-full h-full rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/assets/images/projects/rmibuandira/img-4.jpg')",
+                  }}
+                />
               </div>
             </div>
-          </div>
-
-          <div className="w-full mx-6 flex justify-center items-center">
-            <div className="bg-gray-100 p-4 md:p-12 mt-10 rounded-xl mx-4">
-              <img src="assets/images/projects/img-5.png" alt="img-1" />
-              <div className="flex gap-4 w-full mt-6">
-                <img
-                  src="/assets/images/projects/img-6.png"
-                  alt="img-1"
-                  className="w-96 max-md:hidden"
-                />
-                <div className="flex flex-col items-start justify-center gap-4 max-md:hidden">
-                  <img src="assets/images/projects/img-6.png" alt="img-7" />
-                  <img src="assets/images/projects/img-6.png" alt="img-8" />
-                </div>
-                <div className="flex flex-col items-start gap-4 w-full">
-                  <h2 className="text-primary-500 text-3xl md:text-4xl font-bold">
-                    PT. Pundi Mitra Mandiri
-                  </h2>
-                  <p className="text-md md:text-lg leading-relaxed">
-                    Simple office with a sleek efficiency. We bring ideas where
-                    clarity meets productivity. Experience the perfect blend of
-                    minimalist design and functional elegance in your organized
-                    and efficient workspace.
-                  </p>
-                  <Link to="/projects/detail2">
-                    <button className="border-2 md:border-4 w-36 md:w-64 h-12 md:h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">
-                      SEE PROJECT
-                    </button>
-                  </Link>
-                </div>
-              </div>
+            <div className="md:w-1/2 flex flex-col gap-4 md:pl-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-primary-500">
+                Rumah Ibu Andira
+              </h1>
+              <p className="text-md md:text-lg">
+                Modern kitchen with a minimalism design. We bring ideas where
+                passion meets joy. Cook is a passion while you can enjoy your
+                passion in your beautiful and functionalized kitchen.
+              </p>
+              <Link to="/projects/detail1">
+                <button className="border-2 border-primary-500 text-primary-500 rounded-lg w-36 md:w-48 h-12 md:h-14 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-lg">
+                  SEE PROJECT
+                </button>
+              </Link>
             </div>
           </div>
+        </div>
 
-          <div className="w-full mx-6 flex justify-center items-center">
-            <div className="bg-gray-100 p-4 md:p-12 mt-10 rounded-xl mx-4">
-              <img src="assets/images/projects/img-9.png" alt="img-1" />
-              <div className="flex gap-4 w-full mt-6">
-                <img
-                  src="/assets/images/projects/img-10.png"
-                  alt="img-1"
-                  className="w-96 max-md:hidden"
+        <div className="max-w-screen-xl bg-gray-200 p-6 md:p-12 rounded-xl">
+          <img
+            src="/assets/images/projects/ptpundi/img-1.jpg"
+            alt="img-1"
+            className="rounded-xl w-full md:h-[580px] object-cover"
+          />
+          <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 justify-center max-md:hidden w-1/2">
+              <div
+                className="bg-cover bg-center w-full h-auto rounded-lg"
+                style={{
+                  backgroundImage:
+                    "url('/assets/images/projects/ptpundi/img-2.jpg')",
+                }}
+              />
+              <div className="flex flex-col gap-2 w-1/2 h-full">
+                <div
+                  className="bg-cover bg-center w-full h-full rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/assets/images/projects/ptpundi/img-3.jpg')",
+                  }}
                 />
-                <div className="flex flex-col items-start justify-center gap-4 max-md:hidden">
-                  <img src="assets/images/projects/img-10.png" alt="img-7" />
-                  <img src="assets/images/projects/img-10.png" alt="img-8" />
-                </div>
-                <div className="flex flex-col items-start gap-4 w-full">
-                  <h2 className="text-primary-500 text-3xl md:text-4xl font-bold">
-                    Hotel GAIA
-                  </h2>
-                  <p className="text-md md:text-lg leading-relaxed">
-                    Industrial hotel style with an edgy sophistication. We bring
-                    ideas where raw beauty meets comfort. Experience the perfect
-                    blend of industrial charm and modern luxury in your stylish
-                    space.
-                  </p>
-                  <Link to="/projects/detail2">
-                    <button className="border-2 md:border-4 w-36 md:w-64 h-12 md:h-16 border-primary-500 rounded-xl text-primary-500 hover:bg-primary-500 hover:text-white hover:font-bold">
-                      SEE PROJECT
-                    </button>
-                  </Link>
-                </div>
+                <div
+                  className="bg-cover bg-center w-full h-full rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/assets/images/projects/ptpundi/img-4.jpg')",
+                  }}
+                />
               </div>
+            </div>
+            <div className="md:w-1/2 flex flex-col gap-4 md:pl-4">
+              <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
+                PT. Pundi Mitra Mandiri
+              </h1>
+              <p className="text-md md:text-lg">
+                Simple office with a sleek efficiency. We bring ideas where
+                clarity meets productivity. Experience the perfect blend of
+                minimalist design and functional elegance in your organized and
+                efficient workspace.
+              </p>
+              <Link to="/projects/detail2">
+                <button className="border-2 border-primary-500 text-primary-500 rounded-lg w-36 md:w-48 h-12 md:h-14 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-lg">
+                  SEE PROJECT
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-screen-xl bg-gray-200 p-6 md:p-12 rounded-xl">
+          <img
+            src="/assets/images/projects/hotel/img-1.jpg"
+            alt="img-1"
+            className="rounded-xl w-full md:h-[580px] object-cover"
+          />
+          <div className="flex gap-4 mt-6">
+            <div className="flex gap-4 justify-center max-md:hidden w-1/2">
+              <div
+                className="bg-cover bg-center w-full h-auto rounded-lg"
+                style={{
+                  backgroundImage:
+                    "url('/assets/images/projects/hotel/img-2.jpg')",
+                }}
+              />
+              <div className="flex flex-col gap-2 w-1/2 h-full">
+                <div
+                  className="bg-cover bg-center w-full h-full rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/assets/images/projects/hotel/img-3.jpg')",
+                  }}
+                />
+                <div
+                  className="bg-cover bg-center w-full h-full rounded-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/assets/images/projects/hotel/img-4.jpg')",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2 flex flex-col gap-4 md:pl-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-primary-500">
+                Hotel GAIA
+              </h1>
+              <p className="text-md md:text-lg">
+                Industrial hotel style with an edgy sophistication. We bring
+                ideas where raw beauty meets comfort. Experience the perfect
+                blend of industrial charm and modern luxury in your stylish
+                space.
+              </p>
+              <Link to="/projects/detail3">
+                <button className="border-2 border-primary-500 text-primary-500 rounded-lg w-36 md:w-48 h-12 md:h-14 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-lg">
+                  SEE PROJECT
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       <section
-        className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 lg:py-0 px-10 lg:px-0"
-        style={{ backgroundImage: "url('assets/images/home/bg-img-2.png')" }}
+        className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 lg:py-0 px-4 lg:px-0"
+        style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
         <div className="relative z-10 flex flex-col items-center gap-4 lg:gap-8 text-white">

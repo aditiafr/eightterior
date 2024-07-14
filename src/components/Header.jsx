@@ -57,7 +57,7 @@ const Header = () => {
     return (
         <Navbar fluid rounded className={`fixed w-full z-50 top-0 start-0 transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
             <NavbarBrand href="/">
-                <img src="/assets/images/logo.png" className="h-16 lg:h-20" alt="Eightterior Logo" />
+                <img src="/assets/images/logo.png" className="h-12 lg:h-20" alt="Eightterior Logo" />
             </NavbarBrand>
             <div className="flex md:order-2">
                 <h1 className="text-primary-500 font-extrabold text-3xl hidden lg:block">Eight<span className="text-second-500">terior</span></h1>

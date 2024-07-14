@@ -37,7 +37,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="max-w-screen-lg flex flex-wrap items-center justify-between mx-6 lg:mx-auto my-14 lg:my-28">
+      <section className="max-w-screen-lg flex flex-wrap items-center justify-between px-4 lg:mx-auto my-14 lg:my-28">
         <div className="flex justify-evenly items-center w-full gap-12 lg:gap-36">
           <div className="relative flex justify-center items-center">
             <img
@@ -60,7 +60,7 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <div className="w-full flex flex-col lg:flex-row justify-evenly items-center mt-20 lg:mt-32 gap-14 lg:gap-36 mx-6">
+        <div className="w-full flex flex-col lg:flex-row justify-evenly items-center mt-20 lg:mt-32 gap-14 lg:gap-36">
           <div className="flex flex-col items-center lg:items-start">
             <h2 className="text-4xl text-primary-500 font-bold">What we do</h2>
             <p className="mt-1 text-[12px] lg:text-md">
@@ -86,7 +86,6 @@ const Home = () => {
 
       <section className="lg:h-screen h-64 w-full">
         <Carousel slideInterval={5000} className="rounded-lg overflow-hidden">
-
           <div
             className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 rounded-lg overflow-hidden"
             style={{
@@ -112,7 +111,9 @@ const Home = () => {
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative flex flex-col justify-center h-full lg:mx-52 text-white gap-1 lg:gap-3 mx-16">
               <h3 className="text-sm lg:text-4xl">RECENT PROJECT</h3>
-              <h1 className="text-xl lg:text-6xl font-semibold">MINIMALISM KITCHEN</h1>
+              <h1 className="text-xl lg:text-6xl font-semibold">
+                MINIMALISM KITCHEN
+              </h1>
               <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
                 LEARN MORE
               </button>
@@ -128,7 +129,9 @@ const Home = () => {
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative flex flex-col justify-center h-full lg:mx-52 text-white gap-1 lg:gap-3 mx-16">
               <h3 className="text-sm lg:text-4xl">RECENT PROJECT</h3>
-              <h1 className="text-xl lg:text-6xl font-semibold">PT. PUNDI MITRA MANDIRI</h1>
+              <h1 className="text-xl lg:text-6xl font-semibold">
+                PT. PUNDI MITRA MANDIRI
+              </h1>
               <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
                 LEARN MORE
               </button>
@@ -144,43 +147,66 @@ const Home = () => {
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative flex flex-col justify-center h-full lg:mx-52 text-white gap-1 lg:gap-3 mx-16">
               <h3 className="text-sm lg:text-4xl">RECENT PROJECT</h3>
-              <h1 className="text-xl lg:text-6xl font-semibold">RUMAH IBU ANDIRA</h1>
+              <h1 className="text-xl lg:text-6xl font-semibold">
+                RUMAH IBU ANDIRA
+              </h1>
               <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
                 LEARN MORE
               </button>
             </div>
           </div>
-
         </Carousel>
       </section>
 
-      <section
-        id="testimoni"
-        className="flex items-center justify-between mx-auto my-16 lg:my-28"
-      >
-        <div className="relative flex items-center w-full">
-          <img src="assets/images/home/img-3.png" alt="..." className="w-1/2" />
-          <div className="flex absolute right-0 overflow-x-auto gap-4 p-4">
-            <div className="bg-white p-4 lg:p-14 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-4 text-[10px] lg:text-lg">
-              <p>
+      <section className="w-full my-12 md:my-20" id="testimoni">
+        <div className="flex items-center justify-between w-full">
+          <img
+            src="assets/images/home/img-3.png"
+            alt="..."
+            className="relative w-1/2"
+          />
+          <div className="absolute flex items-center gap-2 md:gap-4 h-[500px] w-full pl-[100px] md:pl-[600px] overflow-x-auto no-scrollbar">
+            <div className="bg-white w-full p-4 max-md:h-24 lg:p-10 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-2 md:gap-4">
+              <p className="w-[200px] text-[7px] md:text-lg md:w-[520px]">
                 Terima kasih Eightterior karena telah mewujudkan rumah impian
                 saya. Design dari Eightterior sangat mengedepankan aspek
                 fungsionalitas serta keindahan di dalamnya. Keren banget!
               </p>
               <div className="flex flex-col">
-                <p className="text-primary-500 font-semibold">Ibu Andira</p>
-                <p>Project Re-Design Kitchen</p>
+                <p className="text-primary-500 font-semibold md:text-lg text-[8px]">
+                  Ibu Andira
+                </p>
+                <p className="md:text-lg text-[7px]">
+                  Project Re-Design Kitchen
+                </p>
               </div>
             </div>
-            <div className="bg-white p-4 lg:p-14 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-4 text-[10px] lg:text-lg">
-              <p>
+            <div className="bg-white w-full p-4 max-md:h-24 lg:p-10 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-2 md:gap-4">
+              <p className="w-[200px] text-[7px] md:text-lg md:w-[520px]">
                 Eightterior telah membantu Hotel GAIA untuk mewujudkan konsep
                 hotel bergaya industrial dengan memperhatikan green space pada
                 design nya.
               </p>
               <div className="flex flex-col">
-                <p className="text-primary-500 font-semibold">Hotel GAIA</p>
-                <p>Project Industrial Style Hotel</p>
+                <p className="text-primary-500 font-semibold md:text-lg text-[8px]">
+                  Hotel GAIA
+                </p>
+                <p className="md:text-lg text-[7px]">
+                  Project Industrial Style Hotel
+                </p>
+              </div>
+            </div>
+            <div className="bg-white w-full p-4 max-md:h-24 lg:p-10 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-2 md:gap-4">
+              <p className="w-[200px] text-[7px] md:text-lg md:w-[520px]">
+                Terima kasih Eightterior karena telah membantu perusahaan kami
+                untuk mempunyai kantor yang memiliki gaya simpel namun tetap
+                compact dalam fungsionalitasnya.
+              </p>
+              <div className="flex flex-col">
+                <p className="text-primary-500 font-semibold md:text-lg text-[8px]">
+                  PT. Pundi Mitra Mandiri
+                </p>
+                <p className="md:text-lg text-[7px]">Project Simple Office</p>
               </div>
             </div>
           </div>
@@ -188,8 +214,8 @@ const Home = () => {
       </section>
 
       <section
-        className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 lg:py-0 px-10 lg:px-0"
-        style={{ backgroundImage: "url('assets/images/home/bg-img-2.png')" }}
+        className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 lg:py-0 px-4 lg:px-0"
+        style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
         <div className="relative z-10 flex flex-col items-center gap-4 lg:gap-8 text-white">
