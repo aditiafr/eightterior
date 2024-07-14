@@ -1,5 +1,6 @@
 import { Carousel } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const pictHome = [
@@ -66,9 +67,11 @@ const Home = () => {
             <p className="mt-1 text-[12px] lg:text-md">
               We can help realize your dream
             </p>
-            <button className="py-3 w-48 rounded-lg border-2 border-primary-500 text-primary-500 mt-6 hidden lg:block hover:bg-primary-500 hover:text-white hover:font-bold">
-              ABOUT US
-            </button>
+            <Link to={`/about`}>
+              <button className="py-3 w-48 rounded-lg border-2 border-primary-500 text-primary-500 mt-6 hidden lg:block hover:bg-primary-500 hover:text-white hover:font-bold">
+                ABOUT US
+              </button>
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-x-16 lg:gap-x-28 gap-y-8 lg:gap-y-12">
             {pictHome.map((item, index) => (
@@ -78,9 +81,11 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <button className="h-12 w-36 text-sm rounded-lg border-2 border-primary-500 text-primary-500 block lg:hidden hover:bg-primary-500 hover:text-white hover:font-bold">
-            ABOUT US
-          </button>
+          <Link to={`/about`} className="md:hidden">
+            <button className="h-12 w-36 text-sm rounded-lg border-2 border-primary-500 text-primary-500 block lg:hidden hover:bg-primary-500 hover:text-white hover:font-bold">
+              ABOUT US
+            </button>
+          </Link>
         </div>
       </section>
 
@@ -96,9 +101,11 @@ const Home = () => {
             <div className="relative flex flex-col justify-center h-full lg:mx-52 text-white gap-1 lg:gap-3 mx-16">
               <h3 className="text-sm lg:text-4xl">RECENT PROJECT</h3>
               <h1 className="text-xl lg:text-6xl font-semibold">HOTEL GAIA</h1>
-              <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
-                LEARN MORE
-              </button>
+              <Link to={`/projects/hotel`}>
+                <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
+                  LEARN MORE
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -114,9 +121,11 @@ const Home = () => {
               <h1 className="text-xl lg:text-6xl font-semibold">
                 MINIMALISM KITCHEN
               </h1>
-              <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
-                LEARN MORE
-              </button>
+              <Link to={`/projects`}>
+                <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
+                  LEARN MORE
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -132,9 +141,11 @@ const Home = () => {
               <h1 className="text-xl lg:text-6xl font-semibold">
                 PT. PUNDI MITRA MANDIRI
               </h1>
-              <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
-                LEARN MORE
-              </button>
+              <Link to={`/projects/ptpundi`}>
+                <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
+                  LEARN MORE
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -150,9 +161,11 @@ const Home = () => {
               <h1 className="text-xl lg:text-6xl font-semibold">
                 RUMAH IBU ANDIRA
               </h1>
-              <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
-                LEARN MORE
-              </button>
+              <Link to={`/projects/rmibuandira`}>
+                <button className="relative text-white border lg:border-2 w-28 lg:w-64 h-10 lg:h-16 mt-4 lg:mt-6 rounded-lg text-[10px] lg:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
+                  LEARN MORE
+                </button>
+              </Link>
             </div>
           </div>
         </Carousel>
@@ -224,9 +237,11 @@ const Home = () => {
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
-          <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
-            CONTACT US
-          </button>
+          <Link to={`contact-us`}>
+            <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
+              CONTACT US
+            </button>
+          </Link>
         </div>
       </section>
     </>

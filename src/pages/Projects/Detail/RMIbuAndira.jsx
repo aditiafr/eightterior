@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Detail1 = () => {
+const RMIbuAndira = () => {
   return (
     <>
-      <section className="max-w-screen-lg flex flex-col justify-center items-center mx-auto bg-white mt-24 mb-10 gap-10">
+      <section className="max-w-screen-lg flex flex-col justify-center items-center mx-auto bg-white mt-24 md:mt-32 mb-10 gap-10">
         <div className="flex flex-col justify-center items-center gap-2 md:gap-4">
           <h1 className="text-4xl md:text-8xl text-primary-500 font-bold">
             Rumah Ibu Andira
@@ -42,7 +43,9 @@ const Detail1 = () => {
         </div>
         <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full px-4">
           <div className="flex flex-col gap-4 md:gap-6 w-full">
-            <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">Aesthetic</h1>
+            <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
+              Aesthetic
+            </h1>
             <p className="text-lg md:text-xl leading-8">
               Warm, proper, and a functionable lighting is a must in a kitchen.
               A proper and warm lighting could also make your kitchen more
@@ -68,13 +71,15 @@ const Detail1 = () => {
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
-          <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
-            CONTACT US
-          </button>
+          <Link to={`/contact-us`}>
+            <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
+              CONTACT US
+            </button>
+          </Link>
         </div>
       </section>
     </>
   );
 };
 
-export default Detail1;
+export default RMIbuAndira;

@@ -80,7 +80,7 @@ const Projects = () => {
                 passion meets joy. Cook is a passion while you can enjoy your
                 passion in your beautiful and functionalized kitchen.
               </p>
-              <Link to="/projects/detail1">
+              <Link to="/projects/rmibuandira">
                 <button className="border-2 border-primary-500 text-primary-500 rounded-lg w-36 md:w-48 h-12 md:h-14 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-lg">
                   SEE PROJECT
                 </button>
@@ -131,7 +131,7 @@ const Projects = () => {
                 minimalist design and functional elegance in your organized and
                 efficient workspace.
               </p>
-              <Link to="/projects/detail2">
+              <Link to="/projects/ptpundi">
                 <button className="border-2 border-primary-500 text-primary-500 rounded-lg w-36 md:w-48 h-12 md:h-14 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-lg">
                   SEE PROJECT
                 </button>
@@ -182,7 +182,7 @@ const Projects = () => {
                 blend of industrial charm and modern luxury in your stylish
                 space.
               </p>
-              <Link to="/projects/detail3">
+              <Link to="/projects/hotel">
                 <button className="border-2 border-primary-500 text-primary-500 rounded-lg w-36 md:w-48 h-12 md:h-14 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-lg">
                   SEE PROJECT
                 </button>
@@ -203,9 +203,11 @@ const Projects = () => {
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
-          <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
-            CONTACT US
-          </button>
+          <Link to={`/contact-us`}>
+            <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
+              CONTACT US
+            </button>
+          </Link>
         </div>
       </section>
     </>

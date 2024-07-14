@@ -5,10 +5,10 @@ import Projects from './pages/Projects'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
-import Detail1 from './pages/Projects/Detail/Detail1'
-import Detail2 from './pages/Projects/Detail/Detail2'
-import Detail3 from './pages/Projects/Detail/Detail3'
 import Header from './components/Header'
+import RMIbuAndira from './pages/Projects/Detail/RMIbuAndira'
+import PTPundi from './pages/Projects/Detail/PtPundi'
+import Hotel from './pages/Projects/Detail/Hotel'
 
 const App = () => {
   return (
@@ -18,9 +18,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/detail1" element={<Detail1 />} />
-        <Route path="/projects/detail2" element={<Detail2 />} />
-        <Route path="/projects/detail3" element={<Detail3 />} />
+        <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
+        <Route path="/projects/ptpundi" element={<PTPundi />} />
+        <Route path="/projects/hotel" element={<Hotel />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
       </Routes>

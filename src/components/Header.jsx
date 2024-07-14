@@ -6,7 +6,7 @@ const ListItem = ({ children, NavLink, onClick }) => {
     const location = useLocation();
 
     const isActive = (pathname) => {
-        return location.pathname === pathname
+        return location.pathname === pathname || location.pathname.startsWith(pathname + '/')
             ? 'block py-3 px-4 font-bold text-primary-500 bg-gray-200 md:rounded md:bg-transparent md:text-primary-500 md:p-0'
             : 'block py-3 px-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-500 md:p-0';
     };

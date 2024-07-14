@@ -1,5 +1,6 @@
 import { Carousel } from "flowbite-react";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("house");
@@ -99,7 +100,7 @@ const About = () => {
                   : "text-gray-400 hover:text-primary-500"
               }`}
               onClick={() => setActiveTab("house")}
-              aria-current={activeTab === 'house' ? 'page' : undefined}
+              aria-current={activeTab === "house" ? "page" : undefined}
             >
               <div
                 className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
@@ -280,9 +281,11 @@ const About = () => {
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
-          <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
-            CONTACT US
-          </button>
+          <Link to={`/contact-us`}>
+            <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
+              CONTACT US
+            </button>
+          </Link>
         </div>
       </section>
     </>
