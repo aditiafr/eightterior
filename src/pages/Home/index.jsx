@@ -85,9 +85,9 @@ const Home = () => {
             ))}
           </div>
           <Link to={`/about`} className="md:hidden">
-          <button className="w-48 h-14 rounded-xl border-4 border-primary-500 text-primary-500 block md:hidden hover:bg-primary-500 hover:text-white hover:font-bold">
-                ABOUT US
-              </button>
+            <button className="w-48 h-14 rounded-xl border-4 border-primary-500 text-primary-500 block md:hidden hover:bg-primary-500 hover:text-white hover:font-bold">
+              ABOUT US
+            </button>
           </Link>
         </div>
       </section>
@@ -244,7 +244,7 @@ const Home = () => {
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
-          <Link to={`contact-us`}>
+          <Link to={`/contact-us`}>
             <button className="bg-white text-primary-500 w-32 md:w-52 h-10 md:h-14 rounded-lg text-[10px] md:text-sm hover:font-bold">
               CONTACT US
             </button>

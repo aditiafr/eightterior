@@ -1,6 +1,7 @@
 import { Carousel } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CustomLeftArrow, CustomRightArrow } from "../../components/CustomArrows";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("house");
@@ -46,7 +47,7 @@ const About = () => {
       </section>
 
       <section className="w-full flex items-center justify-center my-10 md:my-20 max-md:px-4">
-        <div className="max-w-screen-lg flex flex-col">
+        <div className="max-w-screen-xl flex flex-col">
           <div className="flex max-md:flex-col md:items-center justify-between text-left gap-4 w-full">
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Build Dreams
@@ -62,7 +63,7 @@ const About = () => {
       </section>
 
       <section className="w-full md:flex justify-center items-center">
-        <div className="max-w-screen-xl flex flex-col px-4 my-12">
+        <div className="max-w-screen-xl flex flex-col max-md:px-4 my-12">
           {activeTab === "house" && (
             <img
               src="/assets/images/about/tabs/img-1.jpg"
@@ -94,87 +95,79 @@ const About = () => {
 
           <div className="md:grid md:grid-cols-4 gap-10 md:gap-14 mt-12 md:mt-16 h-42 relative flex overflow-x-auto no-scrollbar">
             <button
-              className={`text-left ${
-                activeTab === "house"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "house"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("house")}
               aria-current={activeTab === "house" ? "page" : undefined}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "house"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "house"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
-                <p className="text-2xl font-bold mt-4">House</p>
-                <p className="text-lg">Build your own dream house now.</p>
+                <p className="text-4xl font-bold mt-4">House</p>
+                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>Build your own dream house now.</p>
               </div>
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "apartment"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "apartment"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("apartment")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "apartment"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "apartment"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
-                <p className="text-2xl font-bold mt-4">Apartment</p>
-                <p className="text-lg">
+                <p className="text-4xl font-bold mt-4">Apartment</p>
+                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>
                   Create your own apartment to align with your taste.
                 </p>
               </div>
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "office"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "office"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("office")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "office"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "office"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
-                <p className="text-2xl font-bold mt-4">Office</p>
-                <p className="text-lg">
+                <p className="text-4xl font-bold mt-4">Office</p>
+                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>
                   Make your office more suitable than before.
                 </p>
               </div>
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "hospitality"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "hospitality"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("hospitality")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "hospitality"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "hospitality"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
-                <p className="text-2xl font-bold mt-4">Hospitality</p>
-                <p className="text-lg">
+                <p className="text-4xl font-bold mt-4">Hospitality</p>
+                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>
                   Create a comfortable hospitality for your guest.
                 </p>
               </div>
@@ -184,7 +177,7 @@ const About = () => {
       </section>
 
       <section className="w-full flex items-center justify-center my-10 md:my-20 max-md:px-4">
-        <div className="max-w-screen-lg flex flex-col">
+        <div className="max-w-screen-xl flex flex-col">
           <div className="flex max-md:flex-col md:items-center justify-between text-left gap-4 w-full">
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Joyful Process
@@ -199,7 +192,11 @@ const About = () => {
       </section>
 
       <section className="lg:h-screen h-64 w-full">
-        <Carousel slideInterval={5000} className="no-border-radius">
+        <Carousel
+          slideInterval={5000}
+          leftControl={<CustomLeftArrow />}
+          rightControl={<CustomRightArrow />}
+        >
           <div
             className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
             style={{
@@ -271,18 +268,18 @@ const About = () => {
       </section>
 
       <section
-        className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 lg:py-0 px-4 lg:px-0"
+        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 px-4 md:px-0"
         style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
-        <div className="relative z-10 flex flex-col items-center gap-4 lg:gap-8 text-white">
-          <h2 className="text-3xl lg:text-4xl font-bold">Interested?</h2>
-          <p className="text-center text-[12px] lg:text-xl max-w-2xl">
+        <div className="relative z-10 flex flex-col items-center gap-4 md:gap-16 text-white">
+          <h2 className="text-3xl md:text-[64px] font-bold">Interested?</h2>
+          <p className="text-center text-[12px] md:text-2xl max-w-[850px]">
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
           <Link to={`/contact-us`}>
-            <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
+            <button className="bg-white text-primary-500 w-32 md:w-52 h-10 md:h-14 rounded-lg text-[10px] md:text-sm hover:font-bold">
               CONTACT US
             </button>
           </Link>

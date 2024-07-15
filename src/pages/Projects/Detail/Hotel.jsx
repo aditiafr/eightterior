@@ -63,18 +63,18 @@ const Hotel = () => {
       </section>
 
       <section
-        className="relative lg:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 lg:py-0 px-4 lg:px-0"
+        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 px-4 md:px-0"
         style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
-        <div className="relative z-10 flex flex-col items-center gap-4 lg:gap-8 text-white">
-          <h2 className="text-3xl lg:text-4xl font-bold">Interested?</h2>
-          <p className="text-center text-[12px] lg:text-xl max-w-2xl">
+        <div className="relative z-10 flex flex-col items-center gap-4 md:gap-16 text-white">
+          <h2 className="text-3xl md:text-[64px] font-bold">Interested?</h2>
+          <p className="text-center text-[12px] md:text-2xl max-w-[850px]">
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
-          <Link to={`contact-us`}>
-            <button className="bg-white text-primary-500 w-32 lg:w-52 h-10 lg:h-14 rounded-lg text-[10px] lg:text-sm hover:font-bold hover:bg-transparent hover:border-4 hover:text-white">
+          <Link to={`/contact-us`}>
+            <button className="bg-white text-primary-500 w-32 md:w-52 h-10 md:h-14 rounded-lg text-[10px] md:text-sm hover:font-bold">
               CONTACT US
             </button>
           </Link>
