@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 
 const Projects = () => {
-
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000) // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
+      setIsLoading(false);
+    }, 1000); // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -26,7 +25,7 @@ const Projects = () => {
             SATISF<span className="text-second-500">ACTION</span>
           </h1>
           <div className="flex max-md:flex-col items-center justify-between w-full gap-8 md:gap-20">
-            <p className="w-full text-md md:text-3xl leading-relaxed md:leading-relaxed text-justify">
+            <p className="w-full text-md md:text-3xl leading-relaxed md:leading-relaxed text-justify font-light">
               Customer satisfaction is our main objective. We prioritize
               functional design yet still keep an eye on its aesthetic aspects.
               Find your needs from our recent projects.
@@ -91,7 +90,7 @@ const Projects = () => {
               <h1 className="text-3xl md:text-4xl font-bold text-primary-500">
                 Rumah Ibu Andira
               </h1>
-              <p className="text-md md:text-xl text-justify">
+              <p className="text-md md:text-xl text-justify font-light">
                 Modern kitchen with a minimalism design. We bring ideas where
                 passion meets joy. Cook is a passion while you can enjoy your
                 passion in your beautiful and functionalized kitchen.
@@ -141,7 +140,7 @@ const Projects = () => {
               <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
                 PT. Pundi Mitra Mandiri
               </h1>
-              <p className="text-md md:text-xl text-justify">
+              <p className="text-md md:text-xl text-justify font-light">
                 Simple office with a sleek efficiency. We bring ideas where
                 clarity meets productivity. Experience the perfect blend of
                 minimalist design and functional elegance in your organized and
@@ -192,7 +191,7 @@ const Projects = () => {
               <h1 className="text-3xl md:text-4xl font-bold text-primary-500">
                 Hotel GAIA
               </h1>
-              <p className="text-md md:text-xl text-justify">
+              <p className="text-md md:text-xl text-justify font-light">
                 Industrial hotel style with an edgy sophistication. We bring
                 ideas where raw beauty meets comfort. Experience the perfect
                 blend of industrial charm and modern luxury in your stylish
@@ -214,13 +213,13 @@ const Projects = () => {
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
         <div className="relative z-10 flex flex-col items-center gap-4 md:gap-16 text-white">
-          <h2 className="text-3xl md:text-[64px] font-bold">Interested?</h2>
-          <p className="text-center text-[12px] md:text-2xl max-w-[850px]">
+          <h2 className="text-2xl md:text-[64px] font-bold">Interested?</h2>
+          <p className="text-center text-[8px] md:text-2xl w-[270px] md:w-[950px] font-light">
             Reach us if you have any questions regarding anything related to our
             services, we will help you to find the solutions for your needs!
           </p>
           <Link to={`/contact-us`}>
-            <button className="bg-white text-primary-500 w-32 md:w-52 h-10 md:h-14 rounded-lg text-[10px] md:text-sm hover:font-bold">
+            <button className="bg-white text-primary-500 w-28 md:w-52 h-8 md:h-14 rounded-lg text-[10px] md:text-sm hover:font-bold">
               CONTACT US
             </button>
           </Link>

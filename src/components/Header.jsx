@@ -97,7 +97,7 @@ const Header = () => {
                     </button>
                 </div>
                 <div className={`items-center justify-between ${isMenuOpen ? 'flex bg-white' : 'hidden'} w-full md:flex md:w-auto md:order-1 ${!isScrolled ? 'rounded-xl' : ''}`}>
-                    <ul className="flex flex-col p-2 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 w-full">
+                    <ul className="flex flex-col p-2 md:p-0 mt-4 font-medium md:space-x-10 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 w-full">
                         <ListItem NavLink="/" onClick={handleClose}>
                             Home
                         </ListItem>

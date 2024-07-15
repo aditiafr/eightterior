@@ -1,12 +1,14 @@
 import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { CustomLeftArrow, CustomRightArrow } from "../../components/CustomArrows";
+import {
+  CustomLeftArrow,
+  CustomRightArrow,
+} from "../../components/CustomArrows";
 import Loading from "../../components/Loading";
 import { useEffect, useState } from "react";
 
 const About = () => {
-
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   const [activeTab, setActiveTab] = useState("house");
 
@@ -29,34 +31,33 @@ const About = () => {
     return () => clearInterval(intervalId);
   }, [Tabs]);
 
-
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000) // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
+      setIsLoading(false);
+    }, 1000); // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
     <>
       <section
-        className="h-80 md:h-screen bg-cover bg-center"
+        className="h-72 md:h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/images/about/bg-img-1.png')" }}
       >
-        <div className="max-w-screen-xl h-full md:mx-auto flex items-center max-md:px-4">
+        <div className="max-w-screen-xl h-full md:mx-auto flex items-center pt-6 max-md:px-4">
           <div className="flex flex-col text-left md:gap-4">
-            <h1 className="text-4xl md:text-8xl text-primary-500 font-bold">
+            <h1 className="text-2xl md:text-8xl text-primary-500 font-bold">
               We Help
             </h1>
-            <h1 className="text-4xl md:text-8xl text-primary-500 font-bold">
+            <h1 className="text-2xl md:text-8xl text-primary-500 font-bold">
               Realize Your
             </h1>
-            <h1 className="text-4xl md:text-8xl text-second-500 font-bold">
+            <h1 className="text-2xl md:text-8xl text-second-500 font-bold">
               Your Style
             </h1>
           </div>
@@ -69,7 +70,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Build Dreams
             </h2>
-            <p className="text-sm md:text-xl md:w-2/3 text-justify">
+            <p className="text-sm md:text-xl md:w-2/3 font-light">
               Welcome to Eightterior, your premier choice for corporate
               construction and interior solutions. With years of experience in
               the industry, we specialize in designing and constructing
@@ -110,81 +111,110 @@ const About = () => {
             />
           )}
 
+          {/* Tabs */}
           <div className="md:grid md:grid-cols-4 gap-10 md:gap-14 mt-12 md:mt-16 h-42 relative flex overflow-x-auto no-scrollbar">
             <button
-              className={`text-left ${activeTab === "house"
-                ? "text-primary-500"
-                : "text-gray-400 hover:text-primary-500"
-                }`}
+              className={`text-left ${
+                activeTab === "house"
+                  ? "text-primary-500"
+                  : "text-gray-400 hover:text-primary-500"
+              }`}
               onClick={() => setActiveTab("house")}
               aria-current={activeTab === "house" ? "page" : undefined}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "house"
-                  ? "border-primary-500"
-                  : "border-gray-400 hover:border-primary-500"
-                  }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
+                  activeTab === "house"
+                    ? "border-primary-500"
+                    : "border-gray-400 hover:border-primary-500"
+                }`}
               >
-                <p className="text-4xl font-bold mt-4">House</p>
-                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>Build your own dream house now.</p>
+                <p className="text-xl md:text-4xl font-bold mt-4">House</p>
+                <p
+                  className={`text-sm md:text-xl font-light ${
+                    activeTab === "house" && "text-black"
+                  }`}
+                >
+                  Build your own dream house now.
+                </p>
               </div>
             </button>
 
             <button
-              className={`text-left ${activeTab === "apartment"
-                ? "text-primary-500"
-                : "text-gray-400 hover:text-primary-500"
-                }`}
+              className={`text-left ${
+                activeTab === "apartment"
+                  ? "text-primary-500"
+                  : "text-gray-400 hover:text-primary-500"
+              }`}
               onClick={() => setActiveTab("apartment")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "apartment"
-                  ? "border-primary-500"
-                  : "border-gray-400 hover:border-primary-500"
-                  }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
+                  activeTab === "apartment"
+                    ? "border-primary-500"
+                    : "border-gray-400 hover:border-primary-500"
+                }`}
               >
-                <p className="text-4xl font-bold mt-4">Apartment</p>
-                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>
+                <p className="text-xl md:text-4xl font-bold mt-4">Apartment</p>
+                <p
+                  className={`text-sm md:text-xl font-light ${
+                    activeTab === "apartment" && "text-black"
+                  }`}
+                >
                   Create your own apartment to align with your taste.
                 </p>
               </div>
             </button>
 
             <button
-              className={`text-left ${activeTab === "office"
-                ? "text-primary-500"
-                : "text-gray-400 hover:text-primary-500"
-                }`}
+              className={`text-left ${
+                activeTab === "office"
+                  ? "text-primary-500"
+                  : "text-gray-400 hover:text-primary-500"
+              }`}
               onClick={() => setActiveTab("office")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "office"
-                  ? "border-primary-500"
-                  : "border-gray-400 hover:border-primary-500"
-                  }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
+                  activeTab === "office"
+                    ? "border-primary-500"
+                    : "border-gray-400 hover:border-primary-500"
+                }`}
               >
-                <p className="text-4xl font-bold mt-4">Office</p>
-                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>
+                <p className="text-xl md:text-4xl font-bold mt-4">Office</p>
+                <p
+                  className={`text-sm md:text-xl font-light ${
+                    activeTab === "office" && "text-black"
+                  }`}
+                >
                   Make your office more suitable than before.
                 </p>
               </div>
             </button>
 
             <button
-              className={`text-left ${activeTab === "hospitality"
-                ? "text-primary-500"
-                : "text-gray-400 hover:text-primary-500"
-                }`}
+              className={`text-left ${
+                activeTab === "hospitality"
+                  ? "text-primary-500"
+                  : "text-gray-400 hover:text-primary-500"
+              }`}
               onClick={() => setActiveTab("hospitality")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "hospitality"
-                  ? "border-primary-500"
-                  : "border-gray-400 hover:border-primary-500"
-                  }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
+                  activeTab === "hospitality"
+                    ? "border-primary-500"
+                    : "border-gray-400 hover:border-primary-500"
+                }`}
               >
-                <p className="text-4xl font-bold mt-4">Hospitality</p>
-                <p className={`text-xl ${activeTab === "house" && "text-black"}`}>
+                <p className="text-xl md:text-4xl font-bold mt-4">
+                  Hospitality
+                </p>
+                <p
+                  className={`text-sm md:text-xl font-light ${
+                    activeTab === "hospitality" && "text-black"
+                  }`}
+                >
                   Create a comfortable hospitality for your guest.
                 </p>
               </div>
@@ -199,7 +229,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Joyful Process
             </h2>
-            <p className="text-sm md:text-xl md:w-2/3 text-justify">
+            <p className="text-sm md:text-xl md:w-2/3 font-light">
               Joyful process with vibrant enthusiasm. We bring ideas where
               excitement meets productivity. Experience the perfect blend of fun
               and efficiency in your lively and engaging workflow.
@@ -222,12 +252,12 @@ const About = () => {
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
-              <h3 className="text-2xl md:text-4xl font-semibold">
+              <h3 className="text-xl md:text-4xl font-semibold">
                 Consultation
               </h3>
-              <h1 className="text-md md:text-3xl">
+              <p className="text-sm md:text-3xl font-light">
                 We begin understanding your vision and requirements
-              </h1>
+              </p>
             </div>
           </div>
 
@@ -239,10 +269,10 @@ const About = () => {
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
-              <h3 className="text-2xl md:text-4xl font-semibold">Design</h3>
-              <h1 className="text-md md:text-3xl">
+              <h3 className="text-xl md:text-4xl font-semibold">Design</h3>
+              <p className="text-sm md:text-3xl font-light">
                 Our team of skilled designers develop a comprehensive plan
-              </h1>
+              </p>
             </div>
           </div>
 
@@ -254,13 +284,13 @@ const About = () => {
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
-              <h3 className="text-2xl md:text-4xl font-semibold">
+              <h3 className="text-xl md:text-4xl font-semibold">
                 Construction
               </h3>
-              <h1 className="text-md md:text-3xl">
+              <p className="text-sm md:text-3xl font-light">
                 Utilizing the latest construction techniques and quality
                 materials, we bring the design to life.
-              </h1>
+              </p>
             </div>
           </div>
 
@@ -272,13 +302,13 @@ const About = () => {
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
-              <h3 className="text-2xl md:text-4xl font-semibold">
+              <h3 className="text-xl md:text-4xl font-semibold">
                 Interior Finishing
               </h3>
-              <h1 className="text-md md:text-3xl">
+              <p className="text-sm md:text-3xl font-light">
                 Our interior designers ensure that every detail aligns with your
                 aesthetic and functional preferences.
-              </h1>
+              </p>
             </div>
           </div>
         </Carousel>

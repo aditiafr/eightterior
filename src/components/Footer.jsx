@@ -18,8 +18,8 @@ const Footer = () => {
           </div>
         </Link>
         <div className="flex flex-col gap-2 md:gap-4 w-1/2">
-          <p className="text-[9px] md:text-xl">PT. Delapan Mitra Interior</p>
-          <p className="text-[9px] md:text-xl md:w-[520px]">
+          <p className="text-[7px] md:text-xl">PT. Delapan Mitra Interior</p>
+          <p className="text-[7px] md:text-xl md:w-[520px]">
             Cibis Nine Building Lantai 11 Jl. TB Simatupang No 2 Cliandak, Pasar
             Minggu Jakarta Selatan 12560
           </p>
@@ -29,9 +29,9 @@ const Footer = () => {
                 <img
                   src="/assets/images/icon/email.png"
                   alt="email"
-                  className="w-3 md:w-6 h-3 md:h-6"
+                  className="w-2 md:w-6 h-2 md:h-6"
                 />
-                <p className="text-[7px] md:text-xl">contact@eightterior.co.id</p>
+                <p className="text-[5px] md:text-xl">contact@eightterior.co.id</p>
               </div>
             </a>
             <a href="https://www.instagram.com/eightterior_jkt/?hl=id">
@@ -39,9 +39,9 @@ const Footer = () => {
                 <img
                   src="/assets/images/icon/instagram.png"
                   alt="instagram"
-                  className="w-3 md:w-6 h-3 md:h-6"
+                  className="w-2 md:w-6 h-2 md:h-6"
                 />
-                <p className="text-[7px] md:text-xl">eightterior_jkt</p>
+                <p className="text-[5px] md:text-xl">eightterior_jkt</p>
               </div>
             </a>
             <a href="tel:+62 21 50127829">
@@ -49,10 +49,10 @@ const Footer = () => {
                 <img
                   src="/assets/images/icon/call.png"
                   alt="call"
-                  className="w-3 md:w-6 h-3 md:h-6"
+                  className="w-2 md:w-6 h-2 md:h-6"
                 />
 
-                <p className="text-[7px] md:text-xl">+62 21 50127829</p>
+                <p className="text-[5px] md:text-xl">+62 21 50127829</p>
               </div>
             </a>
             <a href="https://wa.me/081316535359">
@@ -60,9 +60,9 @@ const Footer = () => {
                 <img
                   src="/assets/images/icon/phone.png"
                   alt="phone"
-                  className="w-3 md:w-6 h-3 md:h-6"
+                  className="w-2 md:w-6 h-2 md:h-6"
                 />
-                <p className="text-[7px] md:text-xl">+62 813-1653-5359</p>
+                <p className="text-[5px] md:text-xl">+62 813-1653-5359</p>
               </div>
             </a>
           </div>
