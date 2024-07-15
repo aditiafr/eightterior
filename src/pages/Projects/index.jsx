@@ -21,17 +21,17 @@ const Projects = () => {
   return (
     <>
       <section className="w-full mt-24 mb-12 md:mt-28 max-md:px-4">
-        <div className="max-w-screen-xl flex flex-col justify-center items-center mx-auto">
-          <h1 className="text-[44px] md:text-[180px] text-primary-500 font-bold w-full text-center">
+        <div className="max-w-screen-xl flex flex-col justify-center items-center mx-auto gap-8">
+          <h1 className="text-[44px] md:text-[170px] text-primary-500 font-bold w-full text-center">
             SATISF<span className="text-second-500">ACTION</span>
           </h1>
-          <div className="flex max-md:flex-col items-center justify-between w-full gap-6 md:gap-40 mt-4 md:mt-6">
-            <p className="w-full text-md md:text-3xl">
+          <div className="flex max-md:flex-col items-center justify-between w-full gap-8 md:gap-20">
+            <p className="w-full text-md md:text-3xl leading-relaxed md:leading-relaxed text-justify">
               Customer satisfaction is our main objective. We prioritize
               functional design yet still keep an eye on its aesthetic aspects.
               Find your needs from our recent projects.
             </p>
-            <div className="w-full flex text-center items-center justify-around md:justify-between">
+            <div className="flex text-center justify-between w-full md:justify-end md:gap-20 md:w-[1000px]">
               <div className="flex flex-col gap-4">
                 <h2 className="text-4xl md:text-6xl text-primary-500 font-bold">
                   50+
@@ -49,7 +49,7 @@ const Projects = () => {
         </div>
       </section>
 
-      <section className="w-full flex flex-col gap-14 justify-center items-center my-12 md:my-24 max-md:px-4">
+      <section className="w-full flex flex-col gap-8 md:gap-14 justify-center items-center my-12 md:my-24 max-md:px-4">
         <div className="max-w-screen-xl bg-[#F2F2F2] p-6 md:p-12 rounded-xl">
           <img
             src="/assets/images/projects/rmibuandira/img-1.jpg"
@@ -87,11 +87,11 @@ const Projects = () => {
                 />
               </div>
             </div>
-            <div className="md:w-1/2 flex flex-col gap-4 md:pl-4">
+            <div className="md:w-1/2 flex flex-col gap-7 md:pl-4">
               <h1 className="text-3xl md:text-4xl font-bold text-primary-500">
                 Rumah Ibu Andira
               </h1>
-              <p className="text-md md:text-lg">
+              <p className="text-md md:text-xl text-justify">
                 Modern kitchen with a minimalism design. We bring ideas where
                 passion meets joy. Cook is a passion while you can enjoy your
                 passion in your beautiful and functionalized kitchen.
@@ -137,11 +137,11 @@ const Projects = () => {
                 />
               </div>
             </div>
-            <div className="md:w-1/2 flex flex-col gap-4 md:pl-4">
+            <div className="md:w-1/2 flex flex-col gap-7 md:pl-4">
               <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
                 PT. Pundi Mitra Mandiri
               </h1>
-              <p className="text-md md:text-lg">
+              <p className="text-md md:text-xl text-justify">
                 Simple office with a sleek efficiency. We bring ideas where
                 clarity meets productivity. Experience the perfect blend of
                 minimalist design and functional elegance in your organized and
@@ -188,11 +188,11 @@ const Projects = () => {
                 />
               </div>
             </div>
-            <div className="md:w-1/2 flex flex-col gap-4 md:pl-4">
+            <div className="md:w-1/2 flex flex-col gap-7 md:pl-4">
               <h1 className="text-3xl md:text-4xl font-bold text-primary-500">
                 Hotel GAIA
               </h1>
-              <p className="text-md md:text-lg">
+              <p className="text-md md:text-xl text-justify">
                 Industrial hotel style with an edgy sophistication. We bring
                 ideas where raw beauty meets comfort. Experience the perfect
                 blend of industrial charm and modern luxury in your stylish

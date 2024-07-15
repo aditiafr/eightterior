@@ -33,23 +33,23 @@ const RMIbuAndira = () => {
             alt="img-1"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover "
           />
-          <p className="text-lg md:text-xl leading-relaxed max-md:px-4">
+          <p className="text-lg md:text-2xl md:leading-relaxed leading-relaxed max-md:px-4 text-justify">
             Modern kitchen with a minimalism design. We bring ideas where
             passion meets joy. Cook is a passion while you can enjoy your
             passion in your beautiful and functionalized kitchen.
           </p>
         </div>
-        <div className="flex max-md:flex-col max-md:px-4 items-center justify-between gap-10 md:gap-28 w-full">
+        <div className="flex max-md:flex-col max-md:px-4 items-center justify-between gap-10 md:gap-20 w-full">
           <img
             src="/assets/images/projects/rmibuandira/img-4.jpg"
             alt="img-4"
             className="md:w-1/3 h-96 w-full rounded-xl"
           />
           <div className="flex flex-col gap-4 md:gap-6 w-full">
-            <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
+            <h1 className="text-3xl md:text-5xl text-primary-500 font-bold">
               Modern Design
             </h1>
-            <p className="text-lg md:text-xl leading-8">
+            <p className="text-lg md:text-2xl md:leading-relaxed text-justify">
               Modern design ornament that used in the kitchen will bring you a
               joy of every single food cooked in your kitchen. We believe a
               kitchen should be beautiful yet still functionable on every
@@ -57,12 +57,12 @@ const RMIbuAndira = () => {
             </p>
           </div>
         </div>
-        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full max-md:px-4">
+        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-20 w-full max-md:px-4">
           <div className="flex flex-col gap-4 md:gap-6 w-full">
-            <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
+            <h1 className="text-3xl md:text-5xl text-primary-500 font-bold">
               Aesthetic
             </h1>
-            <p className="text-lg md:text-xl leading-8">
+            <p className="text-lg md:text-2xl md:leading-relaxed text-justify">
               Warm, proper, and a functionable lighting is a must in a kitchen.
               A proper and warm lighting could also make your kitchen more
               aesthetic.

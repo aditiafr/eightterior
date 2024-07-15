@@ -70,7 +70,7 @@ const Home = () => {
               Eight<span className="text-second-500">terior</span>
             </h2>
             <p className="text-[10px] md:text-xl">PT. Delapan Mitra Interior</p>
-            <p className="md:leading-relaxed mt-6 text-[10px] md:text-xl">
+            <p className="md:leading-relaxed mt-6 text-[10px] md:text-xl text-justify">
               Welcome to Eightterior, your premier choice for corporate
               construction and interior solutions. With years of experience in
               the industry, we specialize in designing and constructing
@@ -79,11 +79,11 @@ const Home = () => {
           </div>
         </div>
         <div className="w-full flex flex-col md:flex-row justify-between items-center mt-20 md:mt-32 gap-14 md:gap-32">
-          <div className="flex flex-col items-center md:items-start">
-            <h2 className="text-4xl md:text-[64px] text-primary-500 font-bold">
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <h2 className="text-4xl md:text-6xl text-primary-500 font-bold">
               What we do
             </h2>
-            <p className="text-[12px] md:text-2xl max-md:mt-2">
+            <p className="text-[12px] md:text-xl max-md:mt-2">
               We can help realize your dream
             </p>
             <Link to={`/about`}>

@@ -34,24 +34,24 @@ const Hotel = () => {
             alt="img-1"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover"
           />
-          <p className="text-lg md:text-xl leading-relaxed max-md:px-4">
+          <p className="text-lg md:text-2xl md:leading-relaxed leading-relaxed max-md:px-4 text-justify">
             Industrial hotel style with an edgy sophistication. We bring ideas
             where raw beauty meets comfort. Experience the perfect blend of
             industrial charm and modern luxury in your stylish and
             functionalized space.
           </p>
         </div>
-        <div className="flex max-md:flex-col max-md:px-4 items-center justify-between gap-10 md:gap-28 w-full">
+        <div className="flex max-md:flex-col max-md:px-4 items-center justify-between gap-10 md:gap-20 w-full">
           <img
             src="/assets/images/projects/hotel/img-2.jpg"
             alt="img-4"
             className="md:w-1/3 h-96 w-full rounded-xl object-cover"
           />
           <div className="flex flex-col gap-4 md:gap-6 w-full">
-            <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
+            <h1 className="text-3xl md:text-5xl text-primary-500 font-bold">
               Industrial Design
             </h1>
-            <p className="text-lg md:text-xl leading-8">
+            <p className="text-lg md:text-2xl md:leading-relaxed text-justify">
               Modern design ornament that used in the kitchen will bring you a
               joy of every single food cooked in your kitchen. We believe a
               kitchen should be beautiful yet still functionable on every
@@ -59,12 +59,12 @@ const Hotel = () => {
             </p>
           </div>
         </div>
-        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full max-md:px-4">
+        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-20 w-full max-md:px-4">
           <div className="flex flex-col gap-4 md:gap-6 w-full">
-            <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
+            <h1 className="text-3xl md:text-5xl text-primary-500 font-bold">
               Green Space
             </h1>
-            <p className="text-lg md:text-xl leading-8">
+            <p className="text-lg md:text-2xl md:leading-relaxed text-justify">
               Green space with a refreshing tranquility. We bring ideas where
               nature meets harmony. Experience the perfect blend of lush
               greenery and modern elegance in your serene and functionalized
