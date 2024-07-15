@@ -55,7 +55,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="max-w-screen-lg flex flex-wrap items-center justify-between px-4 md:mx-auto my-14 md:my-24">
+      <section className="max-w-screen-lg flex flex-wrap items-center justify-between max-md:px-4 md:mx-auto my-14 md:my-24">
         <div className="flex justify-evenly items-center w-full gap-12 md:gap-36">
           <div className="relative flex justify-center items-center">
             <img
@@ -250,7 +250,7 @@ const Home = () => {
       </section>
 
       <section
-        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 px-4 md:px-0"
+        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 max-md:py-12 max-md:px-4"
         style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>

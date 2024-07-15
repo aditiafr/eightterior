@@ -31,7 +31,7 @@ const PTPundi = () => {
           <img
             src="/assets/images/projects/ptpundi/img-3.jpg"
             alt="img-3"
-            className="w-full md:rounded-xl h-[300px] md:h-[700px] object-cover"
+            className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover"
           />
           <p className="text-lg md:text-xl leading-relaxed max-md:px-4">
             Simple office with a sleek efficiency. We bring ideas where clarity
@@ -40,7 +40,7 @@ const PTPundi = () => {
             workspace.
           </p>
         </div>
-        <div className="flex max-md:flex-col px-4 items-center justify-between gap-10 md:gap-28 w-full">
+        <div className="flex max-md:flex-col max-md:px-4 items-center justify-between gap-10 md:gap-28 w-full">
           <img
             src="/assets/images/projects/ptpundi/img-1.jpg"
             alt="img-1"
@@ -57,7 +57,7 @@ const PTPundi = () => {
             </p>
           </div>
         </div>
-        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full px-4">
+        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full max-md:px-4">
           <div className="flex flex-col gap-4 md:gap-6 w-full">
             <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
               Simple Pantry

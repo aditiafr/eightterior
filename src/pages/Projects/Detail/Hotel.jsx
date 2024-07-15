@@ -32,7 +32,7 @@ const Hotel = () => {
           <img
             src="/assets/images/projects/hotel/img-1.jpg"
             alt="img-1"
-            className="w-full md:rounded-xl h-[300px] md:h-[700px] object-cover"
+            className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover"
           />
           <p className="text-lg md:text-xl leading-relaxed max-md:px-4">
             Industrial hotel style with an edgy sophistication. We bring ideas
@@ -41,7 +41,7 @@ const Hotel = () => {
             functionalized space.
           </p>
         </div>
-        <div className="flex max-md:flex-col px-4 items-center justify-between gap-10 md:gap-28 w-full">
+        <div className="flex max-md:flex-col max-md:px-4 items-center justify-between gap-10 md:gap-28 w-full">
           <img
             src="/assets/images/projects/hotel/img-2.jpg"
             alt="img-4"
@@ -59,7 +59,7 @@ const Hotel = () => {
             </p>
           </div>
         </div>
-        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full px-4">
+        <div className="flex max-md:flex-col-reverse items-center justify-between-reverse gap-10 md:gap-28 w-full max-md:px-4">
           <div className="flex flex-col gap-4 md:gap-6 w-full">
             <h1 className="text-3xl md:text-4xl text-primary-500 font-bold">
               Green Space

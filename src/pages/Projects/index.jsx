@@ -20,7 +20,7 @@ const Projects = () => {
 
   return (
     <>
-      <section className="w-full mt-24 mb-12 md:mt-28 px-4">
+      <section className="w-full mt-24 mb-12 md:mt-28 max-md:px-4">
         <div className="max-w-screen-xl flex flex-col justify-center items-center mx-auto">
           <h1 className="text-[44px] md:text-[180px] text-primary-500 font-bold w-full text-center">
             SATISF<span className="text-second-500">ACTION</span>
@@ -49,7 +49,7 @@ const Projects = () => {
         </div>
       </section>
 
-      <section className="w-full flex flex-col gap-14 justify-center items-center my-12 md:my-24 px-4">
+      <section className="w-full flex flex-col gap-14 justify-center items-center my-12 md:my-24 max-md:px-4">
         <div className="max-w-screen-xl bg-[#F2F2F2] p-6 md:p-12 rounded-xl">
           <img
             src="/assets/images/projects/rmibuandira/img-1.jpg"
@@ -209,7 +209,7 @@ const Projects = () => {
       </section>
 
       <section
-        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 px-4 md:px-0"
+        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 max-md:py-12 max-md:px-4"
         style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>

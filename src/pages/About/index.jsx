@@ -48,7 +48,7 @@ const About = () => {
         className="h-80 md:h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/images/about/bg-img-1.png')" }}
       >
-        <div className="max-w-screen-xl h-full md:mx-auto flex items-center px-4">
+        <div className="max-w-screen-xl h-full md:mx-auto flex items-center max-md:px-4">
           <div className="flex flex-col text-left md:gap-4">
             <h1 className="text-4xl md:text-8xl text-primary-500 font-bold">
               We Help
@@ -285,7 +285,7 @@ const About = () => {
       </section>
 
       <section
-        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 px-4 md:px-0"
+        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 max-md:px-4"
         style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>

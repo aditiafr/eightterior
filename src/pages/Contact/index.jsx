@@ -26,7 +26,7 @@ const Contact = () => {
         className="h-80 md:h-screen bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/images/about/bg-img-1.png')" }}
       >
-        <div className="max-w-screen-xl h-full md:mx-auto flex items-center px-6">
+        <div className="max-w-screen-xl h-full md:mx-auto flex items-center max-md:px-4">
           <div className="flex flex-col text-left md:gap-4">
             <h1 className="text-4xl md:text-8xl text-primary-500 font-bold">Reach Us</h1>
             <h1 className="text-4xl md:text-8xl text-second-500 font-bold">at Anytime!</h1>
@@ -34,7 +34,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="w-full bg-white flex justify-center items-center my-14 md:my-28 px-6">
+      <section className="w-full bg-white flex justify-center items-center my-14 md:my-28 max-md:px-4">
         <div className="grid grid-cols-3 gap-8 md:gap-20">
           <a href="tel:+62 21 50127829">
             <div className="flex flex-col gap-1 text-primary-500 items-center transition duration-300 hover:scale-110">
@@ -60,7 +60,7 @@ const Contact = () => {
         </div>
       </section >
 
-      <section className="w-full flex justify-center items-center px-4">
+      <section className="w-full flex justify-center items-center max-md:px-4">
         <div className="relative max-w-screen-xl">
           <img src="/assets/images/contact/img-1.png" alt="img-1.png" />
           <div className="absolute bg-primary-500 inset-0 bg-opacity-50 rounded-md md:rounded-2xl"></div>
