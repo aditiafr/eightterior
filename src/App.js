@@ -9,6 +9,7 @@ import Header from './components/Header'
 import RMIbuAndira from './pages/Projects/Detail/RMIbuAndira'
 import PTPundi from './pages/Projects/Detail/PtPundi'
 import Hotel from './pages/Projects/Detail/Hotel'
+import NotFound from './components/NotFound'
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/projects/hotel" element={<Hotel />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />

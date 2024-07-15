@@ -1,9 +1,25 @@
 import { Carousel } from "flowbite-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomLeftArrow, CustomRightArrow } from "../../components/CustomArrows";
+import Loading from "../../components/Loading";
 
 const Home = () => {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000) // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   const pictHome = [
     {
       name: "House",

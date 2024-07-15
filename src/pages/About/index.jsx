@@ -1,9 +1,13 @@
 import { Carousel } from "flowbite-react";
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CustomLeftArrow, CustomRightArrow } from "../../components/CustomArrows";
+import Loading from "../../components/Loading";
+import { useEffect, useState } from "react";
 
 const About = () => {
+
+  const [isLoading, setIsLoading] = useState(true)
+
   const [activeTab, setActiveTab] = useState("house");
 
   // Array of tab names for easy indexing
@@ -24,6 +28,19 @@ const About = () => {
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, [Tabs]);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000) // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return <Loading />
+  }
 
   return (
     <>
