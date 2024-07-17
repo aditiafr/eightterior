@@ -1,5 +1,4 @@
 import { Bars3Icon } from '@heroicons/react/24/outline';
-import { Navbar, NavbarBrand, NavbarCollapse, NavbarToggle } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 

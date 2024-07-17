@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import About from './pages/About'
@@ -13,7 +13,7 @@ import NotFound from './components/NotFound'
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
 
       <Routes>
@@ -28,7 +28,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-    </div>
+    </BrowserRouter>
   )
 }
 

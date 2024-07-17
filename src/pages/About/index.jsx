@@ -1,4 +1,3 @@
-import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
 import {
   CustomLeftArrow,
@@ -6,6 +5,7 @@ import {
 } from "../../components/CustomArrows";
 import Loading from "../../components/Loading";
 import { useEffect, useState } from "react";
+import { Carousel } from "@material-tailwind/react";
 
 const About = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,10 +46,10 @@ const About = () => {
   return (
     <>
       <section
-        className="h-72 md:h-screen bg-cover bg-center"
+        className="h-72 md:h-screen bg-cover bg-center px-4 md:px-0"
         style={{ backgroundImage: "url('/assets/images/about/bg-img-1.png')" }}
       >
-        <div className="max-w-screen-xl h-full md:mx-auto flex items-center pt-6 max-md:px-4">
+        <div className="max-w-screen-xl h-full md:mx-auto flex items-center pt-6">
           <div className="flex flex-col text-left md:gap-4">
             <h1 className="text-2xl md:text-8xl text-primary-500 font-bold">
               We Help
@@ -64,9 +64,9 @@ const About = () => {
         </div>
       </section>
 
-      <section className="w-full flex items-center justify-center my-10 md:my-20 max-md:px-4">
+      <section className="w-full flex items-center justify-center my-10 md:my-20">
         <div className="max-w-screen-xl flex flex-col">
-          <div className="flex max-md:flex-col md:items-center justify-between text-left gap-4 w-full">
+          <div className="flex flex-col md:flex-row md:items-center justify-between text-left gap-4 px-4 md:px-0 w-full">
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Build Dreams
             </h2>
@@ -80,8 +80,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="w-full md:flex justify-center items-center">
-        <div className="max-w-screen-xl flex flex-col max-md:px-4 my-12">
+      <section className="w-full md:flex justify-center items-center px-4 md:px-0">
+        <div className="max-w-screen-xl flex flex-col my-12">
           {activeTab === "house" && (
             <img
               src="/assets/images/about/tabs/img-1.jpg"
@@ -114,26 +114,23 @@ const About = () => {
           {/* Tabs */}
           <div className="md:grid md:grid-cols-4 gap-10 md:gap-14 mt-12 md:mt-16 h-42 relative flex overflow-x-auto no-scrollbar">
             <button
-              className={`text-left ${
-                activeTab === "house"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "house"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("house")}
               aria-current={activeTab === "house" ? "page" : undefined}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "house"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "house"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">House</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "house" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "house" && "text-black"
+                    }`}
                 >
                   Build your own dream house now.
                 </p>
@@ -141,25 +138,22 @@ const About = () => {
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "apartment"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "apartment"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("apartment")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "apartment"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "apartment"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">Apartment</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "apartment" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "apartment" && "text-black"
+                    }`}
                 >
                   Create your own apartment to align with your taste.
                 </p>
@@ -167,25 +161,22 @@ const About = () => {
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "office"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "office"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("office")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "office"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "office"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">Office</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "office" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "office" && "text-black"
+                    }`}
                 >
                   Make your office more suitable than before.
                 </p>
@@ -193,27 +184,24 @@ const About = () => {
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "hospitality"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "hospitality"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("hospitality")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "hospitality"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "hospitality"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">
                   Hospitality
                 </p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "hospitality" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "hospitality" && "text-black"
+                    }`}
                 >
                   Create a comfortable hospitality for your guest.
                 </p>
@@ -223,9 +211,9 @@ const About = () => {
         </div>
       </section>
 
-      <section className="w-full flex items-center justify-center my-10 md:my-20 max-md:px-4">
+      <section className="w-full flex items-center justify-center my-10 md:my-20">
         <div className="max-w-screen-xl flex flex-col">
-          <div className="flex max-md:flex-col md:items-center justify-between text-left gap-4 w-full">
+          <div className="flex flex-col md:flex-row md:items-center justify-between text-left gap-4 px-4 md:px-0 w-full">
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Joyful Process
             </h2>
@@ -240,12 +228,18 @@ const About = () => {
 
       <section className="lg:h-screen h-64 w-full">
         <Carousel
-          slideInterval={5000}
-          leftControl={<CustomLeftArrow />}
-          rightControl={<CustomRightArrow />}
+          autoplay={true}
+          autoplayDelay={4000}
+          loop={true}
+          prevArrow={({ handlePrev }) => (
+            <CustomLeftArrow onClick={handlePrev} />
+          )}
+          nextArrow={({ handleNext }) => (
+            <CustomRightArrow onClick={handleNext} />
+          )}
         >
           <div
-            className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+            className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
               backgroundImage: "url('/assets/images/about/img-2-1.png')",
             }}
@@ -262,7 +256,7 @@ const About = () => {
           </div>
 
           <div
-            className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+            className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
               backgroundImage: "url('/assets/images/about/img-2-2.png')",
             }}
@@ -277,7 +271,7 @@ const About = () => {
           </div>
 
           <div
-            className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
+            className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
               backgroundImage: "url('/assets/images/about/img-2-3.png')",
             }}
@@ -293,29 +287,11 @@ const About = () => {
               </p>
             </div>
           </div>
-
-          <div
-            className="relative min-h-screen h-full bg-cover bg-center flex flex-col gap-4"
-            style={{
-              backgroundImage: "url('/assets/images/about/img-2-4.png')",
-            }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-            <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
-              <h3 className="text-xl md:text-4xl font-semibold">
-                Interior Finishing
-              </h3>
-              <p className="text-sm md:text-3xl font-light">
-                Our interior designers ensure that every detail aligns with your
-                aesthetic and functional preferences.
-              </p>
-            </div>
-          </div>
         </Carousel>
       </section>
 
       <section
-        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 max-md:px-4"
+        className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 md:py-0 px-4 md:px-0"
         style={{ backgroundImage: "url('/assets/images/home/bg-img-2.png')" }}
       >
         <div className="absolute inset-0 bg-blue-800 opacity-80 z-0"></div>
