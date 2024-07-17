@@ -9,7 +9,7 @@ const Contact = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1000) // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -36,21 +36,21 @@ const Contact = () => {
         <div className="grid grid-cols-3 gap-8 md:gap-20">
           <a href="tel:+62 21 50127829">
             <div className="flex flex-col gap-2 text-primary-500 items-center transition duration-300 hover:scale-110">
-              <PhoneIcon className="h-28 w-h-28" />
+              <PhoneIcon className="h-12 md:h-28 w-12 md:w-28" />
               <h1 className="md:text-2xl font-bold">Phone</h1>
               <p className="text-[10px] md:text-lg">+62 21 50127829</p>
             </div>
           </a>
           <a href="mailto: contact@eightterior.co.id">
             <div className="flex flex-col gap-2 text-primary-500 items-center transition duration-300 hover:scale-110">
-              <EnvelopeIcon className="h-28 w-28" />
+              <EnvelopeIcon className="h-12 md:h-28 w-12 md:w-28" />
               <h1 className="md:text-2xl font-bold">Email</h1>
               <p className="text-[10px] md:text-lg">contact@eightterior.co.id</p>
             </div>
           </a>
           <a href="https://wa.me/081316535359">
             <div className="flex flex-col gap-2 text-primary-500 items-center transition duration-300 hover:scale-110">
-              <DevicePhoneMobileIcon className="h-28 w-28" />
+              <DevicePhoneMobileIcon className="h-12 md:h-28 w-12 md:w-28" />
               <h1 className="md:text-2xl font-bold">Mobile</h1>
               <p className="text-[10px] md:text-lg">+62 813-1653-5359</p>
             </div>
