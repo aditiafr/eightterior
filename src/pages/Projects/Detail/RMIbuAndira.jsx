@@ -33,49 +33,47 @@ const RMIbuAndira = () => {
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover "
           />
           <div className="w-full flex flex-col md:flex-row justify-between gap-6 md:gap-8">
-            <p className="md:w-2/3 text-sm md:text-2xl md:leading-relaxed leading-relaxed px-4 md:px-0 text-justify font-light">
+            <p className="md:w-full text-sm md:text-2xl md:leading-relaxed leading-relaxed px-4 md:px-0 text-justify font-light">
               Modern kitchen with a minimalism design. We bring ideas where
               passion meets joy. Cook is a passion while you can enjoy your
               passion in your beautiful and functionalized kitchen.
             </p>
-            <div className="flex flex-col justify-around px-4 md:px-0 gap-6">
-              <div className="flex text-[12px] md:text-lg justify-between w-full gap-3 md:gap-0">
-                <div className="flex items-center gap-4 w-full">
-                  <img
-                    src="/assets/images/projects/icons/location.png"
-                    alt="location"
-                    className="w-6 h-auto"
-                  />
-                  <p>Andara, Jakarta Selatan</p>
-                </div>
-                <div className="flex items-center gap-4 w-1/2">
-                  <img
-                    src="/assets/images/projects/icons/category.png"
-                    alt="category"
-                    className="w-6 h-auto"
-                  />
-                  <p>House/ Residence</p>
-                </div>
+
+            <div className="w-full grid grid-cols-2 px-4 md:px-4 text-sm md:text-md gap-8">
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/location.png"
+                  alt="location"
+                  className="w-6 h-auto"
+                />
+                <p>Andara, Jakarta Selatan</p>
               </div>
-              <div className="flex text-[12px] md:text-lg justify-between w-full gap-3 md:gap-0">
-                <div className="flex items-center gap-4 w-full">
-                  <img
-                    src="/assets/images/projects/icons/year.png"
-                    alt="year"
-                    className="w-6 h-auto"
-                  />
-                  <p>2023</p>
-                </div>
-                <div className="flex items-center gap-4 w-1/2">
-                  <img
-                    src="/assets/images/projects/icons/area.png"
-                    alt="area"
-                    className="w-6 h-auto"
-                  />
-                  <p>250 sqm</p>
-                </div>
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/category.png"
+                  alt="category"
+                  className="w-6 h-auto"
+                />
+                <p>House/ Residence</p>
+              </div>
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/year.png"
+                  alt="year"
+                  className="w-6 h-auto"
+                />
+                <p>2023</p>
+              </div>
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/area.png"
+                  alt="area"
+                  className="w-6 h-auto"
+                />
+                <p>250 sqm</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>

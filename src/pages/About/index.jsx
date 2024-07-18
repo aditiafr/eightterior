@@ -112,7 +112,7 @@ const About = () => {
           )}
 
           {/* Tabs */}
-          <div className="md:grid md:grid-cols-4 gap-10 md:gap-14 mt-12 md:mt-16 h-42 relative flex overflow-x-auto no-scrollbar">
+          <div className="md:grid md:grid-cols-4 gap-10 mt-12 md:mt-16 h-42 relative flex overflow-x-auto no-scrollbar">
             <button
               className={`text-left ${activeTab === "house"
                 ? "text-primary-500"
@@ -129,7 +129,7 @@ const About = () => {
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">House</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${activeTab === "house" && "text-black"
+                  className={`text-sm md:text-lg font-light ${activeTab === "house" && "text-black"
                     }`}
                 >
                   Build your own dream house now.
@@ -152,7 +152,7 @@ const About = () => {
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">Apartment</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${activeTab === "apartment" && "text-black"
+                  className={`text-sm md:text-lg font-light ${activeTab === "apartment" && "text-black"
                     }`}
                 >
                   Create your own apartment to align with your taste.
@@ -175,7 +175,7 @@ const About = () => {
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">Office</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${activeTab === "office" && "text-black"
+                  className={`text-sm md:text-lg font-light ${activeTab === "office" && "text-black"
                     }`}
                 >
                   Make your office more suitable than before.
@@ -200,7 +200,7 @@ const About = () => {
                   Hospitality
                 </p>
                 <p
-                  className={`text-sm md:text-xl font-light ${activeTab === "hospitality" && "text-black"
+                  className={`text-sm md:text-lg font-light ${activeTab === "hospitality" && "text-black"
                     }`}
                 >
                   Create a comfortable hospitality for your guest.

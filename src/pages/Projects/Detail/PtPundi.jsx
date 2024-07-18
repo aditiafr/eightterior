@@ -33,50 +33,48 @@ const PTPundi = () => {
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover "
           />
           <div className="w-full flex flex-col md:flex-row justify-between gap-6 md:gap-8">
-            <p className="md:w-2/3 text-sm md:text-2xl md:leading-relaxed leading-relaxed px-4 md:px-0 text-justify font-light">
+            <p className="md:w-full text-sm md:text-2xl md:leading-relaxed leading-relaxed px-4 md:px-0 text-justify font-light">
               Simple office with a sleek efficiency. We bring ideas where
               clarity meets productivity. Experience the perfect blend of
               minimalist design and functional elegance in your organized and
               efficient workspace.
             </p>
-            <div className="flex flex-col justify-around px-4 md:px-0 gap-6">
-              <div className="flex text-[12px] md:text-lg justify-between w-full gap-3 md:gap-0">
-                <div className="flex items-center gap-4 w-full">
-                  <img
-                    src="/assets/images/projects/icons/location.png"
-                    alt="location"
-                    className="w-6 h-auto"
-                  />
-                  <p>Jl. Masjid No.305B Jatibening, Bekasi</p>
-                </div>
-                <div className="flex items-center gap-4 w-1/2">
-                  <img
-                    src="/assets/images/projects/icons/category.png"
-                    alt="category"
-                    className="w-6 h-auto"
-                  />
-                  <p>Office</p>
-                </div>
+
+            <div className="w-full grid grid-cols-2 px-4 md:px-4 text-sm md:text-md gap-8">
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/location.png"
+                  alt="location"
+                  className="w-6 h-auto"
+                />
+                <p>Jl. Masjid No.305B Jatibening, Bekasi</p>
               </div>
-              <div className="flex text-[12px] md:text-lg justify-between w-full gap-3 md:gap-0">
-                <div className="flex items-center gap-4 w-full">
-                  <img
-                    src="/assets/images/projects/icons/year.png"
-                    alt="year"
-                    className="w-6 h-auto"
-                  />
-                  <p>2023</p>
-                </div>
-                <div className="flex items-center gap-4 w-1/2">
-                  <img
-                    src="/assets/images/projects/icons/area.png"
-                    alt="area"
-                    className="w-6 h-auto"
-                  />
-                  <p>200 sqm</p>
-                </div>
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/category.png"
+                  alt="category"
+                  className="w-6 h-auto"
+                />
+                <p>Office</p>
+              </div>
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/year.png"
+                  alt="year"
+                  className="w-6 h-auto"
+                />
+                <p>2023</p>
+              </div>
+              <div className="flex items-center gap-4 w-full">
+                <img
+                  src="/assets/images/projects/icons/area.png"
+                  alt="area"
+                  className="w-6 h-auto"
+                />
+                <p>200 sqm</p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
