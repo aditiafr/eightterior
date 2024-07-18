@@ -70,7 +70,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Build Dreams
             </h2>
-            <p className="text-sm md:text-xl md:w-2/3 font-light">
+            <p className="text-sm md:text-xl md:w-2/3 font-light leading-relaxed">
               Welcome to Eightterior, your premier choice for corporate
               construction and interior solutions. With years of experience in
               the industry, we specialize in designing and constructing
@@ -114,26 +114,23 @@ const About = () => {
           {/* Tabs */}
           <div className="md:grid md:grid-cols-4 gap-10 md:gap-14 mt-12 md:mt-16 h-42 relative flex overflow-x-auto no-scrollbar">
             <button
-              className={`text-left ${
-                activeTab === "house"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "house"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("house")}
               aria-current={activeTab === "house" ? "page" : undefined}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "house"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "house"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">House</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "house" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "house" && "text-black"
+                    }`}
                 >
                   Build your own dream house now.
                 </p>
@@ -141,25 +138,22 @@ const About = () => {
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "apartment"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "apartment"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("apartment")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "apartment"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "apartment"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">Apartment</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "apartment" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "apartment" && "text-black"
+                    }`}
                 >
                   Create your own apartment to align with your taste.
                 </p>
@@ -167,25 +161,22 @@ const About = () => {
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "office"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "office"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("office")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "office"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "office"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">Office</p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "office" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "office" && "text-black"
+                    }`}
                 >
                   Make your office more suitable than before.
                 </p>
@@ -193,27 +184,24 @@ const About = () => {
             </button>
 
             <button
-              className={`text-left ${
-                activeTab === "hospitality"
-                  ? "text-primary-500"
-                  : "text-gray-400 hover:text-primary-500"
-              }`}
+              className={`text-left ${activeTab === "hospitality"
+                ? "text-primary-500"
+                : "text-gray-400 hover:text-primary-500"
+                }`}
               onClick={() => setActiveTab("hospitality")}
             >
               <div
-                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${
-                  activeTab === "hospitality"
-                    ? "border-primary-500"
-                    : "border-gray-400 hover:border-primary-500"
-                }`}
+                className={`border-t-8 md:border-t-4 w-56 md:w-full flex flex-col gap-4 ${activeTab === "hospitality"
+                  ? "border-primary-500"
+                  : "border-gray-400 hover:border-primary-500"
+                  }`}
               >
                 <p className="text-xl md:text-4xl font-bold mt-4">
                   Hospitality
                 </p>
                 <p
-                  className={`text-sm md:text-xl font-light ${
-                    activeTab === "hospitality" && "text-black"
-                  }`}
+                  className={`text-sm md:text-xl font-light ${activeTab === "hospitality" && "text-black"
+                    }`}
                 >
                   Create a comfortable hospitality for your guest.
                 </p>
@@ -229,7 +217,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Joyful Process
             </h2>
-            <p className="text-sm md:text-xl md:w-2/3 font-light">
+            <p className="text-sm md:text-xl md:w-2/3 font-light leading-relaxed">
               Joyful process with vibrant enthusiasm. We bring ideas where
               excitement meets productivity. Experience the perfect blend of fun
               and efficiency in your lively and engaging workflow.

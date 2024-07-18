@@ -22,9 +22,9 @@ const RMIbuAndira = () => {
       <section className="max-w-screen-lg flex flex-col justify-center items-center mx-auto bg-white mt-24 md:mt-32 mb-10 gap-10">
         <div className="flex flex-col justify-center items-center gap-2 md:gap-4">
           <h1 className="text-3xl md:text-7xl text-primary-500 font-bold">
-            PT. Pundi Mitra Mandiri
+            Rumah Ibu Andira
           </h1>
-          <p className="text-xl md:text-4xl">Simple Office</p>
+          <p className="text-xl md:text-4xl">Modern Kitchen</p>
         </div>
         <div className="flex flex-col justify-center items-center gap-6 md:gap-8 w-full">
           <img
