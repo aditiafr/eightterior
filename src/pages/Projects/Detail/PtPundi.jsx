@@ -32,15 +32,15 @@ const PTPundi = () => {
             alt="img-3"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover "
           />
-          <div className="w-full flex flex-col md:flex-row justify-between gap-6 md:gap-8">
-            <p className="md:w-full text-sm md:text-2xl md:leading-relaxed leading-relaxed px-4 md:px-0 text-justify font-light">
+          <div className="w-full flex flex-col md:flex-row justify-between gap-6 md:gap-8 font-light">
+            <p className="md:w-full text-sm md:text-2xl md:leading-relaxed leading-relaxed px-4 md:px-0 text-justify">
               Simple office with a sleek efficiency. We bring ideas where
               clarity meets productivity. Experience the perfect blend of
               minimalist design and functional elegance in your organized and
               efficient workspace.
             </p>
 
-            <div className="w-full grid grid-cols-2 px-4 md:px-4 text-sm md:text-md gap-8">
+            <div className="w-full grid grid-cols-2 px-4 md:px-4 text-[12px] md:text-md gap-8">
               <div className="flex items-center gap-4 w-full">
                 <img
                   src="/assets/images/projects/icons/location.png"
@@ -80,7 +80,7 @@ const PTPundi = () => {
       </section>
 
       <section className="w-full px-4 md:px-0">
-        <div className="max-w-screen-lg mx-auto flex flex-col gap-16 mb-20">
+        <div className="max-w-screen-lg mx-auto flex flex-col gap-10 md:gap-16 mb-20">
           <img
             src="/assets/images/projects/ptpundi/img-1.jpg"
             alt="img-1"

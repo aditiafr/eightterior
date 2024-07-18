@@ -70,7 +70,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Build Dreams
             </h2>
-            <p className="text-sm md:text-xl md:w-2/3 font-light leading-relaxed">
+            <p className="text-sm md:text-[20px] md:w-2/3 font-light leading-relaxed">
               Welcome to Eightterior, your premier choice for corporate
               construction and interior solutions. With years of experience in
               the industry, we specialize in designing and constructing
@@ -217,7 +217,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl text-primary-500 font-bold md:w-1/3">
               Joyful Process
             </h2>
-            <p className="text-sm md:text-xl md:w-2/3 font-light leading-relaxed">
+            <p className="text-sm md:text-[20px] md:w-2/3 font-light leading-relaxed">
               Joyful process with vibrant enthusiasm. We bring ideas where
               excitement meets productivity. Experience the perfect blend of fun
               and efficiency in your lively and engaging workflow.

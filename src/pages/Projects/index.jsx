@@ -121,7 +121,7 @@ const Projects = () => {
             className="rounded-xl w-full md:h-[580px] h-56 object-cover"
           />
           <div className="flex gap-4 mt-2 md:mt-6 w-full justify-center">
-            <div className="md:flex gap-4 justify-center hidden w-1/2">
+            <div className="md:flex gap-4 justify-center hidden w-full">
               <div
                 className="bg-cover bg-center w-full h-auto rounded-lg"
                 style={{
@@ -129,7 +129,7 @@ const Projects = () => {
                     "url('/assets/images/projects/ptpundi/img-2.jpg')",
                 }}
               />
-              <div className="flex flex-col gap-2 w-1/2 h-full">
+              <div className="flex flex-col gap-2 w-full h-full">
                 <div
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
@@ -146,7 +146,7 @@ const Projects = () => {
                 />
               </div>
             </div>
-            <div className="md:w-1/2 flex flex-col gap-4 md:gap-6 md:pl-4 w-full">
+            <div className="w-full flex flex-col gap-4 md:gap-6 md:pl-4">
               <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
                 PT. Pundi Mitra Mandiri
               </h1>
@@ -181,7 +181,7 @@ const Projects = () => {
             className="rounded-xl w-full md:h-[580px] h-56 object-cover"
           />
           <div className="flex gap-4 mt-2 md:mt-6 w-full justify-center">
-            <div className="md:flex gap-4 justify-center hidden w-1/2">
+            <div className="md:flex gap-4 justify-center hidden w-full">
               <div
                 className="bg-cover bg-center w-full h-auto rounded-lg"
                 style={{
@@ -189,7 +189,7 @@ const Projects = () => {
                     "url('/assets/images/projects/hotel/img-2.jpg')",
                 }}
               />
-              <div className="flex flex-col gap-2 w-1/2 h-full">
+              <div className="flex flex-col gap-2 w-full h-full">
                 <div
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
@@ -206,7 +206,7 @@ const Projects = () => {
                 />
               </div>
             </div>
-            <div className="md:w-1/2 flex flex-col gap-4 md:gap-6 md:pl-4 w-full">
+            <div className="w-full flex flex-col gap-4 md:gap-6 md:pl-4">
               <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
                 Hotel GAIA
               </h1>
