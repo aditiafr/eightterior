@@ -23,38 +23,39 @@ const ScrollToTop = () => {
 };
 
 const AppContent = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    setLoading(true); // Set loading to true whenever location changes
-    // Simulate an asynchronous operation, e.g., fetching data
-    setTimeout(() => {
-      setLoading(false); // Set loading to false after the operation is done
-    }, 1500); // Adjust the timeout as needed
-  }, [location]); // Trigger effect on location change
+    setLoading(true);
+
+    const handleLoad = () => {
+      setLoading(false);
+    };
+
+    // Simulate async data fetching
+    const timeoutId = setTimeout(handleLoad, 1500);
+
+    // Clean up timeout if the component unmounts
+    return () => clearTimeout(timeoutId);
+  }, [location]);
 
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <ScrollToTop />
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
-            <Route path="/projects/ptpundi" element={<PTPundi />} />
-            <Route path="/projects/hotel" element={<Hotel />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact-us" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </>
-      )}
+      <ScrollToTop />
+      <Header />
+      {loading && <Loading />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
+        <Route path="/projects/ptpundi" element={<PTPundi />} />
+        <Route path="/projects/hotel" element={<Hotel />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </>
   );
 };
