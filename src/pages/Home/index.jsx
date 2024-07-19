@@ -56,25 +56,11 @@ const Home = () => {
       <section className="w-full md:max-w-[1120px] flex flex-wrap items-center justify-between px-8 md:mx-auto my-14 md:my-24">
         <div className="flex justify-evenly items-center w-full gap-8 md:gap-32">
           <div className="relative flex justify-center items-center">
-            {/* <img
+            <img
               src="assets/images/home/img-1.png"
               alt="img-1"
               className="w-32 md:w-96 h-40 md:h-[460px] absolute top-2 md:top-5 left-2 md:left-5 z-10 rounded-md md:rounded-2xl"
-            /> */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="h-12 w-12 text-gray-500"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-              />
-            </svg>
+            />
             <div className="relative bottom-2 md:bottom-5 right-2 md:right-5 bg-primary-500 w-32 md:w-96 h-40 md:h-[460px] rounded-md md:rounded-2xl"></div>
           </div>
           <div className="flex flex-col md:gap-2 w-full">

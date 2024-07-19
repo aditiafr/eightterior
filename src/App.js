@@ -36,24 +36,25 @@ const AppContent = () => {
 
   return (
     <>
-      <ScrollToTop />
-      <Header />
-
       {loading ? (
         <Loading />
       ) : (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
-          <Route path="/projects/ptpundi" element={<PTPundi />} />
-          <Route path="/projects/hotel" element={<Hotel />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact-us" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <>
+          <ScrollToTop />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
+            <Route path="/projects/ptpundi" element={<PTPundi />} />
+            <Route path="/projects/hotel" element={<Hotel />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </>
       )}
-      <Footer />
     </>
   );
 };
