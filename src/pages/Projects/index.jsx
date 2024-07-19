@@ -51,14 +51,14 @@ const Projects = () => {
       <section className="w-full my-12 md:my-20 px-4 md:px-0">
         <div className="max-w-screen-xl bg-[#F2F2F2] flex flex-col justify-center items-center mx-auto gap-4 md:gap-8 p-6 md:p-12 rounded-xl mb-6 md:mb-10">
           <img
-            src="/assets/images/projects/rmibuandira/img-1.jpg"
+            src="/assets/images/projects/rmibuandira/img-1.png"
             alt="img-1"
             className="rounded-xl w-full md:h-[580px] h-56 object-cover"
           />
           <div className="flex gap-4 mt-2 md:mt-6 w-full justify-between">
             <div className="md:flex gap-4 justify-center hidden w-full">
               {/* <img
-                src="/assets/images/projects/rmibuandira/img-2.jpg"
+                src="/assets/images/projects/rmibuandira/img-2.png"
                 alt="img-1"
                 className="rounded-xl w-80 h-auto"
               /> */}
@@ -66,7 +66,7 @@ const Projects = () => {
                 className="bg-cover bg-center w-full h-auto rounded-lg"
                 style={{
                   backgroundImage:
-                    "url('/assets/images/projects/rmibuandira/img-2.jpg')",
+                    "url('/assets/images/projects/rmibuandira/img-2.png')",
                 }}
               />
               <div className="flex flex-col gap-2 w-full h-full">
@@ -74,14 +74,14 @@ const Projects = () => {
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
                     backgroundImage:
-                      "url('/assets/images/projects/rmibuandira/img-3.jpg')",
+                      "url('/assets/images/projects/rmibuandira/img-3.png')",
                   }}
                 />
                 <div
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
                     backgroundImage:
-                      "url('/assets/images/projects/rmibuandira/img-4.jpg')",
+                      "url('/assets/images/projects/rmibuandira/img-4.png')",
                   }}
                 />
               </div>
@@ -116,7 +116,7 @@ const Projects = () => {
 
         <div className="max-w-screen-xl bg-[#F2F2F2] flex flex-col justify-center items-center mx-auto gap-4 md:gap-8 p-6 md:p-12 rounded-xl mb-6 md:mb-10">
           <img
-            src="/assets/images/projects/ptpundi/img-1.jpg"
+            src="/assets/images/projects/ptpundi/img-1.png"
             alt="img-1"
             className="rounded-xl w-full md:h-[580px] h-56 object-cover"
           />
@@ -126,7 +126,7 @@ const Projects = () => {
                 className="bg-cover bg-center w-full h-auto rounded-lg"
                 style={{
                   backgroundImage:
-                    "url('/assets/images/projects/ptpundi/img-2.jpg')",
+                    "url('/assets/images/projects/ptpundi/img-2.png')",
                 }}
               />
               <div className="flex flex-col gap-2 w-full h-full">
@@ -134,14 +134,14 @@ const Projects = () => {
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
                     backgroundImage:
-                      "url('/assets/images/projects/ptpundi/img-3.jpg')",
+                      "url('/assets/images/projects/ptpundi/img-3.png')",
                   }}
                 />
                 <div
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
                     backgroundImage:
-                      "url('/assets/images/projects/ptpundi/img-4.jpg')",
+                      "url('/assets/images/projects/ptpundi/img-4.png')",
                   }}
                 />
               </div>
@@ -176,7 +176,7 @@ const Projects = () => {
 
         <div className="max-w-screen-xl bg-[#F2F2F2] flex flex-col justify-center items-center mx-auto gap-4 md:gap-8 p-6 md:p-12 rounded-xl">
           <img
-            src="/assets/images/projects/hotel/img-1.jpg"
+            src="/assets/images/projects/hotel/img-1.png"
             alt="img-1"
             className="rounded-xl w-full md:h-[580px] h-56 object-cover"
           />
@@ -186,7 +186,7 @@ const Projects = () => {
                 className="bg-cover bg-center w-full h-auto rounded-lg"
                 style={{
                   backgroundImage:
-                    "url('/assets/images/projects/hotel/img-2.jpg')",
+                    "url('/assets/images/projects/hotel/img-2.png')",
                 }}
               />
               <div className="flex flex-col gap-2 w-full h-full">
@@ -194,14 +194,14 @@ const Projects = () => {
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
                     backgroundImage:
-                      "url('/assets/images/projects/hotel/img-3.jpg')",
+                      "url('/assets/images/projects/hotel/img-3.png')",
                   }}
                 />
                 <div
                   className="bg-cover bg-center w-full h-full rounded-lg"
                   style={{
                     backgroundImage:
-                      "url('/assets/images/projects/hotel/img-4.jpg')",
+                      "url('/assets/images/projects/hotel/img-4.png')",
                   }}
                 />
               </div>

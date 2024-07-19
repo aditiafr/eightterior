@@ -71,9 +71,9 @@ const Home = () => {
         <div className="flex justify-evenly items-center w-full gap-8 md:gap-32">
           <div className="relative flex justify-center items-center">
             <img
-              src="assets/images/home/img-2.png"
-              alt="img-2"
-              className="w-32 md:w-96 h-40 md:h-[460px] absolute top-2 md:top-5 left-2 md:left-5 z-10"
+              src="assets/images/home/img-1.png"
+              alt="img-1"
+              className="w-32 md:w-96 h-40 md:h-[460px] absolute top-2 md:top-5 left-2 md:left-5 z-10 rounded-md md:rounded-2xl"
             />
             <div className="relative bottom-2 md:bottom-5 right-2 md:right-5 bg-primary-500 w-32 md:w-96 h-40 md:h-[460px] rounded-md md:rounded-2xl"></div>
           </div>
@@ -209,7 +209,7 @@ const Home = () => {
           <img
             src="assets/images/home/img-3.png"
             alt="..."
-            className="relative w-1/2"
+            className="relative w-1/2 rounded-r-xl md:rounded-r-2xl"
           />
           <div
             ref={containerRef}

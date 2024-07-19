@@ -29,7 +29,7 @@ const Hotel = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-6 md:gap-8 w-full">
           <img
-            src="/assets/images/projects/hotel/img-1.jpg"
+            src="/assets/images/projects/hotel/img-1.png"
             alt="img-1"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover "
           />
@@ -91,12 +91,12 @@ const Hotel = () => {
       <section className="w-full px-4 md:px-0">
         <div className="max-w-screen-lg mx-auto flex flex-col gap-10 md:gap-16 mb-20">
           <img
-            src="/assets/images/projects/hotel/img-2.jpg"
+            src="/assets/images/projects/hotel/img-2.png"
             alt="img-2"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover rounded-xl"
           />
           <img
-            src="/assets/images/projects/hotel/img-5.jpg"
+            src="/assets/images/projects/hotel/img-5.png"
             alt="img-5"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover rounded-xl"
           />

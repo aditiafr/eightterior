@@ -8,13 +8,13 @@ const Footer = () => {
         <Link to={`/`}>
           <div className="flex flex-col items-center gap-2 md:gap-4 transition duration-300 hover:scale-110">
             <img
-              src="/assets/images/logo.png"
+              src="/assets/images/logo-1.png"
               alt="logo"
-              className=" w-16 md:w-36"
+              className=" w-24 md:w-56"
             />
-            <h1 className="text-primary-500 font-extrabold text-md md:text-4xl">
+            {/* <h1 className="text-primary-500 font-extrabold text-md md:text-4xl">
               Eight<span className="text-second-500">terior</span>
-            </h1>
+            </h1> */}
           </div>
         </Link>
         <div className="flex flex-col gap-2 md:gap-4 w-1/2">

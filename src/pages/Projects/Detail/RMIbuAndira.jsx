@@ -28,7 +28,7 @@ const RMIbuAndira = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-6 md:gap-8 w-full">
           <img
-            src="/assets/images/projects/rmibuandira/img-1.jpg"
+            src="/assets/images/projects/rmibuandira/img-1.png"
             alt="img-1"
             className="w-full md:rounded-xl h-[300px] md:h-[600px] object-cover "
           />

@@ -84,28 +84,28 @@ const About = () => {
         <div className="max-w-screen-xl flex flex-col my-12">
           {activeTab === "house" && (
             <img
-              src="/assets/images/about/tabs/img-1.jpg"
+              src="/assets/images/about/tabs/img-1.png"
               alt="img-1"
               className="rounded-xl h-52 md:h-[600px] w-full object-cover"
             />
           )}
           {activeTab === "apartment" && (
             <img
-              src="/assets/images/about/tabs/img-2.jpg"
+              src="/assets/images/about/tabs/img-2.png"
               alt="img-2"
               className="rounded-xl h-52 md:h-[600px] w-full object-cover"
             />
           )}
           {activeTab === "office" && (
             <img
-              src="/assets/images/about/tabs/img-3.jpg"
+              src="/assets/images/about/tabs/img-3.png"
               alt="img-3"
               className="rounded-xl h-52 md:h-[600px] w-full object-cover"
             />
           )}
           {activeTab === "hospitality" && (
             <img
-              src="/assets/images/about/tabs/img-4.jpg"
+              src="/assets/images/about/tabs/img-4.png"
               alt="img-4"
               className="rounded-xl h-52 md:h-[600px] w-full object-cover"
             />
@@ -241,7 +241,7 @@ const About = () => {
           <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
-              backgroundImage: "url('/assets/images/about/img-2-1.png')",
+              backgroundImage: "url('/assets/images/about/carousel/img-1.png')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
@@ -258,7 +258,7 @@ const About = () => {
           <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
-              backgroundImage: "url('/assets/images/about/img-2-2.png')",
+              backgroundImage: "url('/assets/images/about/carousel/img-2.png')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
@@ -273,7 +273,7 @@ const About = () => {
           <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
-              backgroundImage: "url('/assets/images/about/img-2-3.png')",
+              backgroundImage: "url('/assets/images/about/carousel/img-3.png')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
@@ -291,7 +291,7 @@ const About = () => {
           <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
-              backgroundImage: "url('/assets/images/about/img-2-4.png')",
+              backgroundImage: "url('/assets/images/about/carousel/img-4.png')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
@@ -309,7 +309,7 @@ const About = () => {
           <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
-              backgroundImage: "url('/assets/images/about/img-2-5.png')",
+              backgroundImage: "url('/assets/images/about/carousel/img-5.png')",
             }}
           >
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>

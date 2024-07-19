@@ -84,10 +84,12 @@ const Header = () => {
         <nav className={`fixed w-full z-20 top-0 start-0 ${isScrolled ? 'bg-white shadow-sm shadow-gray-200' : 'bg-transparent'}`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link to={`/`} className="flex items-center space-x-3 rtl:space-x-reverse transition duration-300 ease-in-out hover:scale-110 hover:z-10">
-                    <img src="/assets/images/logo.png" className="h-14 md:h-20" alt="Eightterior Logo" />
+                    <img src="/assets/images/logo.png" className="w-14 md:w-20" alt="Eightterior Logo" />
                 </Link>
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    <h1 className="text-primary-500 font-extrabold text-3xl hidden lg:block transition duration-300 hover:scale-110">Eight<span className="text-second-500">terior</span></h1>
+                    <Link to={`/`} className="hidden md:flex items-center space-x-3 rtl:space-x-reverse transition duration-300 ease-in-out hover:scale-110 hover:z-10">
+                        <img src="/assets/images/logo-text.png" className="w-32 md:w-44" alt="Eightterior Logo Text" />
+                    </Link>
                     <button
                         onClick={toggleMenu}
                         className="inline-flex items-center p-2 justify-center text-primary-500 rounded-lg md:hidden focus:outline-none"
