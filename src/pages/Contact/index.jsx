@@ -1,22 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { DevicePhoneMobileIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import Loading from "../../components/Loading";
 
 const Contact = () => {
-
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (isLoading) {
-    return <Loading />
-  }
 
   return (
     <>

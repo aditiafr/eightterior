@@ -3,12 +3,10 @@ import {
   CustomLeftArrow,
   CustomRightArrow,
 } from "../../components/CustomArrows";
-import Loading from "../../components/Loading";
 import { useEffect, useState } from "react";
 import { Carousel } from "@material-tailwind/react";
 
 const About = () => {
-  const [isLoading, setIsLoading] = useState(true);
 
   const [activeTab, setActiveTab] = useState("house");
 
@@ -30,18 +28,6 @@ const About = () => {
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, [Tabs]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Simulasi waktu loading, ganti dengan logika loading resource sebenarnya
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <>
