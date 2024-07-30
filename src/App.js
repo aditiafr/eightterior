@@ -11,6 +11,10 @@ import PTPundi from './pages/Projects/Detail/PtPundi';
 import Hotel from './pages/Projects/Detail/Hotel';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
+import Dashboard from './pages/dashboard/pages/dashboard';
+import MySidebar from './pages/dashboard/components/Sidebar';
+import Project from './pages/dashboard/pages/Project';
+import FormProject from './pages/dashboard/pages/Project/form';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -43,19 +47,40 @@ const AppContent = () => {
   return (
     <>
       <ScrollToTop />
-      <Header />
-      {loading && <Loading />}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
-        <Route path="/projects/ptpundi" element={<PTPundi />} />
-        <Route path="/projects/hotel" element={<Hotel />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact-us" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/*" element={
+          <>
+            <Header />
+            {loading && <Loading />}
+            <Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
+              <Route path="/projects/ptpundi" element={<PTPundi />} />
+              <Route path="/projects/hotel" element={<Hotel />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact-us" element={<Contact />} />
+            </Routes>
+            <Footer />
+          </>
+        } />
+
+        {/* DASHBOARD */}
+
+        <Route path="/dashboard/*" element={
+          <>
+            <MySidebar>
+              <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/project" element={<Project />} />
+                <Route path="/project/form" element={<FormProject />} />
+              </Routes>
+            </MySidebar>
+          </>
+        } />
+
       </Routes>
-      <Footer />
     </>
   );
 };
