@@ -4,7 +4,7 @@ import DeleteProject from "./delete";
 import { Link } from "react-router-dom";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { useEffect, useState } from "react";
-import { getProjectList } from "../../API/getData";
+import {getProjectList} from "../../API/GetData";
 
 
 const Project = () => {

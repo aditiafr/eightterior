@@ -1,18 +1,38 @@
-import { Button, Col, Form, Input, Row, Upload, message } from "antd";
+import { Button, Col, Form, Input, Row, Select, Upload, message } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import ButtonSubmit from "../../components/Global/Button/ButtonSubmit";
 import Icon, { InboxOutlined, UploadOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { postProject } from "../../API/PostData";
 import Dragger from "antd/es/upload/Dragger";
+import { getCategoryList } from "../../API/GetData";
 
 const FormProject = () => {
     const [form] = Form.useForm();
     const [fileList, setFileList] = useState([]);
+    const [categoryData, setCategoryData] = useState([]);
+
+    const fetchCategory = async () => {
+        try {
+            const response = await getCategoryList();
+            setCategoryData(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCategory();
+    }, []);
+
+    // console.log("Data Category", categoryData);
+
+
 
     const onFinish = async (values) => {
         const modifiedValues = {
             ...values,
+            created_by: "aditia",
             foto1: fileList[0] ? fileList[0].thumbUrl : '',
             foto2: fileList[1] ? fileList[1].thumbUrl : '',
             foto3: fileList[2] ? fileList[2].thumbUrl : '',
@@ -54,6 +74,10 @@ const FormProject = () => {
         }
         setFileList((prevList) => [...prevList, file]);
         return false; // Prevent automatic upload
+    };
+
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
     };
 
     return (
@@ -103,6 +127,43 @@ const FormProject = () => {
 
                         <Col xs={24} sm={12}>
                             <Form.Item
+                                label="Location"
+                                name="location"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your Location!",
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="Masukan Location" />
+                            </Form.Item>
+                        </Col>
+                        
+                        <Col xs={24} sm={12}>
+                            <Form.Item
+                                label="Category"
+                                name="id_category"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your Category!",
+                                    },
+                                ]}
+                            >
+                                <Select
+                                    placeholder="Select a category"
+                                    onChange={handleChange}
+                                    options={categoryData.map((item) => ({
+                                        value: item.id,
+                                        label: item.name,
+                                    }))}
+                                />
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} sm={12}>
+                            <Form.Item
                                 label="Area"
                                 name="area"
                                 rules={[
@@ -131,22 +192,7 @@ const FormProject = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} sm={12}>
-                            <Form.Item
-                                label="Location"
-                                name="location"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Please input your Location!",
-                                    },
-                                ]}
-                            >
-                                <Input placeholder="Masukan Location" />
-                            </Form.Item>
-                        </Col>
-
-                        <Col xs={24} sm={12}>
+                        <Col xs={24} sm={24}>
                             <Form.Item
                                 label="Description"
                                 name="deskripsi"
