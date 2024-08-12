@@ -7,7 +7,7 @@ import Dragger from "antd/es/upload/Dragger";
 
 const EditProject = ({ onData, onEdit }) => {
 
-    console.log("DATA", onData);
+    // console.log("DATA", onData);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [fileList, setFileList] = useState([]);
@@ -21,14 +21,7 @@ const EditProject = ({ onData, onEdit }) => {
     useEffect(() => {
         if (isModalOpen && onData) {
             // Mengisi form fields
-            form.setFieldsValue({
-                name: onData.name || "",
-                name_client: onData.name_client || "",
-                area: onData.area || "",
-                year: onData.year || "",
-                location: onData.location || "",
-                deskripsi: onData.deskripsi || "",
-            });
+            form.setFieldsValue(onData);
 
             // Mapping onData file URLs to Upload fileList format
             const files = Object.keys(onData)

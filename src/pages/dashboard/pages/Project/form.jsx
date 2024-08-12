@@ -1,11 +1,12 @@
-import { Button, Col, Form, Input, Row, Select, Upload, message } from "antd";
+import { Col, Form, Image, Input, Modal, Row, Select, Upload, message } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import ButtonSubmit from "../../components/Global/Button/ButtonSubmit";
-import Icon, { InboxOutlined, UploadOutlined } from "@ant-design/icons";
+import { InboxOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { postProject } from "../../API/PostData";
 import Dragger from "antd/es/upload/Dragger";
 import { getCategoryList } from "../../API/GetData";
+import { Link } from "react-router-dom";
 
 const FormProject = () => {
     const [form] = Form.useForm();
@@ -80,12 +81,19 @@ const FormProject = () => {
         console.log(`selected ${value}`);
     };
 
+    const [open, setOpen] = useState(false);
+
     return (
         <>
             <div className="flex justify-between items-center px-2 pb-4">
                 <HeaderTitle title="PROJECT" subtitle="form data a project" />
             </div>
-            <div className="w-full bg-white rounded-lg">
+            <div className="relative w-full bg-white rounded-lg">
+
+                <div className="absolute right-0 text-right pt-4 pr-4">
+                    <Link onClick={setOpen}>View Design</Link>
+                </div>
+
                 <Form
                     name="basic"
                     layout="vertical"
@@ -94,7 +102,7 @@ const FormProject = () => {
                     autoComplete="off"
                     form={form}
                 >
-                    <Row gutter={30} style={{ padding: "28px" }}>
+                    <Row gutter={30} style={{ padding: "28px", paddingTop: "38px" }}>
                         <Col xs={24} sm={12}>
                             <Form.Item
                                 label="Name Project"
@@ -106,7 +114,7 @@ const FormProject = () => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Name Project" />
+                                <Input placeholder="Name Project" />
                             </Form.Item>
                         </Col>
 
@@ -121,7 +129,7 @@ const FormProject = () => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Name Client" />
+                                <Input placeholder="Name Client" />
                             </Form.Item>
                         </Col>
 
@@ -136,10 +144,10 @@ const FormProject = () => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Location" />
+                                <Input placeholder="Location" />
                             </Form.Item>
                         </Col>
-                        
+
                         <Col xs={24} sm={12}>
                             <Form.Item
                                 label="Category"
@@ -173,7 +181,7 @@ const FormProject = () => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Area" />
+                                <Input placeholder="Area" />
                             </Form.Item>
                         </Col>
 
@@ -188,7 +196,7 @@ const FormProject = () => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Year" />
+                                <Input placeholder="Year" />
                             </Form.Item>
                         </Col>
 
@@ -203,7 +211,7 @@ const FormProject = () => {
                                     },
                                 ]}
                             >
-                                <Input.TextArea placeholder="Masukan Description" rows={4} />
+                                <Input.TextArea placeholder="Description..." rows={4} />
                             </Form.Item>
                         </Col>
 
@@ -232,6 +240,35 @@ const FormProject = () => {
                     <ButtonSubmit onReset={onReset} />
                 </Form>
             </div>
+
+            <Modal
+                title="Position"
+                centered
+                open={open}
+                onOk={() => setOpen(false)}
+                onCancel={() => setOpen(false)}
+                width={1000}
+            >
+                <div className="flex flex-col w-full justify-center items-center gap-4">
+                    <div className="flex flex-col gap-4 justify-center items-center">
+                        <h2 className="text-3xl font-bold">Project</h2>
+                        <img
+                            src={`/assets/dashboard/project.png`}
+                            style={{ width: '80%', height: '80%', objectFit: 'cover' }}
+                            alt="..."
+                        />
+                    </div>
+                    <div className="flex flex-col gap-4 justify-center items-center">
+                        <h2 className="text-3xl font-bold">Detail Project</h2>
+                        <img
+                            src={`/assets/dashboard/detail-project.png`}
+                            style={{ width: '80%', height: '80%', objectFit: 'cover' }}
+                            alt="..."
+                        />
+                    </div>
+                </div>
+            </Modal>
+
         </>
     );
 };
