@@ -47,6 +47,7 @@ const EditProject = ({ onData, onEdit }) => {
             foto1: fileList[0] ? fileList[0].thumbUrl : '',
             foto2: fileList[1] ? fileList[1].thumbUrl : '',
             foto3: fileList[2] ? fileList[2].thumbUrl : '',
+            foto4: fileList[3] ? fileList[3].thumbUrl : '',
         };
 
         console.log("on Submit", modifiedValues);
@@ -62,16 +63,16 @@ const EditProject = ({ onData, onEdit }) => {
     };
 
     const handleUploadChange = ({ fileList }) => {
-        if (fileList.length > 3) {
-            message.error("You can only upload a maximum of 3 images.");
+        if (fileList.length > 4) {
+            message.error("You can only upload a maximum of 4 images.");
             return;
         }
         setFileList(fileList);
     };
 
     const beforeUpload = (file) => {
-        if (fileList.length >= 3) {
-            message.error("You can only upload a maximum of 3 images.");
+        if (fileList.length >= 4) {
+            message.error("You can only upload a maximum of 4 images.");
             return Upload.LIST_IGNORE; // Ignore this file
         }
         setFileList((prevList) => [...prevList, file]);
@@ -213,7 +214,7 @@ const EditProject = ({ onData, onEdit }) => {
                                     <p className="ant-upload-drag-icon">
                                         <InboxOutlined />
                                     </p>
-                                    <p className="ant-upload-text">Click or drag file to this area to upload (Max 3 Images)</p>
+                                    <p className="ant-upload-text">Click or drag file to this area to upload (Max 4 Images)</p>
                                 </Dragger>
                             </Form.Item>
                         </Col>

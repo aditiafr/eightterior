@@ -11,10 +11,14 @@ import PTPundi from './pages/Projects/Detail/PtPundi';
 import Hotel from './pages/Projects/Detail/Hotel';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
-import Dashboard from './pages/dashboard/pages/dashboard';
-import MySidebar from './pages/dashboard/components/Sidebar';
-import Project from './pages/dashboard/pages/Project';
-import FormProject from './pages/dashboard/pages/Project/form';
+import Dashboard from './pages/Dashboard/pages/Dashboard';
+import MySidebar from './pages/Dashboard/components/Sidebar';
+import Project from './pages/Dashboard/pages/Project';
+import FormProject from './pages/Dashboard/pages/Project/form';
+import Category from './pages/Dashboard/pages/Category';
+import FormCategory from './pages/Dashboard/pages/Category/form';
+import Review from './pages/Dashboard/pages/Review';
+import FormReview from './pages/Dashboard/pages/Review/form';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -73,8 +77,12 @@ const AppContent = () => {
             <MySidebar>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
+                <Route path="/category" element={<Category />} />
+                <Route path="/category/form" element={<FormCategory />} />
                 <Route path="/project" element={<Project />} />
                 <Route path="/project/form" element={<FormProject />} />
+                <Route path="/review" element={<Review />} />
+                <Route path="/review/form" element={<FormReview />} />
               </Routes>
             </MySidebar>
           </>

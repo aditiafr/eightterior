@@ -22,7 +22,11 @@ const MySidebar = ({ children }) => {
 
     const items = [
         getItem("Dashboard", "1", <PieChartOutlined />, "/dashboard"),
-        getItem("Project", "2", <PieChartOutlined />, "/dashboard/project"),
+        getItem("Banner", "2", <PieChartOutlined />, "/dashboard/banner"),
+        getItem("Category", "3", <PieChartOutlined />, "/dashboard/category"),
+        getItem("Project", "4", <PieChartOutlined />, "/dashboard/project"),
+        getItem("Carousel", "5", <PieChartOutlined />, "/dashboard/carousel"),
+        getItem("Review", "6", <PieChartOutlined />, "/dashboard/review"),
     ];
 
     return (
