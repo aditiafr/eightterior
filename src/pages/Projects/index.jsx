@@ -1,17 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getProjectList } from "../Dashboard/API/GetData";
 
 const Projects = () => {
+
+  const [project, setProject] = useState([]);
+
+  const fetchProject = async () => {
+    try {
+      const response = await getProjectList();
+      setProject(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchProject();
+  }, []);
+
+  console.log(project);
+
 
   return (
     <>
       <section className="w-full mt-24 mb-12 md:mt-28 px-4 md:px-0">
-        <h1 className="text-[44px] md:text-[150px] text-primary-500 font-bold w-full text-center">
+        <h1 className="text-[44px] md:text-[120px] lg:text-[150px] text-primary-500 font-bold w-full text-center">
           SATISF<span className="text-second-500">ACTION</span>
         </h1>
         <div className="max-w-screen-xl flex flex-col justify-center items-center mx-auto gap-8 mt-4 md:mt-0">
           <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8 md:gap-20">
-            <p className="w-full text-sm md:text-3xl leading-relaxed md:leading-relaxed text-justify font-light">
+            <p className="w-full text-sm lg:text-3xl md:text-2xl leading-relaxed md:leading-relaxed text-justify font-light">
               Customer satisfaction is our main objective. We prioritize
               functional design yet still keep an eye on its aesthetic aspects.
               Find your needs from our recent projects.
@@ -21,13 +40,13 @@ const Projects = () => {
                 <h2 className="text-4xl md:text-6xl text-primary-500 font-bold">
                   50+
                 </h2>
-                <p className="text-xl md:text-2xl">Happy Client</p>
+                <p className="text-xl lg:text-2xl md:text-xl">Happy Client</p>
               </div>
               <div className="flex flex-col gap-4">
                 <h2 className="text-4xl md:text-6xl text-second-500 font-bold">
                   50+
                 </h2>
-                <p className="text-xl md:text-2xl">Project Finished</p>
+                <p className="text-xl lg:text-2xl md:text-xl">Project Finished</p>
               </div>
             </div>
           </div>
@@ -35,6 +54,68 @@ const Projects = () => {
       </section>
 
       <section className="w-full my-12 md:my-20 px-4 md:px-0">
+        {project.map((item) => (
+          <div key={item.key} className="max-w-screen-xl bg-[#F2F2F2] flex flex-col justify-center items-center mx-auto gap-4 md:gap-8 p-6 md:p-12 rounded-xl mb-6 md:mb-10">
+            <img
+              src={item.foto1}
+              alt="img-1"
+              className="rounded-xl w-full md:h-[580px] h-56 object-cover"
+            />
+            <div className="flex gap-4 mt-2 md:mt-6 w-full justify-center">
+              <div className="md:flex gap-4 justify-center hidden w-full">
+                <div
+                  className="bg-cover bg-center w-full h-auto rounded-lg"
+                  style={{
+                    backgroundImage:
+                      `url(${item.foto2})`,
+                  }}
+                />
+                <div className="flex flex-col gap-2 w-full h-full">
+                  <div
+                    className="bg-cover bg-center w-full h-full rounded-lg"
+                    style={{
+                      backgroundImage:
+                        `url(${item.foto3})`,
+                    }}
+                  />
+                  <div
+                    className="bg-cover bg-center w-full h-full rounded-lg"
+                    style={{
+                      backgroundImage:
+                        `url(${item.foto4})`,
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="w-full flex flex-col gap-4 md:gap-6 md:pl-4">
+                <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
+                  {item.name}
+                </h1>
+
+                <div className="flex text-[12px] md:text-xl font-light gap-4 ">
+                  <div className="flex flex-col gap-2">
+                    <p>Location</p>
+                    <p>Category</p>
+                    <p>Area</p>
+                    <p>Year</p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <p>: {item.location}</p>
+                    <p>: {item.category}</p>
+                    <p>: {item.area}</p>
+                    <p>: {item.year}</p>
+                  </div>
+                </div>
+                <Link to="/projects/ptpundi">
+                  <button className="border-2 md:border-4 border-primary-500 text-primary-500 rounded-lg md:rounded-xl w-36 md:w-64 h-12 md:h-16 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-md">
+                    SEE PROJECT
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+
         <div className="max-w-screen-xl bg-[#F2F2F2] flex flex-col justify-center items-center mx-auto gap-4 md:gap-8 p-6 md:p-12 rounded-xl mb-6 md:mb-10">
           <img
             src="/assets/images/projects/rmibuandira/img-1.png"

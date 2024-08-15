@@ -5,12 +5,44 @@ import {
   CustomRightArrow,
 } from "../../components/CustomArrows";
 import { Carousel } from "@material-tailwind/react";
+import { getProjectList, getReviewList } from "../Dashboard/API/GetData";
 
 const Home = () => {
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  const [review, setReview] = useState([]);
+  const [carousel, setCarousel] = useState([]);
+
+  const fetchReview = async () => {
+    try {
+      const response = await getReviewList();
+      setReview(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchReview();
+  }, []);
+
+  const fetchCarousel = async () => {
+    try {
+      const response = await getProjectList();
+      setCarousel(response)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCarousel();
+  }, []);
+
+  console.log(carousel);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -124,7 +156,30 @@ const Home = () => {
             <CustomRightArrow onClick={handleNext} />
           )}
         >
-          <div
+          {carousel.map((item) => (
+            <div
+              key={item.key}
+              className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
+              style={{
+                backgroundImage: `url(${item.foto1})`,
+              }}
+            >
+              <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+              <div className="relative flex flex-col justify-center h-full md:mx-52 text-white gap-1 md:gap-3 mx-16">
+                <h3 className="text-sm md:text-4xl">RECENT PROJECT</h3>
+                <h1 className="text-xl md:text-6xl font-semibold">{item.name}</h1>
+                <div className="relative">
+                  <Link to={`/projects/${item.name.toLowerCase().replace(/\s+/g, '')}`}>
+                    <button className="text-white border md:border-2 w-28 md:w-56 h-10 md:h-16 mt-4 md:mt-6 rounded-xl text-[10px] md:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
+                      LEARN MORE
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
               backgroundImage: "url('/assets/images/home/carousel/img-1.png')",
@@ -186,7 +241,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
         </Carousel>
       </section>
 
@@ -206,7 +261,24 @@ const Home = () => {
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
-            <div className="bg-white w-full p-4 h-24 md:h-auto md:p-10 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-2 md:gap-4">
+            {/*  */}
+            {review.map((item) => (
+              <div key={item.key} className="bg-white p-4 h-24 md:h-64 md:p-10 shadow-gray-400 shadow-sm rounded-lg flex flex-col justify-center gap-2 md:gap-4">
+                <p className="w-[200px] text-[7px] md:text-lg md:w-[620px] font-light">
+                  {item.deskripsi}
+                </p>
+                <div className="flex flex-col">
+                  <p className="text-primary-500 font-semibold md:text-lg text-[8px]">
+                    {item.name}
+                  </p>
+                  <p className="md:text-lg text-[7px]">
+                    {item.name_project}
+                  </p>
+                </div>
+              </div>
+            ))}
+            {/*  */}
+            {/* <div className="bg-white w-full p-4 h-24 md:h-auto md:p-10 shadow-gray-400 shadow-sm rounded-lg flex flex-col gap-2 md:gap-4">
               <p className="w-[200px] text-[7px] md:text-lg md:w-[620px] font-light">
                 Terima kasih Eightterior karena telah mewujudkan rumah impian
                 saya. Design dari Eightterior sangat mengedepankan aspek
@@ -248,7 +320,7 @@ const Home = () => {
                 </p>
                 <p className="md:text-lg text-[7px]">Project Simple Office</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
