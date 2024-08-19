@@ -2,8 +2,8 @@ import { EditFilled } from "@ant-design/icons";
 import { Button, Col, Form, Input, message, Modal, Row, Tooltip } from "antd";
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import ButtonEdit from "../../components/Global/Button/ButtonEdit";
 import { updateCategory } from "../../API/UpdateData";
+import { ButtonEdit } from "../../components/Global/Button";
 
 const EditCategory = ({ onData, onEdit }) => {
 

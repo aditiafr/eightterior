@@ -1,12 +1,12 @@
 import { Col, Form, Input, Modal, Row, Select, Upload, message } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import ButtonSubmit from "../../components/Global/Button/ButtonSubmit";
 import { InboxOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { postProject } from "../../API/PostData";
 import Dragger from "antd/es/upload/Dragger";
 import { getCategoryList } from "../../API/GetData";
 import { Link } from "react-router-dom";
+import { ButtonSubmit } from "../../components/Global/Button";
 
 const FormProject = () => {
     const [form] = Form.useForm();

@@ -1,8 +1,8 @@
 import { Col, Form, Input, message, Row } from "antd";
-import ButtonSubmit from "../../components/Global/Button/ButtonSubmit";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { postReview } from "../../API/PostData";
 import { useNavigate } from "react-router-dom";
+import { ButtonSubmit } from "../../components/Global/Button";
 
 const FormReview = () => {
   const [form] = Form.useForm();

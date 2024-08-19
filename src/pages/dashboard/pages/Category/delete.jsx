@@ -1,7 +1,7 @@
 import { DeleteFilled, ExclamationCircleFilled } from "@ant-design/icons";
 import { Button, Modal, Tooltip } from "antd";
 import React from "react";
-import ButtonDelete from "../../components/Global/Button/ButtonDelete";
+import { ButtonDelete } from "../../components/Global/Button";
 
 const { confirm } = Modal;
 

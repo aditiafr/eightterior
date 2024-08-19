@@ -2,8 +2,8 @@ import { EditFilled, InboxOutlined } from "@ant-design/icons";
 import { Button, Col, Form, Input, message, Modal, Row, Tooltip, Upload } from "antd";
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import ButtonEdit from "../../components/Global/Button/ButtonEdit";
 import Dragger from "antd/es/upload/Dragger";
+import { ButtonEdit } from "../../components/Global/Button";
 
 const EditProject = ({ onData, onEdit }) => {
 

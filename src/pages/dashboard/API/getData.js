@@ -16,3 +16,8 @@ export const getReviewList = async () => {
     const response = await axios.get(`${baseUrl}/v1/review/list`);
     return response.data.data.map((row, index) => ({ ...row, key: index + 1 }));
 }
+
+export const getCarouselList = async () => {
+    const response = await axios.get(`${baseUrl}/v1/carousel/list`);
+    return response.data.data.map((row, index) => ({ ...row, key: index + 1 }));
+}

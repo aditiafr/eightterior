@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import About from './pages/About';
@@ -19,6 +20,9 @@ import Category from './pages/Dashboard/pages/Category';
 import FormCategory from './pages/Dashboard/pages/Category/form';
 import Review from './pages/Dashboard/pages/Review';
 import FormReview from './pages/Dashboard/pages/Review/form';
+import CarouselAbout from './pages/Dashboard/pages/Carousel';
+import FormCarousel from './pages/Dashboard/pages/Carousel/form';
+import Login from './pages/Dashboard/pages/Login';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,22 +35,27 @@ const ScrollToTop = () => {
 };
 
 const AppContent = () => {
-  const [loading, setLoading] = useState(false);
-  const location = useLocation();
+  // const [loading, setLoading] = useState(false);
+  // const location = useLocation();
 
-  useEffect(() => {
-    setLoading(true);
+  // useEffect(() => {
+  //   setLoading(true);
 
-    const handleLoad = () => {
-      setLoading(false);
-    };
+  //   const handleLoad = () => {
+  //     setLoading(false);
+  //   };
 
-    // Simulate async data fetching
-    const timeoutId = setTimeout(handleLoad, 1500);
+  //   // Simulate async data fetching
+  //   const timeoutId = setTimeout(handleLoad, 1500);
 
-    // Clean up timeout if the component unmounts
-    return () => clearTimeout(timeoutId);
-  }, [location]);
+  //   // Clean up timeout if the component unmounts
+  //   return () => clearTimeout(timeoutId);
+  // }, [location]);
+
+  const PrivateRoute = ({ element }) => {
+    const authToken = Cookies.get('auth_token');
+    return authToken ? element : <Navigate to="/login" />;
+  };
 
   return (
     <>
@@ -55,7 +64,7 @@ const AppContent = () => {
         <Route path="/*" element={
           <>
             <Header />
-            {loading && <Loading />}
+            {/* {loading && <Loading />} */}
             <Routes>
               <Route path="*" element={<NotFound />} />
               <Route path="/" element={<Home />} />
@@ -72,20 +81,26 @@ const AppContent = () => {
 
         {/* DASHBOARD */}
 
+        <Route path="/login" element={<Login />} />
+
         <Route path="/dashboard/*" element={
-          <>
-            <MySidebar>
-              <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/category" element={<Category />} />
-                <Route path="/category/form" element={<FormCategory />} />
-                <Route path="/project" element={<Project />} />
-                <Route path="/project/form" element={<FormProject />} />
-                <Route path="/review" element={<Review />} />
-                <Route path="/review/form" element={<FormReview />} />
-              </Routes>
-            </MySidebar>
-          </>
+          <PrivateRoute
+            element={
+              <MySidebar>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/category" element={<Category />} />
+                  <Route path="/category/form" element={<FormCategory />} />
+                  <Route path="/project" element={<Project />} />
+                  <Route path="/project/form" element={<FormProject />} />
+                  <Route path="/review" element={<Review />} />
+                  <Route path="/review/form" element={<FormReview />} />
+                  <Route path="/carousel" element={<CarouselAbout />} />
+                  <Route path="/carousel/form" element={<FormCarousel />} />
+                </Routes>
+              </MySidebar>
+            }
+          />
         } />
 
       </Routes>
