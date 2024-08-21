@@ -12,17 +12,17 @@ import PTPundi from './pages/Projects/Detail/PtPundi';
 import Hotel from './pages/Projects/Detail/Hotel';
 import NotFound from './components/NotFound';
 import Loading from './components/Loading';
-import Dashboard from './pages/Dashboard/pages/Dashboard';
-import MySidebar from './pages/Dashboard/components/Sidebar';
-import Project from './pages/Dashboard/pages/Project';
-import FormProject from './pages/Dashboard/pages/Project/form';
-import Category from './pages/Dashboard/pages/Category';
-import FormCategory from './pages/Dashboard/pages/Category/form';
-import Review from './pages/Dashboard/pages/Review';
-import FormReview from './pages/Dashboard/pages/Review/form';
-import CarouselAbout from './pages/Dashboard/pages/Carousel';
-import FormCarousel from './pages/Dashboard/pages/Carousel/form';
-import Login from './pages/Dashboard/pages/Login';
+import Dashboard from './Dashboard/pages/Dashboard';
+import MySidebar from './Dashboard/components/Sidebar';
+import Project from './Dashboard/pages/Project';
+import FormProject from './Dashboard/pages/Project/form';
+import Category from './Dashboard/pages/Category';
+import FormCategory from './Dashboard/pages/Category/form';
+import Review from './Dashboard/pages/Review';
+import FormReview from './Dashboard/pages/Review/form';
+import CarouselAbout from './Dashboard/pages/Carousel';
+import FormCarousel from './Dashboard/pages/Carousel/form';
+import Login from './Dashboard/pages/Login';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();

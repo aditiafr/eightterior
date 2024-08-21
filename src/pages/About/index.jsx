@@ -5,12 +5,15 @@ import {
 } from "../../components/CustomArrows";
 import { useEffect, useState } from "react";
 import { Carousel } from "@material-tailwind/react";
+import { getCarouselList } from "../../Dashboard/API/GetData";
+import { data } from "autoprefixer";
 
 const About = () => {
 
   const [activeTab, setActiveTab] = useState("house");
 
   // Array of tab names for easy indexing
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const Tabs = ["house", "apartment", "office", "hospitality"];
 
   useEffect(() => {
@@ -28,6 +31,24 @@ const About = () => {
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, [Tabs]);
+
+  const [dataCarousel, setDataCarousel] = useState([]);
+
+  const fetchDataCarousel = async () => {
+    try {
+      const res = await getCarouselList();
+      setDataCarousel(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataCarousel();
+  }, []);
+
+  console.log(dataCarousel);
+
 
   return (
     <>

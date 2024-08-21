@@ -5,7 +5,7 @@ import {
   CustomRightArrow,
 } from "../../components/CustomArrows";
 import { Carousel } from "@material-tailwind/react";
-import { getProjectList, getReviewList } from "../Dashboard/API/GetData";
+import { getProjectList, getReviewList } from "../../Dashboard/API/GetData";
 
 const Home = () => {
   const containerRef = useRef(null);

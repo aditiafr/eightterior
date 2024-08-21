@@ -14,10 +14,12 @@ const Login = () => {
 
     const data = [
         {
+            username: "Admin",
             email: "admin@gmail.com",
             password: "123456789"
         },
         {
+            username: "User",
             email: "user@gmail.com",
             password: "123456789"
         },
@@ -40,7 +42,9 @@ const Login = () => {
         try {
             if (user) {
                 const randomString = generateRandomString(50);
+                localStorage.setItem('data', JSON.stringify(user));
                 Cookies.set('auth_token', randomString, { expires: 1 });
+                message.success("You have successfully logged in.")
                 navigate('/dashboard');
             } else {
                 message.error("Email dan Password tidak sesuai!")
@@ -67,7 +71,9 @@ const Login = () => {
         <div className="h-screen max-w-screen mx-auto flex items-center justify-center bg-gray-100">
             <div className="max-h-screen-lg max-w-screen-lg w-full flex drop-shadow-md">
                 <div className="bg-white py-6 lg:py-10 px-8 lg:px-14 w-full lg:w-1/2 rounded-s-md lg:rounded-s-xl mx-4 lg:mx-0">
-                    <img src="/assets/images/logo.png" alt="Logo Icon" className="w-20 md:w-28 h-20 md:h-28" />
+                    <Link to="/">
+                        <img src="/assets/images/logo.png" alt="Logo Icon" className="w-20 md:w-28 h-20 md:h-28" />
+                    </Link>
                     <div className="py-6">
                         <h1 className="text-[42px] md:text-[58px] text-primary-500 leading-none">Hello, <span className="font-bold">Welcome!</span></h1>
                     </div>
@@ -88,6 +94,7 @@ const Login = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             className="block w-full rounded-md border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                            placeholder="Email Address"
                                         />
                                     </div>
                                 </div>
@@ -106,6 +113,7 @@ const Login = () => {
                                             value={formData.password}
                                             onChange={handleChange}
                                             className="block w-full rounded-md border-0 pl-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                            placeholder="Password"
                                         />
                                         <button
                                             type="button"

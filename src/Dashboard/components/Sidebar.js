@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Dropdown, Layout, Menu, message, theme } from 'antd';
 import {
     AppstoreOutlined,
     LikeOutlined,
+    LogoutOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     OneToOneOutlined,
     PieChartOutlined,
     SnippetsOutlined,
+    UserOutlined,
 } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 const MySidebar = ({ children }) => {
+    const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
     const [mobile, setMobile] = useState(window.innerWidth <= 768);
 
@@ -50,6 +55,36 @@ const MySidebar = ({ children }) => {
         getItem("Review", "5", <LikeOutlined />, "/dashboard/review"),
     ];
 
+    const handleMenuClick = ({ key }) => {
+        if (mobile) {
+            setCollapsed(true);
+        }
+    };
+
+    const handleSignOut = () => {
+        Cookies.remove('auth_token');
+        navigate('/login');
+        message.success('You have successfully Sign out.');
+    }
+
+    const menuItems = [
+        {
+            key: 'account',
+            icon: <UserOutlined />,
+            label: 'Profile Account',
+        },
+        {
+            type: 'divider',
+        },
+        {
+            key: 'logout',
+            icon: <LogoutOutlined />,
+            label: <button onClick={handleSignOut}>Sign Out</button>,
+        },
+    ];
+
+    const dataSession = JSON.parse(localStorage.getItem('data'));
+
     return (
         <Layout style={{ minHeight: "100vh" }}>
             {!mobile || (mobile && !collapsed) ? (
@@ -81,6 +116,7 @@ const MySidebar = ({ children }) => {
                         mode="inline"
                         defaultSelectedKeys={["1"]}
                         items={items}
+                        onClick={handleMenuClick}
                     />
                 </Sider>
             ) : null}
@@ -107,10 +143,23 @@ const MySidebar = ({ children }) => {
                         onClick={() => setCollapsed(!collapsed)}
                         style={{
                             fontSize: "16px",
-                            width: 64,
-                            height: 64,
+                            width: 42,
+                            height: 42,
+                            marginLeft: mobile ? "8px" : 0,
                         }}
                     />
+                    {mobile && !collapsed ?
+                        ""
+                        : (
+                            <Dropdown menu={{ items: menuItems }} trigger={['click']}>
+                                <div className="flex items-center justify-center gap-2 mr-5 cursor-pointer">
+                                    <div className="border rounded-full p-2 flex items-center justify-center">
+                                        <UserOutlined style={{ fontSize: '16px' }} />
+                                    </div>
+                                    <p>{dataSession.username}</p>
+                                </div>
+                            </Dropdown>
+                        )}
                 </Header>
                 <Content
                     style={{
@@ -121,13 +170,13 @@ const MySidebar = ({ children }) => {
                 >
                     {children}
                 </Content>
-                <Footer
+                {/* <Footer
                     style={{
                         textAlign: "center",
                     }}
                 >
                     Ant Design ©{new Date().getFullYear()} Created by Ant UED
-                </Footer>
+                </Footer> */}
             </Layout>
         </Layout>
     );

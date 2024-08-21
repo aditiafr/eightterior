@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getProjectList } from "../Dashboard/API/GetData";
+import { getProjectList } from "../../Dashboard/API/GetData";
 
 const Projects = () => {
 
@@ -62,34 +62,43 @@ const Projects = () => {
               className="rounded-xl w-full md:h-[580px] h-56 object-cover"
             />
             <div className="flex gap-4 mt-2 md:mt-6 w-full justify-center">
-              <div className="md:flex gap-4 justify-center hidden w-full">
-                <div
-                  className="bg-cover bg-center w-full h-auto rounded-lg"
-                  style={{
-                    backgroundImage:
-                      `url(${item.foto2})`,
-                  }}
-                />
-                <div className="flex flex-col gap-2 w-full h-full">
-                  <div
-                    className="bg-cover bg-center w-full h-full rounded-lg"
-                    style={{
-                      backgroundImage:
-                        `url(${item.foto3})`,
-                    }}
-                  />
-                  <div
-                    className="bg-cover bg-center w-full h-full rounded-lg"
-                    style={{
-                      backgroundImage:
-                        `url(${item.foto4})`,
-                    }}
-                  />
+              {item.foto2 || item.foto3 || item.foto4 && (
+                <div className="md:flex gap-4 justify-center hidden w-full">
+
+                  {item.foto2 && (
+                    <div
+                      className="bg-cover bg-center w-full h-auto rounded-lg"
+                      style={{
+                        backgroundImage:
+                          `url(${item.foto2})`,
+                      }}
+                    />
+                  )}
+                  <div className="flex flex-col gap-2 w-full h-full">
+                    {item.foto3 && (
+                      <div
+                        className="bg-cover bg-center w-full h-full rounded-lg"
+                        style={{
+                          backgroundImage:
+                            `url(${item.foto3})`,
+                        }}
+                      />
+                    )}
+                    {item.foto4 && (
+                      <div
+                        className="bg-cover bg-center w-full h-full rounded-lg"
+                        style={{
+                          backgroundImage:
+                            `url(${item.foto4})`,
+                        }}
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="w-full flex flex-col gap-4 md:gap-6 md:pl-4">
                 <h1 className="text-2xl md:text-4xl font-bold text-primary-500">
-                  {item.name}
+                  {item.name_client}
                 </h1>
 
                 <div className="flex text-[12px] md:text-xl font-light gap-4 ">
