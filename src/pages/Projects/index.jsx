@@ -19,8 +19,6 @@ const Projects = () => {
     fetchProject();
   }, []);
 
-  console.log(project);
-
 
   return (
     <>
@@ -62,7 +60,7 @@ const Projects = () => {
               className="rounded-xl w-full md:h-[580px] h-56 object-cover"
             />
             <div className="flex gap-4 mt-2 md:mt-6 w-full justify-center">
-              {item.foto2 || item.foto3 || item.foto4 && (
+              {(item.foto2 || item.foto3 || item.foto4) && (
                 <div className="md:flex gap-4 justify-center hidden w-full">
 
                   {item.foto2 && (

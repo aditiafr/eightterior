@@ -42,8 +42,6 @@ const Home = () => {
     fetchCarousel();
   }, []);
 
-  console.log(carousel);
-
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartX(e.pageX - containerRef.current.offsetLeft);

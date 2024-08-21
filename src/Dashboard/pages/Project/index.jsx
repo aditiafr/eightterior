@@ -44,7 +44,7 @@ const Project = () => {
             title: "No",
             dataIndex: "key",
             key: "key",
-            width: 80,
+            width: 60,
         },
         {
             title: "Gambar",
@@ -100,7 +100,43 @@ const Project = () => {
             title: "Category Name",
             dataIndex: "category_name",
             key: "category_name",
+            width: 200,
+        },
+        {
+            title: "Name Project",
+            dataIndex: "name",
+            key: "name",
             width: 150,
+        },
+        {
+            title: "Name Client",
+            dataIndex: "name_client",
+            key: "name_client",
+            width: 150,
+        },
+        {
+            title: "Area",
+            dataIndex: "area",
+            key: "area",
+            width: 150,
+        },
+        {
+            title: "Location",
+            dataIndex: "location",
+            key: "location",
+            width: 200,
+        },
+        {
+            title: "Year",
+            dataIndex: "year",
+            key: "year",
+            width: 150,
+        },
+        {
+            title: "Description",
+            dataIndex: "deskripsi",
+            key: "deskripsi",
+            width: 300,
         },
         {
             title: "Action",

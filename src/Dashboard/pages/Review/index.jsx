@@ -42,25 +42,30 @@ const Review = () => {
             title: "No",
             dataIndex: "key",
             key: "key",
+            width: 80
         },
         {
             title: "Name",
             dataIndex: "name",
             key: "name",
+            width: 200
         },
         {
             title: "Name Project",
             dataIndex: "name_project",
             key: "name_project",
+            width: 250
         },
         {
             title: "Description",
             dataIndex: "deskripsi",
             key: "deskripsi",
+            width: 500
         },
         {
             title: "Action",
             fixed: "right",
+            width: 100,
             render: (_, record) => (
                 <Space>
                     <EditReview onData={record} onEdit={fetchData} />
@@ -101,6 +106,9 @@ const Review = () => {
                     pagination={{
                         showSizeChanger: true,
                         defaultPageSize: 10,
+                    }}
+                    scroll={{
+                        x: 500,
                     }}
                 />
             </div>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import Dragger from "antd/es/upload/Dragger";
 import { ButtonEdit } from "../../components/Global/Button";
+import { updateFotoProject } from "../../API/UpdateData";
 
 const EditProject = ({ onData, onEdit }) => {
 
@@ -35,22 +36,26 @@ const EditProject = ({ onData, onEdit }) => {
 
             setFileList(files);
 
-            console.log(files);
+            // console.log(files);
 
 
         }
     }, [isModalOpen, onData, form]);
 
     const onFinish = async (values) => {
-        const modifiedValues = {
-            ...values,
+        const payloadFoto = {
+            // ...values,
+            id: onData.id,
             foto1: fileList[0] ? fileList[0].thumbUrl : '',
             foto2: fileList[1] ? fileList[1].thumbUrl : '',
             foto3: fileList[2] ? fileList[2].thumbUrl : '',
             foto4: fileList[3] ? fileList[3].thumbUrl : '',
         };
 
-        console.log("on Submit", modifiedValues);
+        console.log("on Submit", payloadFoto);
+
+        const res = await updateFotoProject(payloadFoto);
+        console.log(res);
     };
 
     const onFinishFailed = (errorInfo) => {
