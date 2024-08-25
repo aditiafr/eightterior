@@ -24,6 +24,7 @@ import CarouselAbout from './Dashboard/pages/Carousel';
 import FormCarousel from './Dashboard/pages/Carousel/form';
 import Login from './Dashboard/pages/Login';
 import DetailProject from './pages/Projects/Detail';
+import Register from './Dashboard/pages/Login/Register';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -54,8 +55,9 @@ const AppContent = () => {
   // }, [location]);
 
   const PrivateRoute = ({ element }) => {
+    const dataSession = JSON.parse(localStorage.getItem('data'));
     const authToken = Cookies.get('auth_token');
-    return authToken ? element : <Navigate to="/login" />;
+    return authToken && dataSession ? element : <Navigate to="/login" />;
   };
 
   return (
@@ -84,6 +86,7 @@ const AppContent = () => {
         {/* DASHBOARD */}
 
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route path="/dashboard/*" element={
           <PrivateRoute

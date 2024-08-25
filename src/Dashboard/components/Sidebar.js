@@ -64,6 +64,7 @@ const MySidebar = ({ children }) => {
 
     const handleSignOut = () => {
         Cookies.remove('auth_token');
+        localStorage.clear();
         navigate('/login');
         message.success('You have successfully Sign out.');
     }
@@ -86,7 +87,6 @@ const MySidebar = ({ children }) => {
 
     const dataSession = JSON.parse(localStorage.getItem('data'));
 
-    // Cari item yang sesuai dengan path saat ini
     const selectedKey = items.find(item => item.label.props.to === location.pathname)?.key;
 
     return (
@@ -160,7 +160,7 @@ const MySidebar = ({ children }) => {
                                     <div className="border rounded-full p-2 flex items-center justify-center">
                                         <UserOutlined style={{ fontSize: '16px' }} />
                                     </div>
-                                    <p>{dataSession.username}</p>
+                                    <p>{dataSession ? dataSession.username : ''}</p>
                                 </div>
                             </Dropdown>
                         )}
