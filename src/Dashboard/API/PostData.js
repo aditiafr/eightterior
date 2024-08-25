@@ -18,6 +18,6 @@ export const postReview = async (ReviewData) => {
 }
 
 export const postCarousel = async (CarouselData) => {
-    const response = await axios.post(`https://api-project-eighterior.jmbgroup.co.id/v1/carousel/store`, CarouselData);
+    const response = await axios.post(`${baseUrl}/v1/carousel/store`, CarouselData);
     return response;
 }

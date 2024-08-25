@@ -1,6 +1,6 @@
 import { Button, Modal } from "antd";
 
-export const ButtonDelete = ({ onDelete }) => {
+export const ButtonDelete = ({ onDelete, isLoading }) => {
     return (
         <div
             style={{
@@ -12,14 +12,14 @@ export const ButtonDelete = ({ onDelete }) => {
             <Button onClick={() => Modal.destroyAll()} style={{ marginRight: 8 }}>
                 Cancel
             </Button>
-            <Button danger type="primary" onClick={onDelete}>
+            <Button danger type="primary" onClick={onDelete} loading={isLoading}>
                 Delete
             </Button>
         </div>
     );
 };
 
-export const ButtonEdit = ({ onReset }) => {
+export const ButtonEdit = ({ onReset, isLoading }) => {
     return (
         <div
             style={{
@@ -38,14 +38,14 @@ export const ButtonEdit = ({ onReset }) => {
             <Button type="primary" danger htmlType="button" onClick={onReset}>
                 Cancel
             </Button>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={isLoading}>
                 Submit
             </Button>
         </div>
     );
 };
 
-export const ButtonSubmit = ({ onReset }) => {
+export const ButtonSubmit = ({ onReset, isLoading }) => {
     return (
         <div
             style={{
@@ -66,7 +66,7 @@ export const ButtonSubmit = ({ onReset }) => {
             <Button type="primary" danger htmlType="button" onClick={onReset}>
                 Cancel
             </Button>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={isLoading}>
                 Submit
             </Button>
         </div>

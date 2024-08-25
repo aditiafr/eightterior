@@ -11,13 +11,14 @@ import {
     SnippetsOutlined,
     UserOutlined,
 } from '@ant-design/icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const MySidebar = ({ children }) => {
     const navigate = useNavigate();
+    const location = useLocation(); // Hook useLocation
     const [collapsed, setCollapsed] = useState(false);
     const [mobile, setMobile] = useState(window.innerWidth <= 768);
 
@@ -85,6 +86,9 @@ const MySidebar = ({ children }) => {
 
     const dataSession = JSON.parse(localStorage.getItem('data'));
 
+    // Cari item yang sesuai dengan path saat ini
+    const selectedKey = items.find(item => item.label.props.to === location.pathname)?.key;
+
     return (
         <Layout style={{ minHeight: "100vh" }}>
             {!mobile || (mobile && !collapsed) ? (
@@ -114,7 +118,7 @@ const MySidebar = ({ children }) => {
                     <Menu
                         theme="light"
                         mode="inline"
-                        defaultSelectedKeys={["1"]}
+                        selectedKeys={[selectedKey]} // Atur item aktif berdasarkan rute saat ini
                         items={items}
                         onClick={handleMenuClick}
                     />
@@ -170,13 +174,6 @@ const MySidebar = ({ children }) => {
                 >
                     {children}
                 </Content>
-                {/* <Footer
-                    style={{
-                        textAlign: "center",
-                    }}
-                >
-                    Ant Design ©{new Date().getFullYear()} Created by Ant UED
-                </Footer> */}
             </Layout>
         </Layout>
     );

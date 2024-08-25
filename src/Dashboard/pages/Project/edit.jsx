@@ -1,18 +1,92 @@
-import { EditFilled, InboxOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Input, message, Modal, Row, Tooltip, Upload } from "antd";
+import { DeleteOutlined, EditFilled, InboxOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { Button, Col, Form, Image, Input, message, Modal, Row, Select, Tooltip, Upload } from "antd";
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import Dragger from "antd/es/upload/Dragger";
 import { ButtonEdit } from "../../components/Global/Button";
-import { updateFotoProject } from "../../API/UpdateData";
+import { updateProject } from "../../API/UpdateData";
+import { getCategoryList } from "../../API/GetData";
+import axios from "axios";
+
+const getBase64 = (img, callback) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => callback(reader.result));
+    reader.readAsDataURL(img);
+};
 
 const EditProject = ({ onData, onEdit }) => {
 
     // console.log("DATA", onData);
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [fileList, setFileList] = useState([]);
     const [form] = Form.useForm();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [categoryData, setCategoryData] = useState([]);
+
+    const [imageUrl1, setImageUrl1] = useState(null);
+    const [isImageChanged1, setIsImageChanged1] = useState(false);
+
+    const [imageUrl2, setImageUrl2] = useState(null);
+    const [isImageChanged2, setIsImageChanged2] = useState(false);
+
+    const [imageUrl3, setImageUrl3] = useState(null);
+    const [isImageChanged3, setIsImageChanged3] = useState(false);
+
+    const [imageUrl4, setImageUrl4] = useState(null);
+    const [isImageChanged4, setIsImageChanged4] = useState(false);
+
+    const handleChange = async (file, imageNumber) => {
+        if (file && file.originFileObj) {
+            const allowedExtensions = ['png', 'jpg', 'jpeg'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+
+            if (allowedExtensions.includes(fileExtension)) {
+                getBase64(file.originFileObj, async (base64) => {
+                    try {
+                        switch (imageNumber) {
+                            case 1:
+                                setImageUrl1(base64);
+                                setIsImageChanged1(true);
+                                break;
+                            case 2:
+                                setImageUrl2(base64);
+                                setIsImageChanged2(true);
+                                break;
+                            case 3:
+                                setImageUrl3(base64);
+                                setIsImageChanged3(true);
+                                break;
+                            case 4:
+                                setImageUrl4(base64);
+                                setIsImageChanged4(true);
+                                break;
+                            default:
+                                break;
+                        }
+                    } catch (error) {
+                        console.error("Upload failed", error);
+                        message.error("Upload failed. Please try again.");
+                    }
+                });
+            } else {
+                message.error('The uploaded file must be an image with the extension .png, .jpg, or .jpeg');
+            }
+        }
+    };
+
+
+    const fetchCategory = async () => {
+        try {
+            const response = await getCategoryList();
+            setCategoryData(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchCategory();
+    }, []);
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -24,38 +98,51 @@ const EditProject = ({ onData, onEdit }) => {
             // Mengisi form fields
             form.setFieldsValue(onData);
 
-            // Mapping onData file URLs to Upload fileList format
-            const files = Object.keys(onData)
-                .filter(key => key.startsWith('foto') && onData[key]) // Filter hanya yang tidak null
-                .map((key, index) => ({
-                    uid: index, // unique identifier
-                    name: `Image ${index + 1}`, // Anda bisa menggantinya sesuai kebutuhan
-                    status: 'done',
-                    url: onData[key], // URL file
-                }));
-
-            setFileList(files);
-
-            // console.log(files);
-
+            setImageUrl1(onData.foto1);
+            setIsImageChanged1(false);
+            setImageUrl2(onData.foto2);
+            setIsImageChanged2(false);
+            setImageUrl3(onData.foto3);
+            setIsImageChanged3(false);
+            setImageUrl4(onData.foto4);
+            setIsImageChanged4(false);
 
         }
     }, [isModalOpen, onData, form]);
 
     const onFinish = async (values) => {
-        const payloadFoto = {
-            // ...values,
-            id: onData.id,
-            foto1: fileList[0] ? fileList[0].thumbUrl : '',
-            foto2: fileList[1] ? fileList[1].thumbUrl : '',
-            foto3: fileList[2] ? fileList[2].thumbUrl : '',
-            foto4: fileList[3] ? fileList[3].thumbUrl : '',
-        };
+        try {
+            setIsLoading(true);
+            const payloadData = {
+                ...values,
+                id: onData.id,
+                updated_by: "admin",
+            }
 
-        console.log("on Submit", payloadFoto);
+            if (isImageChanged1) {
+                payloadData.foto1 = isImageChanged1 ? imageUrl1 : '';
+            }
+            if (isImageChanged2) {
+                payloadData.foto2 = isImageChanged2 ? imageUrl2 : '';
+            }
+            if (isImageChanged3) {
+                payloadData.foto3 = isImageChanged3 ? imageUrl3 : '';
+            }
+            if (isImageChanged4) {
+                payloadData.foto4 = isImageChanged4 ? imageUrl4 : '';
+            }
 
-        const res = await updateFotoProject(payloadFoto);
-        console.log(res);
+            console.log("Data", payloadData);
+
+            const resData = await updateProject(payloadData);
+            console.log(resData);
+
+            onEdit(true);
+            setIsModalOpen(false);
+        } catch (error) {
+            console.log(error);
+        }
+        setIsLoading(false);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -67,22 +154,41 @@ const EditProject = ({ onData, onEdit }) => {
         setIsModalOpen(false);
     };
 
-    const handleUploadChange = ({ fileList }) => {
-        if (fileList.length > 4) {
-            message.error("You can only upload a maximum of 4 images.");
-            return;
-        }
-        setFileList(fileList);
-    };
+    // const handleUploadChange = ({ fileList }) => {
+    //     if (fileList.length > 4) {
+    //         message.error("You can only upload a maximum of 4 images.");
+    //         return;
+    //     }
+    //     setFileList(fileList);
+    // };
 
-    const beforeUpload = (file) => {
-        if (fileList.length >= 4) {
-            message.error("You can only upload a maximum of 4 images.");
-            return Upload.LIST_IGNORE; // Ignore this file
-        }
-        setFileList((prevList) => [...prevList, file]);
-        return false; // Prevent automatic upload
-    };
+    // const beforeUpload = (file) => {
+    //     if (fileList.length >= 4) {
+    //         message.error("You can only upload a maximum of 4 images.");
+    //         return Upload.LIST_IGNORE; // Ignore this file
+    //     }
+    //     setFileList((prevList) => [...prevList, file]);
+    //     return false; // Prevent automatic upload
+    // };
+
+    const uploadButton = (
+        <button
+            style={{
+                border: 0,
+                background: 'none',
+            }}
+            type="button"
+        >
+            <PlusOutlined />
+            <div
+                style={{
+                    marginTop: 8,
+                }}
+            >
+                Upload
+            </div>
+        </button>
+    );
 
     return (
         <>
@@ -112,6 +218,143 @@ const EditProject = ({ onData, onEdit }) => {
                     autoComplete="off"
                     form={form}
                 >
+
+                    <div className="flex items-center justify-center pt-8 gap-4">
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 1</p>
+                            {imageUrl1 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl1}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button type="button" className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl1(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 1)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 1)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 2</p>
+                            {imageUrl2 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl2}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl2(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 2)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 2)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 3</p>
+                            {imageUrl3 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl3}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl3(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 3)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 3)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 4</p>
+                            {imageUrl4 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl4}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl4(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 4)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 4)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                    </div>
+
                     <Row gutter={30} style={{ margin: "0px", paddingTop: "14px" }}>
                         <Col xs={24} sm={12}>
                             <Form.Item
@@ -124,7 +367,7 @@ const EditProject = ({ onData, onEdit }) => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Name Project" />
+                                <Input placeholder="Name Project" />
                             </Form.Item>
                         </Col>
 
@@ -139,37 +382,7 @@ const EditProject = ({ onData, onEdit }) => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Name Client" />
-                            </Form.Item>
-                        </Col>
-
-                        <Col xs={24} sm={12}>
-                            <Form.Item
-                                label="Area"
-                                name="area"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Please input your Area!",
-                                    },
-                                ]}
-                            >
-                                <Input placeholder="Masukan Area" />
-                            </Form.Item>
-                        </Col>
-
-                        <Col xs={24} sm={12}>
-                            <Form.Item
-                                label="Year"
-                                name="year"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Please input your Year!",
-                                    },
-                                ]}
-                            >
-                                <Input placeholder="Masukan Year" />
+                                <Input placeholder="Name Client" />
                             </Form.Item>
                         </Col>
 
@@ -184,11 +397,63 @@ const EditProject = ({ onData, onEdit }) => {
                                     },
                                 ]}
                             >
-                                <Input placeholder="Masukan Location" />
+                                <Input placeholder="Location" />
                             </Form.Item>
                         </Col>
 
                         <Col xs={24} sm={12}>
+                            <Form.Item
+                                label="Category"
+                                name="id_category"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your Category!",
+                                    },
+                                ]}
+                            >
+                                <Select
+                                    placeholder="Select a category"
+                                    onChange={handleChange}
+                                    options={categoryData.map((item) => ({
+                                        value: item.id,
+                                        label: item.name,
+                                    }))}
+                                />
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} sm={12}>
+                            <Form.Item
+                                label="Area"
+                                name="area"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your Area!",
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="Area" />
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} sm={12}>
+                            <Form.Item
+                                label="Year"
+                                name="year"
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your Year!",
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="Year" />
+                            </Form.Item>
+                        </Col>
+
+                        <Col xs={24} sm={24}>
                             <Form.Item
                                 label="Description"
                                 name="deskripsi"
@@ -199,11 +464,11 @@ const EditProject = ({ onData, onEdit }) => {
                                     },
                                 ]}
                             >
-                                <Input.TextArea placeholder="Masukan Description" rows={4} />
+                                <Input.TextArea placeholder="Description..." rows={4} />
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} sm={24}>
+                        {/* <Col xs={24} sm={24}>
                             <Form.Item>
                                 <Dragger
                                     listType="picture"
@@ -222,9 +487,10 @@ const EditProject = ({ onData, onEdit }) => {
                                     <p className="ant-upload-text">Click or drag file to this area to upload (Max 4 Images)</p>
                                 </Dragger>
                             </Form.Item>
-                        </Col>
+                        </Col> */}
                     </Row>
-                    <ButtonEdit onReset={onReset} />
+
+                    <ButtonEdit onReset={onReset} isLoading={isLoading} />
                 </Form>
             </Modal>
         </>

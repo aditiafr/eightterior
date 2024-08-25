@@ -19,6 +19,7 @@ const CarouselAbout = () => {
       const response = await getCarouselList();
       setDataSource(response);
     } catch (error) {
+      setDataSource([]);
       console.log(error);
     }
     setLoading(false);
@@ -48,13 +49,13 @@ const CarouselAbout = () => {
     },
     {
       title: "Gambar",
-      width: 200,
+      width: 250,
       render: (_, record) => {
         return (
           <div>
             <Image
               src={record.foto}
-              style={{ width: '400px', height: '200px', objectFit: 'cover' }}
+              style={{ width: '250px', height: '140px', objectFit: 'cover' }}
             />
           </div>
         )
@@ -64,13 +65,13 @@ const CarouselAbout = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      width: 100,
+      width: 200,
     },
     {
       title: "Subject",
       dataIndex: "subject",
       key: "subject",
-      width: 200,
+      width: 300,
     },
     {
       title: "Action",
@@ -79,7 +80,7 @@ const CarouselAbout = () => {
       render: (_, record) => (
         <Space>
           <EditCarousel onData={record} onEdit={fetchData} />
-          <DeleteCarousel />
+          <DeleteCarousel onData={record} onDelete={fetchData} />
         </Space>
       ),
     },

@@ -15,6 +15,7 @@ const getBase64 = (img, callback) => {
 const FormCarousel = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   // const [fileImage, setFileImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -59,19 +60,21 @@ const FormCarousel = () => {
 
   const onFinish = async (values) => {
     try {
+      setIsLoading(true);
       const payload = {
         ...values,
         foto: imageUrl
       }
       console.log(payload);
-      
+
       const response = await postCarousel(payload);
       message.success(`${response.data.msg}`);
       navigate('/dashboard/carousel');
     } catch (error) {
       console.log(error);
-      message.error("Failed to submit Review.");
+      message.error("Failed to submit Carousel.");
     }
+    setIsLoading(false);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -85,7 +88,7 @@ const FormCarousel = () => {
   return (
     <>
       <div className="flex justify-between items-center px-2 pb-4">
-        <HeaderTitle title="REVIEW" subtitle="form data a Review" />
+        <HeaderTitle title="CAROUSEL" subtitle="form data a Carousel" />
       </div>
       <div className="relative w-full bg-white rounded-lg">
 
@@ -154,7 +157,7 @@ const FormCarousel = () => {
 
           </Row>
 
-          <ButtonSubmit onReset={onReset} />
+          <ButtonSubmit onReset={onReset} isLoading={isLoading} />
         </Form>
       </div >
     </>

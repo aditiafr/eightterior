@@ -23,6 +23,7 @@ import FormReview from './Dashboard/pages/Review/form';
 import CarouselAbout from './Dashboard/pages/Carousel';
 import FormCarousel from './Dashboard/pages/Carousel/form';
 import Login from './Dashboard/pages/Login';
+import DetailProject from './pages/Projects/Detail';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -69,6 +70,7 @@ const AppContent = () => {
               <Route path="*" element={<NotFound />} />
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:id" element={<DetailProject />} />
               <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
               <Route path="/projects/ptpundi" element={<PTPundi />} />
               <Route path="/projects/hotel" element={<Hotel />} />

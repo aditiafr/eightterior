@@ -167,7 +167,8 @@ const Home = () => {
                 <h3 className="text-sm md:text-4xl">RECENT PROJECT</h3>
                 <h1 className="text-xl md:text-6xl font-semibold">{item.name}</h1>
                 <div className="relative">
-                  <Link to={`/projects/${item.name.toLowerCase().replace(/\s+/g, '')}`}>
+                  {/* <Link to={`/projects/${item.name.toLowerCase().replace(/\s+/g, '')}`}> */}
+                  <Link to={`/projects/${item.id}`}>
                     <button className="text-white border md:border-2 w-28 md:w-56 h-10 md:h-16 mt-4 md:mt-6 rounded-xl text-[10px] md:text-sm hover:bg-white hover:text-primary-500 hover:font-bold">
                       LEARN MORE
                     </button>

@@ -69,7 +69,7 @@ const Review = () => {
             render: (_, record) => (
                 <Space>
                     <EditReview onData={record} onEdit={fetchData} />
-                    <DeleteReview />
+                    <DeleteReview nData={record} onDelete={fetchData} />
                 </Space>
             ),
         },

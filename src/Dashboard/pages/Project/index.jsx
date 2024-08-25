@@ -4,7 +4,7 @@ import DeleteProject from "./delete";
 import { Link } from "react-router-dom";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { useEffect, useState } from "react";
-import {getProjectList} from "../../API/GetData";
+import { getProjectList } from "../../API/GetData";
 
 
 const Project = () => {
@@ -19,6 +19,7 @@ const Project = () => {
             const response = await getProjectList();
             setDataSource(response);
         } catch (error) {
+            setDataSource([]);
             console.log(error);
         }
         setLoading(false);
@@ -77,6 +78,14 @@ const Project = () => {
                                 />
                             </div>
                         )}
+                        {record.foto4 && (
+                            <div>
+                                <Image
+                                    src={record.foto4}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
+                            </div>
+                        )}
                     </Carousel>
 
                     // <div className="relative flex gap-4">
@@ -97,22 +106,22 @@ const Project = () => {
             }
         },
         {
-            title: "Category Name",
-            dataIndex: "category_name",
-            key: "category_name",
-            width: 200,
-        },
-        {
             title: "Name Project",
             dataIndex: "name",
             key: "name",
-            width: 150,
+            width: 200,
         },
         {
             title: "Name Client",
             dataIndex: "name_client",
             key: "name_client",
             width: 150,
+        },
+        {
+            title: "Category Name",
+            dataIndex: "category_name",
+            key: "category_name",
+            width: 200,
         },
         {
             title: "Area",
@@ -145,7 +154,7 @@ const Project = () => {
             render: (_, record) => (
                 <Space>
                     <EditProject onData={record} onEdit={fetchData} />
-                    <DeleteProject />
+                    <DeleteProject onData={record} onDelete={fetchData} />
                 </Space>
             ),
         },

@@ -1,14 +1,25 @@
 import { DeleteFilled, ExclamationCircleFilled } from "@ant-design/icons";
-import { Button, Modal, Tooltip } from "antd";
-import React from "react";
+import { Button, message, Modal, Tooltip } from "antd";
+import React, { useState } from "react";
 import { ButtonDelete } from "../../components/Global/Button";
+import { deleteReview } from "../../API/DeleteData";
 
 const { confirm } = Modal;
 
-const DeleteReview = () => {
-    const handleDelete = () => {
-        Modal.destroyAll();
-        console.log("Delete Data!");
+const DeleteReview = ({ onData, onDelete }) => {
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleDelete = async () => {
+        try {
+            setIsLoading(true);
+            const res = await deleteReview(onData.id);
+            message.success(res.data.msg);
+            onDelete(true);
+            Modal.destroyAll();
+        } catch (error) {
+            console.log(error);
+        }
+        setIsLoading(false);
     };
 
     const content = "Data Review..";
@@ -19,7 +30,7 @@ const DeleteReview = () => {
             icon: <ExclamationCircleFilled />,
             content: content,
             centered: true,
-            footer: <ButtonDelete onDelete={handleDelete} />,
+            footer: <ButtonDelete onDelete={handleDelete} isLoading={isLoading} />,
         });
     };
 

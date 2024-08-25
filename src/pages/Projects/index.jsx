@@ -99,7 +99,7 @@ const Projects = () => {
                   {item.name_client}
                 </h1>
 
-                <div className="flex text-[12px] md:text-xl font-light gap-4 ">
+                <div className="flex text-[12px] md:text-[16px] font-light gap-4 ">
                   <div className="flex flex-col gap-2">
                     <p>Location</p>
                     <p>Category</p>
@@ -108,12 +108,12 @@ const Projects = () => {
                   </div>
                   <div className="flex flex-col gap-2">
                     <p>: {item.location}</p>
-                    <p>: {item.category}</p>
+                    <p>: {item.category_name}</p>
                     <p>: {item.area}</p>
                     <p>: {item.year}</p>
                   </div>
                 </div>
-                <Link to="/projects/ptpundi">
+                <Link to={`/projects/${item.id}`}>
                   <button className="border-2 md:border-4 border-primary-500 text-primary-500 rounded-lg md:rounded-xl w-36 md:w-64 h-12 md:h-16 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-md">
                     SEE PROJECT
                   </button>

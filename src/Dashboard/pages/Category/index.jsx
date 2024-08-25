@@ -1,4 +1,4 @@
-import { Button, Carousel, Image, Input, Space, Table } from "antd";
+import { Button, Input, Space, Table } from "antd";
 // import EditProject from "./edit";
 // import DeleteProject from "./delete";
 import { Link } from "react-router-dom";
@@ -20,6 +20,7 @@ const Category = () => {
       const response = await getCategoryList();
       setDataSource(response);
     } catch (error) {
+      setDataSource([]);
       console.log(error);
     }
     setLoading(false);
@@ -56,7 +57,7 @@ const Category = () => {
       render: (_, record) => (
         <Space>
           <EditCategory onData={record} onEdit={fetchData} />
-          <DeleteCategory />
+          <DeleteCategory onData={record} onDelete={fetchData}/>
         </Space>
       ),
     },

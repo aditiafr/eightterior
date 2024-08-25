@@ -1,8 +1,8 @@
 import { EditFilled, PlusOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Image, Input, message, Modal, Row, Tooltip, Upload } from "antd";
+import { Button, Col, Form, Input, message, Modal, Row, Tooltip, Upload } from "antd";
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import { updateReview } from "../../API/UpdateData";
+import { updateCarousel, updateFotoCarousel } from "../../API/UpdateData";
 import { ButtonEdit } from "../../components/Global/Button";
 
 const getBase64 = (img, callback) => {
@@ -13,12 +13,12 @@ const getBase64 = (img, callback) => {
 
 const EditCarousel = ({ onData, onEdit }) => {
 
-  console.log(onData);
-  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [imageUrl, setImageUrl] = useState(null);
+  const [isImageChanged, setIsImageChanged] = useState(false);
 
   const handleChange = ({ file }) => {
     if (file && file.originFileObj) {
@@ -28,6 +28,7 @@ const EditCarousel = ({ onData, onEdit }) => {
       if (allowedExtensions.includes(fileExtension)) {
         getBase64(file.originFileObj, (base64) => {
           setImageUrl(base64);
+          setIsImageChanged(true); // Set to true when image changes
         });
       } else {
         message.error('The uploaded file must be an image with the extension .png, .jpg, or .jpeg');
@@ -38,10 +39,10 @@ const EditCarousel = ({ onData, onEdit }) => {
   useEffect(() => {
     if (isModalOpen && onData) {
       form.setFieldsValue(onData);
-      // Set the image URL from onData.foto
       if (onData.foto) {
         setImageUrl(onData.foto);
       }
+      setIsImageChanged(false); // Reset to false when modal opens
     }
   }, [form, isModalOpen, onData]);
 
@@ -51,21 +52,29 @@ const EditCarousel = ({ onData, onEdit }) => {
 
   const onFinish = async (values) => {
     try {
-      const modifiedValues = {
+      setIsLoading(true);
+      const payload = {
         ...values,
         id: onData.id,
-        foto: imageUrl 
       };
-      console.log("on Submit", modifiedValues);
 
-      const response = await updateReview(modifiedValues);
-      message.success(`${response.data.msg}`);
+      if (isImageChanged) {
+        const payloadFoto = {
+          id: onData.id,
+          foto: imageUrl
+        };
+        await updateFotoCarousel(payloadFoto);
+      }
+
+      const res = await updateCarousel(payload);
+      message.success(`${res.data.msg}`);
       onEdit(true);
       setIsModalOpen(false);
     } catch (error) {
       console.log(error);
       message.error("Failed to submit Category.");
     }
+    setIsLoading(false);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -104,7 +113,7 @@ const EditCarousel = ({ onData, onEdit }) => {
       </Tooltip>
 
       <Modal
-        title={<HeaderTitle title="PROJECT" subtitle="Edit data a Project" />}
+        title={<HeaderTitle title="CAROUSEL" subtitle="Edit data a Carousel" />}
         centered
         open={isModalOpen}
         closable={false}
@@ -127,7 +136,7 @@ const EditCarousel = ({ onData, onEdit }) => {
         >
 
           <div className="flex items-center justify-center pt-8">
-            <Form.Item name="foto">
+            <Form.Item>
               <Upload
                 name="file"
                 listType="picture-card"
@@ -136,7 +145,7 @@ const EditCarousel = ({ onData, onEdit }) => {
                 onChange={handleChange}
               >
                 {imageUrl ? (
-                  <Image
+                  <img
                     src={imageUrl}
                     alt="avatar"
                     style={{ width: '100%' }}
@@ -181,7 +190,7 @@ const EditCarousel = ({ onData, onEdit }) => {
             </Col>
 
           </Row>
-          <ButtonEdit onReset={onReset} />
+          <ButtonEdit onReset={onReset} isLoading={isLoading} />
         </Form>
       </Modal>
     </>

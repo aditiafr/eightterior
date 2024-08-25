@@ -1,17 +1,86 @@
-import { Col, Form, Input, Modal, Row, Select, Upload, message } from "antd";
+import { Col, Form, Image, Input, Modal, Row, Select, Upload, message } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import { InboxOutlined } from "@ant-design/icons";
+import { DeleteOutlined, ExclamationCircleOutlined, InboxOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { postProject } from "../../API/PostData";
 import Dragger from "antd/es/upload/Dragger";
 import { getCategoryList } from "../../API/GetData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ButtonSubmit } from "../../components/Global/Button";
+
+const getBase64 = (img, callback) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => callback(reader.result));
+    reader.readAsDataURL(img);
+};
 
 const FormProject = () => {
     const [form] = Form.useForm();
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
     const [fileList, setFileList] = useState([]);
+    const [showDesign, setShowDesign] = useState(false);
     const [categoryData, setCategoryData] = useState([]);
+    const [openCategory, setOpenCategory] = useState(false);
+
+    const [imageUrl1, setImageUrl1] = useState(null);
+    const [imageUrl2, setImageUrl2] = useState(null);
+    const [imageUrl3, setImageUrl3] = useState(null);
+    const [imageUrl4, setImageUrl4] = useState(null);
+
+    const handleChange = async (file, imageNumber) => {
+        if (file && file.originFileObj) {
+            const allowedExtensions = ['png', 'jpg', 'jpeg'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+
+            if (allowedExtensions.includes(fileExtension)) {
+                getBase64(file.originFileObj, async (base64) => {
+                    try {
+                        switch (imageNumber) {
+                            case 1:
+                                setImageUrl1(base64);
+                                break;
+                            case 2:
+                                setImageUrl2(base64);
+                                break;
+                            case 3:
+                                setImageUrl3(base64);
+                                break;
+                            case 4:
+                                setImageUrl4(base64);
+                                break;
+                            default:
+                                break;
+                        }
+                    } catch (error) {
+                        console.error("Upload failed", error);
+                        message.error("Upload failed. Please try again.");
+                    }
+                });
+            } else {
+                message.error('The uploaded file must be an image with the extension .png, .jpg, or .jpeg');
+            }
+        }
+    };
+
+    const uploadButton = (
+        <button
+            style={{
+                border: 0,
+                background: 'none',
+            }}
+            type="button"
+        >
+            <PlusOutlined />
+            <div
+                style={{
+                    marginTop: 8,
+                }}
+            >
+                Upload
+            </div>
+        </button>
+    );
 
     const fetchCategory = async () => {
         try {
@@ -19,37 +88,53 @@ const FormProject = () => {
             setCategoryData(response);
         } catch (error) {
             console.log(error);
+            setCategoryData([]);
         }
     };
 
     useEffect(() => {
-        fetchCategory();
-    }, []);
+        if (openCategory) {
+            fetchCategory();
+            setOpenCategory(false);
+        }
+    }, [openCategory]);
 
     // console.log("Data Category", categoryData);
 
-
-
     const onFinish = async (values) => {
-        const modifiedValues = {
-            ...values,
-            created_by: "aditia",
-            foto1: fileList[0] ? fileList[0].thumbUrl : '',
-            foto2: fileList[1] ? fileList[1].thumbUrl : '',
-            foto3: fileList[2] ? fileList[2].thumbUrl : '',
-            foto4: fileList[3] ? fileList[3].thumbUrl : '',
-        };
-
-        console.log("on Submit", modifiedValues);
-
+        if (!imageUrl1) {
+            message.warning('Please upload Image 1!');
+        }
+        if (!imageUrl2) {
+            message.warning('Please upload Image 2!');
+        }
+        if (!imageUrl3) {
+            message.warning('Please upload Image 3!');
+        }
+        if (!imageUrl4) {
+            message.warning('Please upload Image 4!');
+        }
         try {
-            const response = await postProject(modifiedValues);
+            setIsLoading(true);
+            const payload = {
+                ...values,
+                created_by: "admin",
+                foto1: imageUrl1,
+                foto2: imageUrl2,
+                foto3: imageUrl3,
+                foto4: imageUrl4,
+            };
+            console.log("on Submit", payload);
+
+            const response = await postProject(payload);
             console.log(response);
             message.success("Project successfully submitted!");
+            navigate('/dashboard/project');
         } catch (error) {
             console.log(error);
-            message.error("Failed to submit project.");
+            // message.error("Failed to submit project.");
         }
+        setIsLoading(false);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -61,28 +146,22 @@ const FormProject = () => {
         setFileList([]);
     };
 
-    const handleUploadChange = ({ fileList }) => {
-        if (fileList.length > 4) {
-            message.error("You can only upload a maximum of 4 images.");
-            return;
-        }
-        setFileList(fileList);
-    };
+    // const handleUploadChange = ({ fileList }) => {
+    //     if (fileList.length > 4) {
+    //         message.error("You can only upload a maximum of 4 images.");
+    //         return;
+    //     }
+    //     setFileList(fileList);
+    // };
 
-    const beforeUpload = (file) => {
-        if (fileList.length >= 4) {
-            message.error("You can only upload a maximum of 4 images.");
-            return Upload.LIST_IGNORE; // Ignore this file
-        }
-        setFileList((prevList) => [...prevList, file]);
-        return false; // Prevent automatic upload
-    };
-
-    const handleChange = (value) => {
-        console.log(`selected ${value}`);
-    };
-
-    const [open, setOpen] = useState(false);
+    // const beforeUpload = (file) => {
+    //     if (fileList.length >= 4) {
+    //         message.error("You can only upload a maximum of 4 images.");
+    //         return Upload.LIST_IGNORE; // Ignore this file
+    //     }
+    //     setFileList((prevList) => [...prevList, file]);
+    //     return false; // Prevent automatic upload
+    // };
 
     return (
         <>
@@ -92,7 +171,7 @@ const FormProject = () => {
             <div className="relative w-full bg-white rounded-lg">
 
                 <div className="absolute right-0 text-right pt-4 pr-4">
-                    <Link onClick={setOpen}>View Design</Link>
+                    <Link onClick={setShowDesign}><ExclamationCircleOutlined /> View Design</Link>
                 </div>
 
                 <Form
@@ -103,6 +182,143 @@ const FormProject = () => {
                     autoComplete="off"
                     form={form}
                 >
+
+                    <div className="flex max-w-screen-md mx-auto items-center justify-center pt-12 gap-4">
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 1</p>
+                            {imageUrl1 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl1}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button type="button" className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl1(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 1)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 1)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 2</p>
+                            {imageUrl2 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl2}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl2(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 2)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 2)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 3</p>
+                            {imageUrl3 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl3}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl3(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 3)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 3)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p className="text-center text-lg font-medium mb-2">Image 4</p>
+                            {imageUrl4 ? (
+                                <div className="shadow-md">
+                                    <Image
+                                        src={imageUrl4}
+                                        alt="avatar"
+                                        style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
+                                    />
+                                    <div className="flex w-full">
+                                        {/* <button className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl4(null)}><DeleteOutlined /></button> */}
+                                        <Upload
+                                            showUploadList={false}
+                                            onChange={({ file }) => handleChange(file, 4)}
+                                            className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                                        >
+                                            <button type="button" className="w-32"><UploadOutlined /></button>
+                                        </Upload>
+                                    </div>
+                                </div>
+                            ) : (
+                                <Upload
+                                    name="file"
+                                    listType="picture-card"
+                                    className="avatar-uploader"
+                                    showUploadList={false}
+                                    onChange={({ file }) => handleChange(file, 4)}
+                                >
+                                    {uploadButton}
+                                </Upload>
+                            )}
+                        </Form.Item>
+
+                    </div>
+
                     <Row gutter={30} style={{ padding: "28px", paddingTop: "38px" }}>
                         <Col xs={24} sm={12}>
                             <Form.Item
@@ -162,11 +378,14 @@ const FormProject = () => {
                             >
                                 <Select
                                     placeholder="Select a category"
-                                    onChange={handleChange}
+                                    onDropdownVisibleChange={() => setOpenCategory(true)}
                                     options={categoryData.map((item) => ({
                                         value: item.id,
                                         label: item.name,
                                     }))}
+                                    notFoundContent={
+                                        <Link to="/dashboard/category/form" target="_blank" style={{ textDecoration: 'none' }}>There is no option, click to fill in category data</Link>
+                                    }
                                 />
                             </Form.Item>
                         </Col>
@@ -216,7 +435,7 @@ const FormProject = () => {
                             </Form.Item>
                         </Col>
 
-                        <Col xs={24} sm={24}>
+                        {/* <Col xs={24} sm={24}>
                             <Form.Item>
                                 <Dragger
                                     listType="picture"
@@ -235,19 +454,19 @@ const FormProject = () => {
                                     <p className="ant-upload-text">Click or drag file to this area to upload (Max 4 Images)</p>
                                 </Dragger>
                             </Form.Item>
-                        </Col>
+                        </Col> */}
                     </Row>
 
-                    <ButtonSubmit onReset={onReset} />
+                    <ButtonSubmit onReset={onReset} isLoading={isLoading} />
                 </Form>
             </div>
 
             <Modal
                 title="Position"
                 centered
-                open={open}
-                onOk={() => setOpen(false)}
-                onCancel={() => setOpen(false)}
+                open={showDesign}
+                onOk={() => setShowDesign(false)}
+                onCancel={() => setShowDesign(false)}
                 width={1000}
             >
                 <div className="flex flex-col w-full justify-center items-center gap-4">
