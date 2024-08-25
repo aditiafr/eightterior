@@ -99,18 +99,26 @@ const Projects = () => {
                   {item.name_client}
                 </h1>
 
-                <div className="flex text-[12px] md:text-[16px] font-light gap-4 ">
-                  <div className="flex flex-col gap-2">
-                    <p>Location</p>
-                    <p>Category</p>
-                    <p>Area</p>
-                    <p>Year</p>
+                <div className="w-full bg-opacity-40 flex flex-col text-[12px] md:text-[16px] font-light gap-2 ">
+                  <div className="flex w-full gap-2">
+                    <p className="w-20 lg:w-28">Location</p>
+                    <p>:</p>
+                    <p className="w-full">{item.location}</p>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <p>: {item.location}</p>
-                    <p>: {item.category_name}</p>
-                    <p>: {item.area}</p>
-                    <p>: {item.year}</p>
+                  <div className="flex w-full gap-2">
+                    <p className="w-20 lg:w-28">Category</p>
+                    <p>:</p>
+                    <p className="w-full">{item.category_name}</p>
+                  </div>
+                  <div className="flex w-full gap-2">
+                    <p className="w-20 lg:w-28">Area</p>
+                    <p>:</p>
+                    <p className="w-full">{item.area}</p>
+                  </div>
+                  <div className="flex w-full gap-2">
+                    <p className="w-20 lg:w-28">Year</p>
+                    <p>:</p>
+                    <p className="w-full">{item.year}</p>
                   </div>
                 </div>
                 <Link to={`/projects/${item.id}`}>

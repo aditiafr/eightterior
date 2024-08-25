@@ -88,7 +88,7 @@ const Category = () => {
         </div>
         <Table
           loading={loading}
-          rowSelection
+          // rowSelection
           columns={columns}
           dataSource={filteredData}
           pagination={{

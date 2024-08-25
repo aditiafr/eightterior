@@ -111,7 +111,7 @@ const CarouselAbout = () => {
         </div>
         <Table
           loading={loading}
-          rowSelection
+          // rowSelection
           columns={columns}
           dataSource={filteredData}
           pagination={{

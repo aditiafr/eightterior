@@ -11,16 +11,16 @@ import {
     SnippetsOutlined,
     UserOutlined,
 } from '@ant-design/icons';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const MySidebar = ({ children }) => {
     const navigate = useNavigate();
-    const location = useLocation(); // Hook useLocation
     const [collapsed, setCollapsed] = useState(false);
     const [mobile, setMobile] = useState(window.innerWidth <= 768);
+    const [selectedKeys, setSelectedKeys] = useState([]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -34,6 +34,15 @@ const MySidebar = ({ children }) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, [mobile]);
+
+    useEffect(() => {
+        // Read the selected key and open keys from localStorage
+        const storedSelectedKey = localStorage.getItem('selectedMenuKey');
+
+        if (storedSelectedKey) {
+            setSelectedKeys([storedSelectedKey]);
+        }
+    }, []);
 
     const {
         token: { colorBgContainer },
@@ -56,10 +65,13 @@ const MySidebar = ({ children }) => {
         getItem("Review", "5", <LikeOutlined />, "/dashboard/review"),
     ];
 
-    const handleMenuClick = ({ key }) => {
+    const handleMenuClick = (e) => {
+        // Save the clicked menu key to localStorage
         if (mobile) {
             setCollapsed(true);
         }
+        localStorage.setItem('selectedMenuKey', e.key);
+        setSelectedKeys([e.key]);
     };
 
     const handleSignOut = () => {
@@ -86,8 +98,6 @@ const MySidebar = ({ children }) => {
     ];
 
     const dataSession = JSON.parse(localStorage.getItem('data'));
-
-    const selectedKey = items.find(item => item.label.props.to === location.pathname)?.key;
 
     return (
         <Layout style={{ minHeight: "100vh" }}>
@@ -118,7 +128,7 @@ const MySidebar = ({ children }) => {
                     <Menu
                         theme="light"
                         mode="inline"
-                        selectedKeys={[selectedKey]} // Atur item aktif berdasarkan rute saat ini
+                        selectedKeys={selectedKeys}
                         items={items}
                         onClick={handleMenuClick}
                     />

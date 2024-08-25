@@ -49,7 +49,7 @@ const Project = () => {
         },
         {
             title: "Gambar",
-            width: 150,
+            width: 250,
             render: (_, record) => {
                 return (
 
@@ -58,7 +58,7 @@ const Project = () => {
                             <div>
                                 <Image
                                     src={record.foto1}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    style={{ width: '250px', height: '140px', objectFit: 'cover' }}
                                 />
                             </div>
                         )}
@@ -66,7 +66,7 @@ const Project = () => {
                             <div>
                                 <Image
                                     src={record.foto2}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    style={{ width: '250px', height: '140px', objectFit: 'cover' }}
                                 />
                             </div>
                         )}
@@ -74,7 +74,7 @@ const Project = () => {
                             <div>
                                 <Image
                                     src={record.foto3}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    style={{ width: '250px', height: '140px', objectFit: 'cover' }}
                                 />
                             </div>
                         )}
@@ -82,7 +82,7 @@ const Project = () => {
                             <div>
                                 <Image
                                     src={record.foto4}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                    style={{ width: '250px', height: '140px', objectFit: 'cover' }}
                                 />
                             </div>
                         )}
@@ -185,7 +185,7 @@ const Project = () => {
                 </div>
                 <Table
                     loading={loading}
-                    rowSelection
+                    // rowSelection
                     columns={columns}
                     dataSource={filteredData}
                     pagination={{
