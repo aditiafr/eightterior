@@ -143,7 +143,10 @@ const FormProject = () => {
 
     const onReset = () => {
         form.resetFields();
-        setFileList([]);
+        setImageUrl1(null);
+        setImageUrl2(null);
+        setImageUrl3(null);
+        setImageUrl4(null);
     };
 
     // const handleUploadChange = ({ fileList }) => {

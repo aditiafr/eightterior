@@ -1,5 +1,5 @@
-import { EditFilled, PlusOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Input, message, Modal, Row, Tooltip, Upload } from "antd";
+import { EditFilled, PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { Button, Col, Form, Image, Input, message, Modal, Row, Tooltip, Upload } from "antd";
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { updateCarousel, updateFotoCarousel } from "../../API/UpdateData";
@@ -137,23 +137,36 @@ const EditCarousel = ({ onData, onEdit }) => {
 
           <div className="flex items-center justify-center pt-8">
             <Form.Item>
-              <Upload
-                name="file"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                onChange={handleChange}
-              >
-                {imageUrl ? (
-                  <img
+              <p className="text-center text-lg font-medium mb-2">Image 1</p>
+              {imageUrl ? (
+                <div className="shadow-md">
+                  <Image
                     src={imageUrl}
                     alt="avatar"
-                    style={{ width: '100%' }}
+                    style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
                   />
-                ) : (
-                  uploadButton
-                )}
-              </Upload>
+                  <div className="flex w-full">
+                    {/* <button type="button" className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl1(null)}><DeleteOutlined /></button> */}
+                    <Upload
+                      showUploadList={false}
+                      onChange={({ file }) => handleChange(file, 1)}
+                      className="w-full bg-white hover:bg-gray-200 py-1 text-center"
+                    >
+                      <button type="button" className="w-32"><UploadOutlined /></button>
+                    </Upload>
+                  </div>
+                </div>
+              ) : (
+                <Upload
+                  name="file"
+                  listType="picture-card"
+                  className="avatar-uploader"
+                  showUploadList={false}
+                  onChange={({ file }) => handleChange(file, 1)}
+                >
+                  {uploadButton}
+                </Upload>
+              )}
             </Form.Item>
           </div>
 
