@@ -1,9 +1,9 @@
-import { Col, Form, Image, Input, message, Row, Upload } from "antd";
+import { Button, Col, Form, Image, Input, message, Row, Upload } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { postCarousel } from "../../API/PostData";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { useEffect, useState } from "react";
+import { PlusOutlined, RollbackOutlined, UploadOutlined } from "@ant-design/icons";
 import { ButtonSubmit } from "../../components/Global/Button";
 
 const getBase64 = (img, callback) => {
@@ -13,6 +13,11 @@ const getBase64 = (img, callback) => {
 };
 
 const FormCarousel = () => {
+
+  useEffect(() => {
+    document.title = "Eightterior - Form Carousel";
+}, []);
+  
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -90,6 +95,7 @@ const FormCarousel = () => {
     <>
       <div className="flex justify-between items-center px-2 pb-4">
         <HeaderTitle title="CAROUSEL" subtitle="form data a Carousel" />
+        <Button icon={<RollbackOutlined />} iconPosition="end" onClick={() => navigate("/dashboard/carousel")}>Back</Button>
       </div>
       <div className="relative w-full bg-white rounded-lg">
 

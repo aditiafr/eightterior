@@ -9,6 +9,10 @@ import { getProjectList } from "../../API/GetData";
 
 const Project = () => {
 
+    useEffect(() => {
+        document.title = "Eightterior - Project";
+    }, []);
+    
     const [dataSource, setDataSource] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(false);

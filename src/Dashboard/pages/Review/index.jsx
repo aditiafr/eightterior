@@ -8,6 +8,10 @@ import DeleteReview from './delete'
 
 const Review = () => {
 
+    useEffect(() => {
+        document.title = "Eightterior - Review";
+    }, []);
+    
     const [dataSource, setDataSource] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [loading, setLoading] = useState(false);
@@ -78,10 +82,7 @@ const Review = () => {
     return (
         <>
             <div className="flex justify-between items-center px-2 pb-4">
-                <HeaderTitle
-                    title="REVIEW"
-                    subtitle="All data Review"
-                />
+                <HeaderTitle title="REVIEW" subtitle="All data Review" />
                 <div>
                     <Link to="/dashboard/review/form">
                         <Button type="primary">+ Add New</Button>

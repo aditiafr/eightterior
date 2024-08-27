@@ -1,10 +1,17 @@
-import { Col, Form, Input, message, Row } from "antd";
+import { Button, Col, Form, Input, message, Row } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { postReview } from "../../API/PostData";
 import { useNavigate } from "react-router-dom";
 import { ButtonSubmit } from "../../components/Global/Button";
+import { useEffect } from "react";
+import { RollbackOutlined } from "@ant-design/icons";
 
 const FormReview = () => {
+
+  useEffect(() => {
+    document.title = "Eightterior - Form Review";
+}, []);
+  
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
@@ -35,6 +42,7 @@ const FormReview = () => {
     <>
       <div className="flex justify-between items-center px-2 pb-4">
         <HeaderTitle title="REVIEW" subtitle="form data a Review" />
+        <Button icon={<RollbackOutlined />} iconPosition="end" onClick={() => navigate("/dashboard/review")}>Back</Button>
       </div>
       <div className="relative w-full bg-white rounded-lg">
 

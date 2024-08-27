@@ -1,10 +1,17 @@
-import { Col, Form, Input, message, Row } from "antd";
+import { Button, Col, Form, Input, message, Row } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
 import { postCategory } from "../../API/PostData";
 import { useNavigate } from "react-router-dom";
 import { ButtonSubmit } from "../../components/Global/Button";
+import { useEffect } from "react";
+import { RollbackOutlined } from "@ant-design/icons";
 
 const FormCategory = () => {
+
+    useEffect(() => {
+        document.title = "Eightterior - Form Category";
+    }, []);
+    
     const [form] = Form.useForm();
     const navigate = useNavigate();
 
@@ -31,6 +38,7 @@ const FormCategory = () => {
         <>
             <div className="flex justify-between items-center px-2 pb-4">
                 <HeaderTitle title="CATEGORY" subtitle="form data a Category" />
+                <Button icon={<RollbackOutlined />} iconPosition="end" onClick={() => navigate("/dashboard/category")}>Back</Button>
             </div>
             <div className="relative w-full bg-white rounded-lg">
 

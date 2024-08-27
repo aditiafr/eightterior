@@ -1,12 +1,10 @@
-import { DeleteOutlined, EditFilled, InboxOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { EditFilled, PlusOutlined, UploadOutlined } from "@ant-design/icons";
 import { Button, Col, Form, Image, Input, message, Modal, Row, Select, Tooltip, Upload } from "antd";
 import React, { useState, useEffect } from "react";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import Dragger from "antd/es/upload/Dragger";
 import { ButtonEdit } from "../../components/Global/Button";
 import { updateProject } from "../../API/UpdateData";
 import { getCategoryList } from "../../API/GetData";
-import axios from "axios";
 
 const getBase64 = (img, callback) => {
     const reader = new FileReader();
@@ -35,12 +33,15 @@ const EditProject = ({ onData, onEdit }) => {
     const [imageUrl4, setImageUrl4] = useState(null);
     const [isImageChanged4, setIsImageChanged4] = useState(false);
 
+    const [errorShown, setErrorShown] = useState(false);
+
     const handleChange = async (file, imageNumber) => {
         if (file && file.originFileObj) {
             const allowedExtensions = ['png', 'jpg', 'jpeg'];
             const fileExtension = file.name.split('.').pop().toLowerCase();
 
             if (allowedExtensions.includes(fileExtension)) {
+                setErrorShown(false);
                 getBase64(file.originFileObj, async (base64) => {
                     try {
                         switch (imageNumber) {
@@ -68,7 +69,8 @@ const EditProject = ({ onData, onEdit }) => {
                         message.error("Upload failed. Please try again.");
                     }
                 });
-            } else {
+            } else if (!errorShown) {
+                setErrorShown(true);
                 message.error('The uploaded file must be an image with the extension .png, .jpg, or .jpeg');
             }
         }

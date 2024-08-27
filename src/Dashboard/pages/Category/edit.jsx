@@ -55,7 +55,7 @@ const EditCategory = ({ onData, onEdit }) => {
             </Tooltip>
 
             <Modal
-                title={<HeaderTitle title="PROJECT" subtitle="Edit data a Project" />}
+                title={<HeaderTitle title="Category" subtitle="Edit data a Category" />}
                 centered
                 open={isModalOpen}
                 closable={false}

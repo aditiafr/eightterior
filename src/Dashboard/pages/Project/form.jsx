@@ -1,9 +1,8 @@
-import { Col, Form, Image, Input, Modal, Row, Select, Upload, message } from "antd";
+import { Button, Col, Form, Image, Input, Modal, Row, Select, Upload, message } from "antd";
 import HeaderTitle from "../../components/Global/HeaderTitle";
-import { DeleteOutlined, ExclamationCircleOutlined, InboxOutlined, PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { ExclamationCircleOutlined, PlusOutlined, RollbackOutlined, UploadOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 import { postProject } from "../../API/PostData";
-import Dragger from "antd/es/upload/Dragger";
 import { getCategoryList } from "../../API/GetData";
 import { Link, useNavigate } from "react-router-dom";
 import { ButtonSubmit } from "../../components/Global/Button";
@@ -15,10 +14,14 @@ const getBase64 = (img, callback) => {
 };
 
 const FormProject = () => {
+
+    useEffect(() => {
+        document.title = "Eightterior - Form Project";
+    }, []);
+
     const [form] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
-    const [fileList, setFileList] = useState([]);
     const [showDesign, setShowDesign] = useState(false);
     const [categoryData, setCategoryData] = useState([]);
     const [openCategory, setOpenCategory] = useState(false);
@@ -28,12 +31,15 @@ const FormProject = () => {
     const [imageUrl3, setImageUrl3] = useState(null);
     const [imageUrl4, setImageUrl4] = useState(null);
 
+    const [errorShown, setErrorShown] = useState(false);
+
     const handleChange = async (file, imageNumber) => {
         if (file && file.originFileObj) {
             const allowedExtensions = ['png', 'jpg', 'jpeg'];
             const fileExtension = file.name.split('.').pop().toLowerCase();
 
             if (allowedExtensions.includes(fileExtension)) {
+                setErrorShown(false); // Reset error state
                 getBase64(file.originFileObj, async (base64) => {
                     try {
                         switch (imageNumber) {
@@ -57,7 +63,8 @@ const FormProject = () => {
                         message.error("Upload failed. Please try again.");
                     }
                 });
-            } else {
+            } else if (!errorShown) {
+                setErrorShown(true); // Set error state
                 message.error('The uploaded file must be an image with the extension .png, .jpg, or .jpeg');
             }
         }
@@ -149,27 +156,11 @@ const FormProject = () => {
         setImageUrl4(null);
     };
 
-    // const handleUploadChange = ({ fileList }) => {
-    //     if (fileList.length > 4) {
-    //         message.error("You can only upload a maximum of 4 images.");
-    //         return;
-    //     }
-    //     setFileList(fileList);
-    // };
-
-    // const beforeUpload = (file) => {
-    //     if (fileList.length >= 4) {
-    //         message.error("You can only upload a maximum of 4 images.");
-    //         return Upload.LIST_IGNORE; // Ignore this file
-    //     }
-    //     setFileList((prevList) => [...prevList, file]);
-    //     return false; // Prevent automatic upload
-    // };
-
     return (
         <>
             <div className="flex justify-between items-center px-2 pb-4">
                 <HeaderTitle title="PROJECT" subtitle="form data a project" />
+                <Button icon={<RollbackOutlined />} iconPosition="end" onClick={() => navigate("/dashboard/project")}>Back</Button>
             </div>
             <div className="relative w-full bg-white rounded-lg">
 
@@ -437,27 +428,6 @@ const FormProject = () => {
                                 <Input.TextArea placeholder="Description..." rows={4} />
                             </Form.Item>
                         </Col>
-
-                        {/* <Col xs={24} sm={24}>
-                            <Form.Item>
-                                <Dragger
-                                    listType="picture"
-                                    fileList={fileList}
-                                    beforeUpload={beforeUpload}
-                                    onChange={handleUploadChange}
-                                    onRemove={(file) => {
-                                        setFileList((prevList) =>
-                                            prevList.filter((item) => item.uid !== file.uid)
-                                        );
-                                    }}
-                                >
-                                    <p className="ant-upload-drag-icon">
-                                        <InboxOutlined />
-                                    </p>
-                                    <p className="ant-upload-text">Click or drag file to this area to upload (Max 4 Images)</p>
-                                </Dragger>
-                            </Form.Item>
-                        </Col> */}
                     </Row>
 
                     <ButtonSubmit onReset={onReset} isLoading={isLoading} />

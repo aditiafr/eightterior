@@ -20,7 +20,7 @@ const MySidebar = ({ children }) => {
     const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
     const [mobile, setMobile] = useState(window.innerWidth <= 768);
-    const [selectedKeys, setSelectedKeys] = useState([]);
+    const [selectedKeys, setSelectedKeys] = useState(["1"]);
 
     useEffect(() => {
         const handleResize = () => {

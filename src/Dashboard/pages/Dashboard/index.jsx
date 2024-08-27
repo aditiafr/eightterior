@@ -7,6 +7,10 @@ import { getProjectList, getReviewList } from '../../API/GetData'
 
 const Dashboard = () => {
 
+    useEffect(() => {
+        document.title = "Eightterior - Dashboard";
+    }, []);
+    
     const [sumProject, setSumProject] = useState(0);
     const [sumReview, setSumReview] = useState(0);
 

@@ -1,11 +1,17 @@
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 import { message } from 'antd';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthRegister } from './API-AUTH';
 
 const Register = () => {
+
+    useEffect(() => {
+        document.title = "Eightterior - Sign Up";
+    }, []);
+    
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         username: '',
@@ -27,6 +33,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
+            setIsLoading(true);
             const payload = {
                 ...formData,
                 name: "Administrator",
@@ -41,6 +48,7 @@ const Register = () => {
         } catch (error) {
             console.log(error);
         }
+        setIsLoading(false);
     };
 
     const togglePasswordVisibility = () => {
@@ -129,9 +137,9 @@ const Register = () => {
                                 <p className="text-right pt-2 text-primary-500 hover:text-primary-400">Back to Sign In!</p>
                             </Link>
 
-                            <div className="flex gap-4">
-                                <button type="submit" className=" bg-primary-500 hover:bg-primary-400 text-white py-2 max-w-32 w-full rounded-md mt-4">Sign Up</button>
-                            </div>
+                            <button type="submit" disabled={isLoading} className={`${isLoading ? "bg-primary-400" : "bg-primary-500"} hover:bg-primary-400 text-white py-2 max-w-32 w-full rounded-md mt-8`}>
+                                {isLoading ? "Loading..." : "Sign Up"}
+                            </button>
                         </form>
                     </div>
                 </div>

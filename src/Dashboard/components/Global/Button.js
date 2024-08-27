@@ -64,7 +64,7 @@ export const ButtonSubmit = ({ onReset, isLoading }) => {
             }}
         >
             <Button type="primary" danger htmlType="button" onClick={onReset}>
-                Cancel
+                Reset
             </Button>
             <Button type="primary" htmlType="submit" loading={isLoading}>
                 Submit

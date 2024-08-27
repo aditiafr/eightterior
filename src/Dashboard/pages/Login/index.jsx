@@ -7,7 +7,13 @@ import { AuthLogin } from './API-AUTH';
 import { useEffect } from 'react';
 
 const Login = () => {
+
+    useEffect(() => {
+        document.title = "Eightterior - Login";
+    }, []);
+
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -35,6 +41,7 @@ const Login = () => {
         e.preventDefault();
         // console.log('Form Data:', formData);
         try {
+            setIsLoading(true);
             const res = await AuthLogin(formData);
             const randomString = generateRandomString(50);
             localStorage.setItem('data', JSON.stringify(res.data.data));
@@ -44,6 +51,7 @@ const Login = () => {
         } catch (error) {
             console.log(error);
         }
+        setIsLoading(false);
     };
 
     const generateRandomString = (length) => {
@@ -118,12 +126,14 @@ const Login = () => {
                                 </div>
                             </div>
 
-                            <Link to="">
+                            {/* <Link to="">
                                 <p className="text-right pt-2 text-primary-500 hover:text-primary-400">Forget password?</p>
-                            </Link>
+                            </Link> */}
 
                             <div className="flex gap-4">
-                                <button type="submit" className=" bg-primary-500 hover:bg-primary-400 text-white py-2 max-w-32 w-full rounded-md mt-8">Log in</button>
+                                <button type="submit" disabled={isLoading} className={`${isLoading ? "bg-primary-400" : "bg-primary-500"} hover:bg-primary-400 text-white py-2 max-w-32 w-full rounded-md mt-8`}>
+                                    {isLoading ? "Loading..." : "Log In"}
+                                </button>
                             </div>
                         </form>
                     </div>

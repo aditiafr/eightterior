@@ -9,6 +9,10 @@ import { getCarouselList } from "../../API/GetData";
 
 const CarouselAbout = () => {
 
+  useEffect(() => {
+    document.title = "Eightterior - Carousel";
+}, []);
+  
   const [dataSource, setDataSource] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -90,7 +94,7 @@ const CarouselAbout = () => {
     <>
       <div className="flex justify-between items-center px-2 pb-4">
         <HeaderTitle
-          title="Carousel"
+          title="CAROUSEL"
           subtitle="All data Carousel"
         />
         <div>

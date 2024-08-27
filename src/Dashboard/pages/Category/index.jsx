@@ -10,6 +10,10 @@ import DeleteCategory from "./delete";
 
 const Category = () => {
 
+  useEffect(() => {
+    document.title = "Eightterior - Category";
+}, []);
+
   const [dataSource, setDataSource] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
