@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Home from './pages/Home';
@@ -11,7 +11,7 @@ import RMIbuAndira from './pages/Projects/Detail/RMIbuAndira';
 import PTPundi from './pages/Projects/Detail/PtPundi';
 import Hotel from './pages/Projects/Detail/Hotel';
 import NotFound from './components/NotFound';
-import Loading from './components/Loading';
+// import Loading from './components/Loading';
 import Dashboard from './Dashboard/pages/Dashboard';
 import MySidebar from './Dashboard/components/Sidebar';
 import Project from './Dashboard/pages/Project';
