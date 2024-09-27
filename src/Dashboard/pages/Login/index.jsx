@@ -49,7 +49,9 @@ const Login = () => {
             message.success("You have successfully logged in.")
             navigate('/dashboard');
         } catch (error) {
+            message.error(error.response.data.msg);
             console.log(error);
+            setIsLoading(false);
         }
         setIsLoading(false);
     };

@@ -16,16 +16,15 @@ const FormCarousel = () => {
 
   useEffect(() => {
     document.title = "Eightterior - Form Carousel";
-}, []);
+  }, []);
   
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-
-  // const [fileImage, setFileImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
 
-  const handleChange = ({ file }) => {
+  const handleChange = (info) => {
+    const { file } = info;
     if (file && file.originFileObj) {
       const allowedExtensions = ['png', 'jpg', 'jpeg'];
       const fileExtension = file.name.split('.').pop().toLowerCase();
@@ -34,15 +33,11 @@ const FormCarousel = () => {
         getBase64(file.originFileObj, (base64) => {
           setImageUrl(base64);
         });
-        // setFileImage(file);
       } else {
         message.error('The uploaded file must be an image with the extension .png, .jpg, or .jpeg');
       }
     }
   };
-
-  // console.log(fileImage);
-  // console.log(imageUrl);
 
   const uploadButton = (
     <button
@@ -69,9 +64,8 @@ const FormCarousel = () => {
       const payload = {
         ...values,
         foto: imageUrl
-      }
-      console.log(payload);
-
+      };
+      
       const response = await postCarousel(payload);
       message.success(`${response.data.msg}`);
       navigate('/dashboard/carousel');
@@ -119,10 +113,9 @@ const FormCarousel = () => {
                     style={{ width: "140px", height: "auto", margin: "0", padding: "0" }}
                   />
                   <div className="flex w-full">
-                    {/* <button type="button" className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl1(null)}><DeleteOutlined /></button> */}
                     <Upload
                       showUploadList={false}
-                      onChange={({ file }) => handleChange(file, 1)}
+                      onChange={handleChange}
                       className="w-full bg-white hover:bg-gray-200 py-1 text-center"
                     >
                       <button type="button" className="w-32"><UploadOutlined /></button>
@@ -135,7 +128,7 @@ const FormCarousel = () => {
                   listType="picture-card"
                   className="avatar-uploader"
                   showUploadList={false}
-                  onChange={({ file }) => handleChange(file, 1)}
+                  onChange={handleChange}
                 >
                   {uploadButton}
                 </Upload>
@@ -179,7 +172,7 @@ const FormCarousel = () => {
 
           <ButtonSubmit onReset={onReset} isLoading={isLoading} />
         </Form>
-      </div >
+      </div>
     </>
   );
 };

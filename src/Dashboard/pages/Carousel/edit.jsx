@@ -24,7 +24,7 @@ const EditCarousel = ({ onData, onEdit }) => {
     if (file && file.originFileObj) {
       const allowedExtensions = ['png', 'jpg', 'jpeg'];
       const fileExtension = file.name.split('.').pop().toLowerCase();
-
+  
       if (allowedExtensions.includes(fileExtension)) {
         getBase64(file.originFileObj, (base64) => {
           setImageUrl(base64);
@@ -35,6 +35,8 @@ const EditCarousel = ({ onData, onEdit }) => {
       }
     }
   };
+  
+
 
   useEffect(() => {
     if (isModalOpen && onData) {
@@ -149,7 +151,7 @@ const EditCarousel = ({ onData, onEdit }) => {
                     {/* <button type="button" className="w-full bg-white hover:bg-gray-200 py-1" onClick={() => setImageUrl1(null)}><DeleteOutlined /></button> */}
                     <Upload
                       showUploadList={false}
-                      onChange={({ file }) => handleChange(file, 1)}
+                      onChange={handleChange} // langsung panggil fungsi tanpa tambahan argumen
                       className="w-full bg-white hover:bg-gray-200 py-1 text-center"
                     >
                       <button type="button" className="w-32"><UploadOutlined /></button>
@@ -162,7 +164,7 @@ const EditCarousel = ({ onData, onEdit }) => {
                   listType="picture-card"
                   className="avatar-uploader"
                   showUploadList={false}
-                  onChange={({ file }) => handleChange(file, 1)}
+                  onChange={handleChange}
                 >
                   {uploadButton}
                 </Upload>

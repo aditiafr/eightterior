@@ -136,9 +136,8 @@ const EditProject = ({ onData, onEdit }) => {
 
             console.log("Data", payloadData);
 
-            const resData = await updateProject(payloadData);
-            console.log(resData);
-
+            const res = await updateProject(payloadData);
+            message.success(res.data.msg);
             onEdit(true);
             setIsModalOpen(false);
         } catch (error) {

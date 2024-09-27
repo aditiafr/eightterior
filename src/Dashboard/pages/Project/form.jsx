@@ -131,12 +131,13 @@ const FormProject = () => {
                 foto3: imageUrl3,
                 foto4: imageUrl4,
             };
-            console.log("on Submit", payload);
+            // console.log("on Submit", payload);
 
             const response = await postProject(payload);
-            console.log(response);
-            message.success("Project successfully submitted!");
-            navigate('/dashboard/project');
+            if (response) {
+                message.success("Project successfully submitted!");
+                navigate('/dashboard/project');
+            }
         } catch (error) {
             console.log(error);
             // message.error("Failed to submit project.");
