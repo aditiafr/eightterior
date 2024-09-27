@@ -121,7 +121,7 @@ const Projects = () => {
                     <p className="w-full">{item.year}</p>
                   </div>
                 </div>
-                <Link to={`/projects/${item.id}`}>
+                <Link to={`/projects/${item.slug}`}>
                   <button className="border-2 md:border-4 border-primary-500 text-primary-500 rounded-lg md:rounded-xl w-36 md:w-64 h-12 md:h-16 hover:bg-primary-500 hover:font-bold hover:text-white text-sm md:text-md">
                     SEE PROJECT
                   </button>

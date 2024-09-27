@@ -10,9 +10,10 @@ const DetailProject = () => {
 
     const fecthDetailProject = async () => {
         try {
-            const res = await axios.get(`${process.env.REACT_APP_BASEURL}/v1/project/list-limit/${id}`);
-            console.log(res.data.data);
-            setDataSource(res.data.data);
+            const resData = await axios.get(`${process.env.REACT_APP_BASEURL}/v1/project/list`);
+            const res = resData.data.data.filter((item) => item.slug === id);
+            console.log(res);
+            setDataSource(res);
         } catch (error) {
             console.log(error);
         }

@@ -45,6 +45,7 @@ const Login = () => {
             const res = await AuthLogin(formData);
             const randomString = generateRandomString(50);
             localStorage.setItem('data', JSON.stringify(res.data.data));
+            localStorage.removeItem('selectedMenuKey');
             Cookies.set('auth_token', randomString, { expires: 1 });
             message.success("You have successfully logged in.")
             navigate('/dashboard');

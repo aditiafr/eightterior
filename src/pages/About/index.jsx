@@ -229,39 +229,40 @@ const About = () => {
         </div>
       </section>
 
-      <section className="lg:h-screen h-64 w-full">
-        <Carousel
-          autoplay={true}
-          autoplayDelay={4000}
-          loop={true}
-          prevArrow={({ handlePrev }) => (
-            <CustomLeftArrow onClick={handlePrev} />
-          )}
-          nextArrow={({ handleNext }) => (
-            <CustomRightArrow onClick={handleNext} />
-          )}
-        >
-          {dataCarousel.map((item, index) => (
-            <div
-              key={index}
-              className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
-              style={{
-                backgroundImage: `url(${item.foto})`,
-              }}
-            >
-              <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
-              <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
-                <h3 className="text-xl md:text-4xl font-semibold">
-                  {item.title}
-                </h3>
-                <p className="text-sm md:text-3xl font-light">
-                  {item.subject}
-                </p>
+      {dataCarousel.length > 0 && (
+        <section className="lg:h-screen h-64 w-full">
+          <Carousel
+            autoplay={true}
+            autoplayDelay={4000}
+            loop={true}
+            prevArrow={({ handlePrev }) => (
+              <CustomLeftArrow onClick={handlePrev} />
+            )}
+            nextArrow={({ handleNext }) => (
+              <CustomRightArrow onClick={handleNext} />
+            )}
+          >
+            {dataCarousel.map((item, index) => (
+              <div
+                key={index}
+                className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
+                style={{
+                  backgroundImage: `url(${item.foto})`,
+                }}
+              >
+                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+                <div className="relative max-w-screen-lg mx-10 md:mx-auto text-center flex flex-col justify-center items-center h-full text-white gap-2 md:gap-6">
+                  <h3 className="text-xl md:text-4xl font-semibold">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm md:text-3xl font-light">
+                    {item.subject}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-          {/* <div
+            {/* <div
             className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col gap-4 overflow-hidden"
             style={{
               backgroundImage: "url('/assets/images/about/carousel/img-1.png')",
@@ -346,8 +347,9 @@ const About = () => {
               </p>
             </div>
           </div> */}
-        </Carousel>
-      </section>
+          </Carousel>
+        </section>
+      )}
 
       <section
         className="relative md:min-h-screen h-full bg-cover bg-center flex flex-col justify-center items-center gap-4 py-12 px-4"

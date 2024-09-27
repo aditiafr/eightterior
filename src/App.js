@@ -73,9 +73,9 @@ const AppContent = () => {
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:id" element={<DetailProject />} />
-              <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
+              {/* <Route path="/projects/rmibuandira" element={<RMIbuAndira />} />
               <Route path="/projects/ptpundi" element={<PTPundi />} />
-              <Route path="/projects/hotel" element={<Hotel />} />
+              <Route path="/projects/hotel" element={<Hotel />} /> */}
               <Route path="/about" element={<About />} />
               <Route path="/contact-us" element={<Contact />} />
             </Routes>
